@@ -1,0 +1,31 @@
+.clear {
+  clear: both;
+}
+
+.buttonReturn > img {
+  width: 70%;
+}
+
+.buttonReturn > img:hover {
+  filter: invert(60%);
+}
+
+.buttonReturn {
+  width: 10%;
+}
+
+.emptyCar > img {
+  width: 5%;
+}
+
+.emptyCar {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+}
+
+.emptyCarPai {
+  margin: 1%;
+  width: 100%;
+}
