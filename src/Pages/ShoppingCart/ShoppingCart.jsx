@@ -11,6 +11,7 @@ export default class ShoppingCart extends Component {
       load: false,
       items: [],
     };
+    this.loadingEmpty = this.loadingEmpty.bind(this);
   }
 
 
