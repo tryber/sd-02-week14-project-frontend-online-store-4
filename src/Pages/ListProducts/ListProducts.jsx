@@ -20,9 +20,10 @@ class ListProducts extends React.Component {
         </div>
         <div className="header">
           <img src="https://image.flaticon.com/icons/svg/126/126083.svg" alt="carrinho de compras" />
-          <input className="searchBar" 
-          type="text" 
-          onChange={(e) => this.setState({ results: e.target.value })} />
+          <input
+            className="searchBar"
+            type="text"
+            onChange={(e) => this.setState({ results: e.target.value })} />
           <h1>{(results === '') ? value : results}</h1>
         </div>
       </div>
