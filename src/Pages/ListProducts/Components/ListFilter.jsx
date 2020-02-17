@@ -5,24 +5,25 @@ class SearchList extends React.Component {
     super(props);
     this.state = {
       term: '',
-    }
+    };
   }
 
   componentDidMount() {
     fetch('https://api.mercadolibre.com/sites/MLB/categories')
-      .then(resolve => resolve.json())
-      .then(result => this.setState({ term: result }))
+      .then((resolve) => resolve.json())
+      .then((result) => this.setState({ term: result }));
   }
 
   render() {
     const { term } = this.state;
     return (
-      <div>{(term !== '') ? term.map(categoria => (
+      <div>{(term !== '') ? term.map((categoria) => (
         <div key={categoria.id}>
-          <label id={categoria.id}><input type="checkbox" />{categoria.name}</label>
+          <input id={categoria.id} name="categoria" value={categoria.name} type="radio" />
+          <label htmlFor={categoria.id}>{categoria.name}</label>
         </div>
       )) : term}</div>
-    )
+    );
   }
 }
 
