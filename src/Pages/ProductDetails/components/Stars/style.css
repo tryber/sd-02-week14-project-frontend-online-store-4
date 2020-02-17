@@ -1,8 +1,8 @@
-#stars {
+.comp_stars {
   display: flex;
   align-items: center;
 }
 
-#stars  > i {
+.comp_stars  > i {
   margin: 5%;
 }

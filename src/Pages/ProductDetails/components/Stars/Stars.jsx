@@ -9,7 +9,7 @@ class Stars extends Component {
 
   render() {
     return (
-      <div id='stars'>
+      <div className='comp_stars'>
         <i class="material-icons">
           star_border
         </i>

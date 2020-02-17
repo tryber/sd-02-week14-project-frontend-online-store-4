@@ -10,7 +10,7 @@ class Campo extends Component {
   render() {
     const { label, campo } = this.props;
     return (
-      <div id='campo'>
+      <div className='comp_campo'>
         <strong>{label}: </strong>
         <p>{campo}</p>
       </div>

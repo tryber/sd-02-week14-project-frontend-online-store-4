@@ -10,7 +10,7 @@ class Comments extends Component {
 
   render() {
     return (
-      <div id='comments'>
+      <div className='comp_comments'>
         <div>
           <p>fula@email.com</p>
           <Stars />

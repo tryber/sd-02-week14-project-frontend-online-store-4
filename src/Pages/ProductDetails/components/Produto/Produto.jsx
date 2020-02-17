@@ -16,7 +16,7 @@ class Produto extends Component {
     const { seller_address: { country: { name: country }, state: { name: state }, city: { name: city } } } = obj;
     
     return (
-      <div id="comp_product_details">
+      <div className="comp_product_details">
         <img src={image} alt=""/>
         <div className="dados">
           <div className="campos">

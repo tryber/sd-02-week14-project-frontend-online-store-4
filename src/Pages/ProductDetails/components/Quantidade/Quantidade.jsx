@@ -13,7 +13,7 @@ class Campo extends Component {
   render() {
     const { qt } = this.state;
     return (
-      <div id='prod_details_qt'>
+      <div className='comp_prod_details_qt'>
         <strong>Quantidade</strong>
         <div className="container">
           <i className="material-icons">

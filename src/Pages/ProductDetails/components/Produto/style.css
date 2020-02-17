@@ -11,10 +11,10 @@
   width: 60%;
 }
 
-#comp_product_details .dados {
+.comp_product_details .dados {
   display: flex;
 }
 
-#comp_product_details .endereco_vendedor {
+.comp_product_details .endereco_vendedor {
   margin-left: 5%;
 }

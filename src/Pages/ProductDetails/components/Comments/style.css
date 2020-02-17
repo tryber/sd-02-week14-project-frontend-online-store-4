@@ -1,3 +1,3 @@
-#comments > div {
+.comp_comments > div {
   display: flex;
 }

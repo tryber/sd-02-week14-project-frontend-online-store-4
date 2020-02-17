@@ -37,7 +37,7 @@ export default class ProductDetails extends Component {
     const { title, price } = obj;
     
     return (
-      <div id="productDetails">
+      <div class="page_productDetails">
         <div className="title">
           <p>{title} - </p>
           <p>{price},00 R$</p>

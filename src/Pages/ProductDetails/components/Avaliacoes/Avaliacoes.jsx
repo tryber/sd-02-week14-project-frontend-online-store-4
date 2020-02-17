@@ -11,7 +11,7 @@ class Avaliacoes extends Component {
 
   render() {
     return (
-      <div id='prod_details_av'>
+      <div id='comp_prod_details_av'>
         <strong>Avaliações</strong>
         <div className="container">
           <div>
