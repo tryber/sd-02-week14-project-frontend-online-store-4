@@ -5,7 +5,7 @@ import './style.css';
 class Stars extends Component {
   render() {
     return (
-      <div className='comp_stars'>
+      <div className="comp_stars">
         <i className="material-icons">
           star_border
         </i>

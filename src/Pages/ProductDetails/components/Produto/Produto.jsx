@@ -7,19 +7,20 @@ import './style.css';
 class Produto extends Component {
   render() {
     const { obj } = this.props;
-    const { image, available_quantity, sold_quantity, condition } = obj;
-    const { shipping: { free_shipping } } = obj;
-    const { seller_address: { country: { name: country }, state: { name: state }, city: { name: city } } } = obj;
+    const { image, availableQuantity, soldQuantity, condition } = obj;
+    const { shipping: { freeShipping } } = obj;
+    const { sellerAddress: { country: { name: country },
+      state: { name: state }, city: { name: city } } } = obj;
     
     return (
       <div className="comp_product_details">
-        <img src={image} alt=""/>
+        <img src={image} alt="" />
         <div className="dados">
           <div className="campos">
-            <Campo campo={available_quantity} label={'estoque'} />
-            <Campo campo={sold_quantity} label={'vendidos'} />
+            <Campo campo={availableQuantity} label={'estoque'} />
+            <Campo campo={soldQuantity} label={'vendidos'} />
             <Campo campo={condition} label={'condição'} />
-            <Campo campo={free_shipping.toString()} label={'frete'} />
+            <Campo campo={freeShipping.toString()} label={'frete'} />
           </div>
           <div className="endereco_vendedor">
             <strong>Endereço do vendedor: </strong>
@@ -38,13 +39,13 @@ class Produto extends Component {
 Produto.propTypes = {
   obj: PropTypes.shape({
     image: PropTypes.string,
-    available_quantity:PropTypes.number,
-    sold_quantity: PropTypes.number,
+    availableQuantity: PropTypes.number,
+    soldQuantity: PropTypes.number,
     condition: PropTypes.string,
     shipping: PropTypes.shape({
-      free_shipping: PropTypes.bool,
+      freeShipping: PropTypes.bool,
     }).isRequired,
-    seller_address: PropTypes.shape({
+    sellerAddress: PropTypes.shape({
       country: PropTypes.shape({
         name: PropTypes.string,
       }).isRequired,

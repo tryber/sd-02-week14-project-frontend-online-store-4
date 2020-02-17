@@ -8,31 +8,30 @@ import Avaliacoes from './components/Avaliacoes/Avaliacoes';
 import Comments from './components/Comments/Comments';
 
 const obj = {
-  image: "http://mlb-s1-p.mlstatic.com/660944-MLA40360945636_012020-I.jpg",
-  title: "Cadeira De Escritório Pelegrin 502 Preta",
+  image: 'http://mlb-s1-p.mlstatic.com/660944-MLA40360945636_012020-I.jpg',
+  title: 'Cadeira De Escritório Pelegrin 502 Preta',
   price: 299,
-  available_quantity: 500,
-  sold_quantity: 4,
+  availableQuantity: 500,
+  soldQuantity: 4,
   condition: 'new',
   shipping: {
-    free_shipping: true
+    freeShipping: true,
   },
-  seller_address: {
+  sellerAddress: {
     country: {
-      name: 'Brasil'
+      name: 'Brasil',
     },
     state: {
-      name: 'SP'
+      name: 'SP',
     },
     city: {
-      name: 'São Paulo'
-    }
-  }
-}
+      name: 'São Paulo',
+    },
+  },
+};
 export default class ProductDetails extends Component {
   render() {
     const { title, price } = obj;
-    
     return (
       <div className="page_productDetails">
         <div className="title">

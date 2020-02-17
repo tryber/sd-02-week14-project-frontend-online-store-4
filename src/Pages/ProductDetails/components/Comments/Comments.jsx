@@ -6,7 +6,7 @@ import Stars from '../Stars/Stars';
 class Comments extends Component {
   render() {
     return (
-      <div className='comp_comments'>
+      <div className="comp_comments">
         <div>
           <p>fula@email.com</p>
           <Stars />

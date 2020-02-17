@@ -6,7 +6,7 @@ class Campo extends Component {
   render() {
     const { label, campo } = this.props;
     return (
-      <div className='comp_campo'>
+      <div className="comp_campo">
         <strong>{label}: </strong>
         <p>{campo}</p>
       </div>
@@ -20,6 +20,11 @@ Campo.propTypes = {
     PropTypes.string,
     PropTypes.number,
   ]),
+};
+
+Campo.defaultProps = {
+  label: '',
+  campo: '',
 };
 
 export default Campo;

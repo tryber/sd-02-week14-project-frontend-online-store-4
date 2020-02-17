@@ -14,7 +14,7 @@ class Avaliacoes extends Component {
             <input type="text" placeholder="email" />
             <Stars />
           </div>
-          <textarea placeholder="message"></textarea>
+          <textarea placeholder="message" />
           <button>Avaliar</button>
         </div>
       </div>
