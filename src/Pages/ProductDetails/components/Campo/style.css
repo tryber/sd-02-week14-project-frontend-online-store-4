@@ -1,0 +1,13 @@
+
+#campo {
+  display: flex;
+  background-color: saddlebrown;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+#campo > p {
+  margin-left: 2%;
+}
+
+

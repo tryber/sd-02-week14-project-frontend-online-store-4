@@ -1,0 +1,30 @@
+#prod_details_qt .container {
+  width: 20%;
+  display: flex;
+  align-items: center;
+}
+
+#prod_details_qt strong {
+  margin: 1%;
+}
+
+#prod_details_qt .container > i {
+  margin: 2%;
+}
+
+#prod_details_qt .container > p {
+  padding: 2%;
+  border-radius: 10px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: black;
+}
+
+#prod_details_qt .container > button {
+  margin: 2%;
+  border-width: 1px;
+  border-style: solid;
+  border-color: black;
+  background-color: white;
+  padding: 3%;
+}

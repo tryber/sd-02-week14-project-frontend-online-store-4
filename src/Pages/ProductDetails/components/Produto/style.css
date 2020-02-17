@@ -1,0 +1,20 @@
+#comp_product_details {
+  display: grid;
+  height: 40vh;
+  grid-template-columns: 1fr 2fr;
+  grid-template-rows: 1fr ;
+  grid-gap: 40px
+}
+
+#comp_product_details > img {
+  margin: auto auto;
+  width: 60%;
+}
+
+#comp_product_details .dados {
+  display: flex;
+}
+
+#comp_product_details .endereco_vendedor {
+  margin-left: 5%;
+}
