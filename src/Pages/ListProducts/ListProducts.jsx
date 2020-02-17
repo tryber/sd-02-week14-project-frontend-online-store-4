@@ -7,8 +7,24 @@ class ListProducts extends React.Component {
     super(props);
     this.state = {
       value: 'Você ainda não realizou uma Busca',
-      results: '',
+      results: {
+        name: '',
+        price: '',
+        image: '',
+      },
     };
+    this.pesquisa = this.pesquisa.bind(this);
+  }
+
+  pesquisa(e) {
+    fetch(`https://api.mercadolibre.com/sites/MLB/search?q=${e.target.value}`)
+      .then(resolve => resolve.json())
+      .then(res => {
+        this.setState((state)=> ({
+          name: res.results.title,
+        }))
+      })
+      console.log(this.state)
   }
 
   render() {
@@ -23,9 +39,9 @@ class ListProducts extends React.Component {
           <input
             className="searchBar"
             type="text"
-            onChange={(e) => this.setState({ results: e.target.value })}
+            onKeyDown={(e) => { if (e.key === 'Enter') this.pesquisa(e) }}
           />
-          <h1>{(results === '') ? value : results}</h1>
+          <h1>{(results.name === '') ? value : results}</h1>
         </div>
       </div>
     );
