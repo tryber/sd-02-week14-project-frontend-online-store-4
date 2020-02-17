@@ -1,23 +1,23 @@
 import React from 'react';
 
 class ListProducts extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props);
-    this.state= {
+    this.state = {
       value: 'Você ainda não realizou uma Busca',
-      results: ''
-    }
+      results: '',
+    };
   }
 
   render() {
-    const { value , results} = this.state;
+    const { value, results } = this.state;
     return (
       <div>
-        <input type="text" onChange={(e) => this.setState({results : e.target.value})}/>
-    <h1>{(results === '')? value: results}</h1>
+        <input type="text" onChange={(e) => this.setState({ results: e.target.value })} />
+        <h1>{(results === '') ? value : results}</h1>
       </div>
     );
   }
 }
 
-export default ListProducts
+export default ListProducts;
