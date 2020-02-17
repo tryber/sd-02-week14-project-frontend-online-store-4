@@ -1,14 +1,10 @@
 import React, { Component } from 'react';
-
+import PropTypes from 'prop-types';
 import Campo from '../Campo/Campo';
 
 import './style.css';
 
 class Produto extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     const { obj } = this.props;
     const { image, available_quantity, sold_quantity, condition } = obj;
@@ -38,5 +34,28 @@ class Produto extends Component {
     );
   }
 }
+
+Produto.propTypes = {
+  obj: PropTypes.shape({
+    image: PropTypes.string,
+    available_quantity:PropTypes.number,
+    sold_quantity: PropTypes.number,
+    condition: PropTypes.string,
+    shipping: PropTypes.shape({
+      free_shipping: PropTypes.bool,
+    }).isRequired,
+    seller_address: PropTypes.shape({
+      country: PropTypes.shape({
+        name: PropTypes.string,
+      }).isRequired,
+      state: PropTypes.shape({
+        name: PropTypes.string,
+      }).isRequired,
+      city: PropTypes.shape({
+        name: PropTypes.string,
+      }).isRequired,
+    }).isRequired,
+  }).isRequired,
+};
 
 export default Produto;

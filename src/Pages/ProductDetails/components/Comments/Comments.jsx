@@ -4,10 +4,6 @@ import './style.css';
 import Stars from '../Stars/Stars';
 
 class Comments extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     return (
       <div className='comp_comments'>

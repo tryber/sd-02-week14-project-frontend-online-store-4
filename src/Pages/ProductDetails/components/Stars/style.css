@@ -1,6 +1,6 @@
 .comp_stars {
-  display: flex;
   align-items: center;
+  display: flex;
 }
 
 .comp_stars  > i {

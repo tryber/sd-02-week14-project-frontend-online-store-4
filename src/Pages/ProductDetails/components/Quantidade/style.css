@@ -1,11 +1,20 @@
+.comp_prod_details_qt strong {
+  margin: 1%;
+}
+
 .comp_prod_details_qt .container {
   width: 20%;
   display: flex;
   align-items: center;
 }
 
-.comp_prod_details_qt strong {
-  margin: 1%;
+.comp_prod_details_qt .container > button {
+  margin: 2%;
+  border-width: 1px;
+  border-style: solid;
+  border-color: black;
+  background-color: white;
+  padding: 3%;
 }
 
 .comp_prod_details_qt .container > i {
@@ -18,13 +27,4 @@
   border-width: 1px;
   border-style: solid;
   border-color: black;
-}
-
-.comp_prod_details_qt .container > button {
-  margin: 2%;
-  border-width: 1px;
-  border-style: solid;
-  border-color: black;
-  background-color: white;
-  padding: 3%;
 }

@@ -1,12 +1,8 @@
 import React, { Component } from 'react';
-
+import PropTypes from 'prop-types';
 import './style.css';
 
 class Campo extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     const { label, campo } = this.props;
     return (
@@ -17,5 +13,13 @@ class Campo extends Component {
     );
   }
 }
+
+Campo.propTypes = {
+  label: PropTypes.string,
+  campo: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+  ]),
+};
 
 export default Campo;

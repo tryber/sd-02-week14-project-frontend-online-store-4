@@ -1,8 +1,8 @@
 .page_productDetails > .title {
-  display: flex;
-  justify-content: center;
   align-items: center;
+  display: flex;
   font-size: 3em;
+  justify-content: center;
 }
 
 

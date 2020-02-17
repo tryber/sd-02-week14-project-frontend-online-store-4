@@ -1,23 +1,14 @@
-.comp_prod_details_av .container {
-  width: 20%;
-  display: flex;
-  align-items: center;
-}
+
 .comp_prod_details_av strong {
   margin: 1%;
 }
+
 .comp_prod_details_av .container {
+  width: 20%;
+  align-items: center;
   display: block;
 }
-.comp_prod_details_av .container > div {
-  display: flex;
-}
-.comp_prod_details_av .container input {
-  margin: 2% 5%;
-}
-.comp_prod_details_av .container textarea {
-  margin: 2% 5%;
-}
+
 .comp_prod_details_av .container > button {
   margin: 2% 5%;
   border-width: 1px;
@@ -25,4 +16,15 @@
   border-color: black;
   background-color: white;
   padding: 3%;
+}
+
+.comp_prod_details_av .container > div {
+  display: flex;
+}
+.comp_prod_details_av .container input {
+  margin: 2% 5%;
+}
+
+.comp_prod_details_av .container textarea {
+  margin: 2% 5%;
 }

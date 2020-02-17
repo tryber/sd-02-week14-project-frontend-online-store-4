@@ -5,13 +5,9 @@ import './style.css';
 import Stars from '../Stars/Stars';
 
 class Avaliacoes extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     return (
-      <div id='comp_prod_details_av'>
+      <div className="comp_prod_details_av">
         <strong>Avaliações</strong>
         <div className="container">
           <div>
