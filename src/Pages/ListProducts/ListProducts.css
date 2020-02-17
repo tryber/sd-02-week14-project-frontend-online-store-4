@@ -1,0 +1,29 @@
+.header {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.header img {
+  align-self: flex-end;
+  margin: 10px;
+  width: 3%;
+}
+
+.header .searchBar {
+  border-radius: 15%;
+  width: 50%;
+}
+
+.maxContain {
+  display: flex;
+  flex-direction: row;
+}
+
+.maxContain .SearchList {
+  border: 1px solid black;
+  margin: 20px;
+  padding: 5px;
+  width: 30%;
+}
