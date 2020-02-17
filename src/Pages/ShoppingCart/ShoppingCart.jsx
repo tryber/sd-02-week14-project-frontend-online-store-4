@@ -39,9 +39,12 @@ export default class ShoppingCart extends Component {
   }
 
   render() {
+    const { load } = this.state;
+    if (!load) return ShoppingCart.loadingEmpty();
+
     return (
       <div>
-        {ShoppingCart.loadingEmpty()}
+        Hello World!
       </div>
     );
   }

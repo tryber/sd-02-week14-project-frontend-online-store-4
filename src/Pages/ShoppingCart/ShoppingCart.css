@@ -32,12 +32,13 @@
   width: fit-content;
 }
 
-.buttonReturn > img:hover {
-  filter: invert(60%);
-}
-
 .buttonReturn > img {
   width: 40%;
+}
+
+.buttonReturn > img:hover {
+  filter: invert(60%);
+  cursor: pointer;
 }
 
 .buttonReturn {
