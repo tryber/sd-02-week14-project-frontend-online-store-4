@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
-import ListProducts from './Pages/ListProducts/ListProducts'
+import ListProducts from './Pages/ListProducts/ListProducts';
+
 function App() {
   return (
     <ListProducts />
