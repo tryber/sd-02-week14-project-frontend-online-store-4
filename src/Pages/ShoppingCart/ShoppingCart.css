@@ -2,30 +2,44 @@
   clear: both;
 }
 
-.buttonReturn > img {
-  width: 70%;
+.emptyCar > img {
+  width: 3%;
 }
 
 .buttonReturn > img:hover {
   filter: invert(60%);
 }
 
+.buttonReturn > img {
+  width: 40%;
+}
+
 .buttonReturn {
   width: 10%;
 }
 
-.emptyCar > img {
-  width: 5%;
-}
-
 .emptyCar {
-  width: 100%;
+  align-items: flex-end;
   display: flex;
   flex-direction: row;
-  align-items: flex-end;
+  width: 100%;
 }
 
 .emptyCarPai {
   margin: 1%;
   width: 100%;
+}
+
+.emptyBoxPai {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.emptyBoxPai > img {
+  width: 20%;
+}
+
+.emptyBoxPai > span{
+  width: fit-content;
 }

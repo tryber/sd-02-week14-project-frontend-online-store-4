@@ -13,6 +13,7 @@ export default class ShoppingCart extends Component {
     };
   }
 
+
   loadingEmpty() {
     return (
       <div className="shoppingCart">
@@ -23,21 +24,19 @@ export default class ShoppingCart extends Component {
         <div className="emptyCarPai">
           <div className="emptyCar">
             <img src={emptyShopCar} alt="emptyCar" />
-          <span>
+            <span>
             Carrinho de Compras
-          </span>
+            </span>
           </div>
         </div>
         <div className="emptyBoxPai">
           <img className="emptyBox-Img" src={emptyBox} alt="emptyBox" />
+          <span>
           Seu carrinho de compras está vazio.
+          </span>
         </div>
       </div>
     );
-  }
-
-  componentDidMount() {
-
   }
 
   render() {
