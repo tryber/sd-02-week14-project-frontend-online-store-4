@@ -6,18 +6,6 @@
   width: 3%;
 }
 
-.buttonReturn > img:hover {
-  filter: invert(60%);
-}
-
-.buttonReturn > img {
-  width: 40%;
-}
-
-.buttonReturn {
-  width: 10%;
-}
-
 .emptyCar {
   align-items: flex-end;
   display: flex;
@@ -40,6 +28,18 @@
   width: 20%;
 }
 
-.emptyBoxPai > span{
+.emptyBoxPai > span {
   width: fit-content;
+}
+
+.buttonReturn > img:hover {
+  filter: invert(60%);
+}
+
+.buttonReturn > img {
+  width: 40%;
+}
+
+.buttonReturn {
+  width: 10%;
 }

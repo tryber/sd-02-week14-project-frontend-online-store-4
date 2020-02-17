@@ -5,17 +5,7 @@ import '../ShoppingCart/ShoppingCart.css';
 import backButton from './images/backButton.png';
 
 export default class ShoppingCart extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      load: false,
-      items: [],
-    };
-    this.loadingEmpty = this.loadingEmpty.bind(this);
-  }
-
-
-  loadingEmpty() {
+  static loadingEmpty() {
     return (
       <div className="shoppingCart">
         <div className="buttonReturn">
@@ -40,10 +30,18 @@ export default class ShoppingCart extends Component {
     );
   }
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      load: false,
+      items: [],
+    };
+  }
+
   render() {
     return (
       <div>
-        {this.loadingEmpty()}
+        {ShoppingCart.loadingEmpty()}
       </div>
     );
   }
