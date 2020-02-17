@@ -23,7 +23,8 @@ class ListProducts extends React.Component {
           <input
             className="searchBar"
             type="text"
-            onChange={(e) => this.setState({ results: e.target.value })} />
+            onChange={(e) => this.setState({ results: e.target.value })}
+          />
           <h1>{(results === '') ? value : results}</h1>
         </div>
       </div>
