@@ -1,0 +1,29 @@
+#header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+#header img {
+    width: 3%;
+    align-self: flex-end;
+    margin: 10px 10px;
+}
+
+#header #searchBar {
+    width: 50%;
+    border-radius: 15%;
+}
+
+#maxContain {
+    display: flex;
+    flex-direction: row;
+}
+
+#maxContain #SearchList {
+    border: 1px solid black;
+    width: 30%;
+    margin: 20px;
+    padding: 5px;
+}
