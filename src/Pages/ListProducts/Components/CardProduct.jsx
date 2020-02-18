@@ -9,9 +9,23 @@ class CardProduct extends React.Component {
       <div className="containCard">
         {arrCard.map((element) => (
           <div className="cardComplete" key={element.id}>
-            <h5>{element.title}</h5>
-            <img className="cardImage" src={element.thumbnail} alt={element.title} />
-            <h6>{((element.price * 100) / 100).toFixed(2)}</h6>
+            <div className="titleCard">
+              <h5 className="titleCard">{element.title}</h5>
+            </div>
+            <div>
+              <img className="cardImage" src={element.thumbnail} alt={element.title} />
+            </div>
+            <div>
+              <h6>{((element.price * 100) / 100).toFixed(2)}</h6>
+            </div>
+            <div>
+              <button
+                value={element.id}
+                onClick={(event) => { console.log(event.target.value); }}
+              >
+                Adicionar no Carrinho
+              </button>
+            </div>
           </div>
         ))}
       </div>
