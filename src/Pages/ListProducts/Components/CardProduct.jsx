@@ -10,7 +10,7 @@ class CardProduct extends React.Component {
         {arrCard.map((element) => (
           <div className="cardComplete" key={element.id}>
             <div className="titleCard">
-              <h5>{element.title}</h5>
+              <h5 className="titleCard">{element.title}</h5>
             </div>
             <div>
               <img className="cardImage" src={element.thumbnail} alt={element.title} />
@@ -19,7 +19,12 @@ class CardProduct extends React.Component {
               <h6>{((element.price * 100) / 100).toFixed(2)}</h6>
             </div>
             <div>
-              <button value={element.id} onClick={(event) => {console.log(event.target.value)}}>Adicionar no Carrinho</button>
+              <button
+                value={element.id}
+                onClick={(event) => { console.log(event.target.value); }}
+              >
+                Adicionar no Carrinho
+              </button>
             </div>
           </div>
         ))}
