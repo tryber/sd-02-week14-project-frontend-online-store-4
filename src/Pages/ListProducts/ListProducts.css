@@ -1,0 +1,52 @@
+.header {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.header img {
+  align-self: flex-end;
+  margin: 10px;
+  width: 3%;
+}
+
+.header .searchBar {
+  border-radius: 100px;
+  font-size: 110%;
+  height: 40px;
+  padding: 0.2%;
+  text-align: center;
+  width: 100%;
+}
+
+.maxContain {
+  display: flex;
+  flex-direction: row;
+}
+
+.maxContain .SearchList {
+  border: 1px solid black;
+  height: 100%;
+  margin: 20px;
+  padding: 5px;
+  width: 30%;
+}
+
+.caixaLupa {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  width: 50%;
+}
+
+.lupa {
+  align-self: center;
+  display: flex;
+  position: absolute;
+  width: 5%;
+}
+
+.lupa > img {
+  width: 80%;
+}

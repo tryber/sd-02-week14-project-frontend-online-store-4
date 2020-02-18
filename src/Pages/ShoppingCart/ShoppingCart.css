@@ -1,0 +1,46 @@
+.clear {
+  clear: both;
+}
+
+.emptyCar > img {
+  width: 3%;
+}
+
+.emptyCar {
+  align-items: flex-end;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.emptyCarPai {
+  margin: 1%;
+  width: 100%;
+}
+
+.emptyBoxPai {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.emptyBoxPai > img {
+  width: 20%;
+}
+
+.emptyBoxPai > span {
+  width: fit-content;
+}
+
+.buttonReturn > img {
+  width: 40%;
+}
+
+.buttonReturn > img:hover {
+  cursor: pointer;
+  filter: invert(60%);
+}
+
+.buttonReturn {
+  width: 10%;
+}
