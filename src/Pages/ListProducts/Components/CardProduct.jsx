@@ -28,7 +28,7 @@ class CardProduct extends React.Component {
             <div className="titleCard">
               <h5 className="titleCard">{element.title}</h5>
             </div>
-            <div>
+            <div className="containerImg">
               <img className="cardImage" src={element.thumbnail} alt={element.title} />
             </div>
             <div>

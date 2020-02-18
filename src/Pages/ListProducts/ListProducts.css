@@ -6,9 +6,8 @@
 }
 
 .header img {
-  align-self: flex-end;
   margin: 10px;
-  width: 3%;
+  width: 100%;
 }
 
 .header .searchBar {
@@ -46,14 +45,25 @@
   align-self: center;
   display: flex;
   position: absolute;
-  width: 5%;
 }
 
 .lupa > img {
-  width: 80%;
+  width: 5%;
 }
 
 .container-input {
   display: flex;
   width: 50%;
+}
+
+.container-cart {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.carrinhoCart {
+  align-self: flex-end;
+  display: flex;
+  width: fit-content;
 }
