@@ -28,7 +28,7 @@ Avaliacoes.propTypes = {
   rate: PropTypes.number,
 };
 
-Stars.defaultProps = {
+Avaliacoes.defaultProps = {
   rate: 0,
 };
 
