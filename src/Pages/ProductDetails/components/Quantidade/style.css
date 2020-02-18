@@ -13,14 +13,14 @@
   border-color: black;
   border-style: solid;
   border-width: 1px;
+  cursor: pointer;
   margin: 2%;
   padding: 3%;
-  cursor: pointer;
 }
 
 .comp_prod_details_qt .container > i {
-  margin: 2%;
   cursor: pointer;
+  margin: 2%;
 }
 
 .comp_prod_details_qt .container > p {

@@ -4,6 +4,6 @@
 }
 
 .comp_stars > i {
-  margin: 5%;
   cursor: pointer;
+  margin: 5%;
 }

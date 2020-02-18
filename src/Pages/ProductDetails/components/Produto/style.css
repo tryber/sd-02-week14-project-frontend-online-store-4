@@ -10,8 +10,8 @@
 }
 
 .comp_product_details .dados {
-  display: flex;
   align-items: center;
+  display: flex;
 }
 
 .comp_product_details .endereco_vendedor {
