@@ -1,0 +1,25 @@
+.containCard {
+  display: flex;
+  flex-wrap: wrap;
+  height: 100%;
+  justify-content: space-around;
+  margin-top: 20px;
+  width: 90%;
+}
+
+.containCard .cardComplete {
+  align-items: center;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  height: 300px;
+  justify-content: space-around;
+  margin: 5px;
+  width: 300px;
+}
+
+.cardComplete img {
+  align-self: auto;
+  height: 200px;
+  width: 200px;
+}

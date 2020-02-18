@@ -1,17 +1,15 @@
 import React from 'react';
 import './ListProducts.css';
 import ListFilter from './Components/ListFilter';
+import CardProduct from './Components/CardProduct'
 
 class ListProducts extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       value: 'Você ainda não realizou uma Busca',
-      results: {
-        name: '',
-        price: '',
-        image: '',
-      },
+      results: [],
+      vazio: false
     };
     this.pesquisa = this.pesquisa.bind(this);
   }
@@ -20,17 +18,21 @@ class ListProducts extends React.Component {
     fetch(`https://api.mercadolibre.com/sites/MLB/search?q=${e.target.value}`)
       .then(resolve => resolve.json())
       .then(res => {
-        this.setState((state)=> ({
-          name: res.results.title,
-        }))
+        if (res.resolve === undefined) this.setState({ vazio: true });
+        this.setState({
+          results:
+            res.results.reduce((acc, curr) => {
+              const { id, title, price, thumbnail } = curr;
+              return [...acc, { id, title, price, thumbnail }]
+            }, [])
+        })
       })
-      console.log(this.state)
   }
 
   render() {
-    const { value, results } = this.state;
+    const { value, results, vazio } = this.state;
     return (
-      <div className="maxContain">
+      <div className="maxContain" >
         <div className="SearchList">
           <ListFilter />
         </div>
@@ -41,7 +43,11 @@ class ListProducts extends React.Component {
             type="text"
             onKeyDown={(e) => { if (e.key === 'Enter') this.pesquisa(e) }}
           />
-          <h1>{(results.name === '') ? value : results}</h1>
+          {(Object.keys(results).length === 0) ? (vazio) ?
+            <h1>Nenhum Produto foi Encontrado</h1> :
+            <h1>{value}</h1> :
+            <CardProduct arrCard={results} />
+          }
         </div>
       </div>
     );
