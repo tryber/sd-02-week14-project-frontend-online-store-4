@@ -23,5 +23,5 @@ CardProduct.propTypes = PropTypes.shape({
   id: PropTypes.string,
   title: PropTypes.string,
   thumbnail: PropTypes.string,
-  price: PropTypes.number
+  price: PropTypes.number,
 }).isRequired;
