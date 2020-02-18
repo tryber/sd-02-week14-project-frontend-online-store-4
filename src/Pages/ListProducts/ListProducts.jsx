@@ -66,7 +66,7 @@ class ListProducts extends Component {
                 onKeyDown={(e) => { if (e.key === 'Enter') this.pesquisa(e); }}
               />
               <div className="lupa">
-                <img src={lupa} alt="lupa" />
+                <img src={lupa} alt="Lupa" />
               </div>
             </div>
           </div>
