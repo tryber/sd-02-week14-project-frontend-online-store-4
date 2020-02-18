@@ -28,4 +28,8 @@ Avaliacoes.propTypes = {
   rate: PropTypes.number,
 };
 
+Stars.defaultProps = {
+  rate: 0,
+};
+
 export default Avaliacoes;
