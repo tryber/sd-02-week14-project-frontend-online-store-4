@@ -12,8 +12,12 @@
 }
 
 .header .searchBar {
-  border-radius: 15%;
-  width: 50%;
+  border-radius: 100px;
+  width: 100%;
+  height: 40px;
+  padding: 0.2%;
+  text-align: center;
+  font-size: 110%;
 }
 
 .maxContain {
@@ -27,4 +31,22 @@
   margin: 20px;
   padding: 5px;
   width: 30%;
+}
+
+.caixaLupa {
+  display: flex;
+  flex-direction: row;
+  width: 50%;
+  position: relative;
+}
+
+.lupa {
+  width: 5%;
+  position: absolute;
+  display: flex;
+  align-self: center;
+}
+
+.lupa > img {
+  width: 80%;
 }
