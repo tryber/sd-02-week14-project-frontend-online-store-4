@@ -39,7 +39,7 @@ class ListProducts extends React.Component {
         </div>
         <div className="header">
           <img src="https://image.flaticon.com/icons/svg/126/126083.svg" alt="carrinho de compras" />
-          <div>
+          <div className="container-input">
             <div className="caixaLupa">
               <input
                 className="searchBar"

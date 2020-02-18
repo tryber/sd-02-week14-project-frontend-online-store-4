@@ -13,6 +13,8 @@
 
 .header .searchBar {
   border-radius: 100px;
+  display: flex;
+  justify-content: center;
   font-size: 110%;
   height: 40px;
   padding: 0.2%;
@@ -37,7 +39,7 @@
   display: flex;
   flex-direction: row;
   position: relative;
-  width: 50%;
+  width: 200%;
 }
 
 .lupa {
@@ -49,4 +51,9 @@
 
 .lupa > img {
   width: 80%;
+}
+
+.container-input {
+  display: flex;
+  width: 50%;
 }

@@ -20,6 +20,7 @@ class CardProduct extends React.Component {
             </div>
             <div>
               <button
+                className="buttonAddCart"
                 value={element.id}
                 onClick={(event) => { console.log(event.target.value); }}
               >
