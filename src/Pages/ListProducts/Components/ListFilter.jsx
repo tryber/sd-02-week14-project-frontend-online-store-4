@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class SearchList extends React.Component {
   constructor(props) {
@@ -20,7 +21,13 @@ class SearchList extends React.Component {
     return (
       <div>{(term !== '') ? term.map((categoria) => (
         <div key={categoria.id}>
-          <input id={categoria.id} name="categoria" value={categoria.id} onChange={((e) => callback(e.target.value))} type="radio" />
+          <input
+            id={categoria.id}
+            name="categoria"
+            value={categoria.id}
+            onChange={((e) => callback(e.target.value))}
+            type="radio"
+          />
           <label htmlFor={categoria.id}>{categoria.name}</label>
         </div>
       )) : term}</div>
@@ -29,3 +36,7 @@ class SearchList extends React.Component {
 }
 
 export default SearchList;
+
+SearchList.propTypes = PropTypes.shape({
+  callback: PropTypes.func,
+}).isRequired;

@@ -30,17 +30,17 @@ class ListProducts extends React.Component {
     fetch((this.state.valueradio === '') ? `https://api.mercadolibre.com/sites/MLB/search?q=${e}` : `https://api.mercadolibre.com/sites/MLB/search?category=${valueradio}&q=${e}`)
       .then((resolve) => resolve.json())
       .then((res) => {
-        this.reduceFunction(res)
+        this.reduceFunction(res);
       });
   }
 
   callback(value) {
-    console.log(value)
     this.setState({ valueradio: value });
-    if (this.state.valorPesquisa === '')
+    if (this.state.valorPesquisa === '') {
       fetch(`https://api.mercadolibre.com/sites/MLB/search?category=${value}`)
         .then((resolve) => resolve.json())
         .then((res) => { this.reduceFunction(res) });
+    }
   }
 
   render() {
