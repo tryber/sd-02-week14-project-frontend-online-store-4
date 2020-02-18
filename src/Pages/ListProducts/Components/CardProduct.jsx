@@ -3,6 +3,22 @@ import PropTypes from 'prop-types';
 import './CardProduct.css';
 
 class CardProduct extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      cart: [],
+    }
+  }
+
+  adicionaCart(idParam) {
+    console.log(idParam)
+    const { arrCard } = this.props;
+    console.log(arrCard)
+    const produto = arrCard.find(card => card.id === idParam)
+    console.log(produto);
+
+  }
+
   render() {
     const { arrCard } = this.props;
     return (
@@ -22,7 +38,7 @@ class CardProduct extends React.Component {
               <button
                 className="buttonAddCart"
                 value={element.id}
-                onClick={(event) => { console.log(event.target.value); }}
+                onClick={(event) => { this.adicionaCart(event.target.value) }}
               >
                 Adicionar no Carrinho
               </button>
