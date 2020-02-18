@@ -1,10 +1,12 @@
 import React from 'react';
 import './App.css';
-import ListProducts from './Pages/ListProducts/ListProducts';
+import ShoppingCart from './Pages/ShoppingCart/ShoppingCart';
 
 function App() {
   return (
-    <ListProducts />
+    <div>
+      <ShoppingCart />
+    </div>
   );
 }
 
