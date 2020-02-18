@@ -28,10 +28,13 @@ const obj = {
       name: 'São Paulo',
     },
   },
+  installments: {
+    rate: 14.69,
+  },
 };
 export default class ProductDetails extends Component {
   render() {
-    const { title, price } = obj;
+    const { title, price, installments: { rate } } = obj;
     return (
       <div className="page_productDetails">
         <div className="title">
@@ -40,7 +43,7 @@ export default class ProductDetails extends Component {
         </div>
         <Produto obj={obj} />
         <Quantidade />
-        <Avaliacoes />
+        <Avaliacoes rate={rate} />
         <Comments />
       </div>
     );

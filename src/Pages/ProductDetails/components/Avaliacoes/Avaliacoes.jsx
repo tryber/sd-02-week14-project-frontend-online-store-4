@@ -6,13 +6,14 @@ import Stars from '../Stars/Stars';
 
 class Avaliacoes extends Component {
   render() {
+    const { rate } = this.props;
     return (
       <div className="comp_prod_details_av">
         <strong>Avaliações</strong>
         <div className="container">
           <div>
             <input type="text" placeholder="email" />
-            <Stars />
+            <Stars rate={rate} />
           </div>
           <textarea placeholder="message" />
           <button>Avaliar</button>
