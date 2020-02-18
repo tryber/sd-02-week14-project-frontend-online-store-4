@@ -1,0 +1,9 @@
+.comp_stars {
+  align-items: center;
+  display: flex;
+}
+
+.comp_stars > i {
+  cursor: pointer;
+  margin: 5%;
+}

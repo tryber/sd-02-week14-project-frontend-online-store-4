@@ -1,0 +1,9 @@
+.comp_campo {
+  align-items: center;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.comp_campo > p {
+  margin-left: 2%;
+}

@@ -1,0 +1,19 @@
+.comp_product_details {
+  display: grid;
+  grid-template-columns: 33% 66%;
+  grid-template-rows: 100%;
+}
+
+.comp_product_details > img {
+  margin: auto;
+  width: 60%;
+}
+
+.comp_product_details .dados {
+  align-items: center;
+  display: flex;
+}
+
+.comp_product_details .endereco_vendedor {
+  margin-left: 5%;
+}
