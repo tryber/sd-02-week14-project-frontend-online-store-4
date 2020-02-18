@@ -15,10 +15,12 @@
   border-width: 1px;
   margin: 2%;
   padding: 3%;
+  cursor: pointer;
 }
 
 .comp_prod_details_qt .container > i {
   margin: 2%;
+  cursor: pointer;
 }
 
 .comp_prod_details_qt .container > p {

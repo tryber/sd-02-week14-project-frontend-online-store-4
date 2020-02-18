@@ -15,6 +15,7 @@
   border-width: 1px;
   margin: 2% 5%;
   padding: 3%;
+  cursor: pointer;
 }
 
 .comp_prod_details_av .container > div {
