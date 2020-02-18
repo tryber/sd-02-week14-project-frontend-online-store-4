@@ -11,7 +11,6 @@ class Produto extends Component {
     const { shipping: { freeShipping } } = obj;
     const { sellerAddress: { country: { name: country },
       state: { name: state }, city: { name: city } } } = obj;
-    
     return (
       <div className="comp_product_details">
         <img src={image} alt="" />
