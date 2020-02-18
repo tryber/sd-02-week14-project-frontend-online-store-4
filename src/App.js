@@ -4,15 +4,12 @@ import './App.css';
 import ShoppingCart from './Pages/ShoppingCart/ShoppingCart';
 import ListProduct from './Pages/ListProducts/ListProducts';
 
-import ProductDetails from './Pages/ProductDetails/ProductDetails';
-
 function App() {
   return (
     <BrowserRouter>
       <Switch>
         <Route exact path="/" component={ListProduct} />
         <Route path="/shopping-cart" component={ShoppingCart} />
-        <Route path="/product-details" component={ProductDetails} />
       </Switch>
     </BrowserRouter>
   );
