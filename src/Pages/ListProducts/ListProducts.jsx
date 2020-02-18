@@ -58,19 +58,21 @@ class ListProducts extends Component {
               <img src="https://image.flaticon.com/icons/svg/126/126083.svg" alt="carrinho de compras" />
             </Link>
           </div>
+          <img src="https://image.flaticon.com/icons/svg/126/126083.svg" alt="carrinho de compras" />
           <div className="container-input">
             <div className="caixaLupa">
               <input
                 className="searchBar"
                 type="text"
-                onKeyDown={(e) => { if (e.key === 'Enter') this.pesquisa(e); }}
+                onChange={(e) => this.setState({ valorPesquisa: e.target.value })}
+                onKeyDown={(e) => { if (e.key === 'Enter') this.pesquisa(e.target.value); }}
               />
               <div className="lupa">
                 <img src={lupa} alt="Lupa" />
               </div>
             </div>
           </div>
-
+          
           {(Object.keys(results).length === 0) ?
             <h1>{value}</h1> :
             <CardProduct arrCard={results} />
