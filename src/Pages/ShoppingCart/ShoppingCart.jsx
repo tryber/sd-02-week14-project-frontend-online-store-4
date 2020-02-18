@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import emptyBox from './images/empty_box.png';
 import { Link } from 'react-router-dom';
+import emptyBox from './images/empty_box.png';
 import emptyShopCar from './images/empty_car.svg';
 import '../ShoppingCart/ShoppingCart.css';
 import backButton from './images/backButton.png';
@@ -11,7 +11,7 @@ export default class ShoppingCart extends Component {
       <div className="shoppingCart">
         <div className="buttonReturn">
           <Link className="buttonReturn" to="/">
-          <img src={backButton} alt="backButton" />
+            <img src={backButton} alt="backButton" />
           </Link>
         </div>
         <div className="clear" />
@@ -19,7 +19,7 @@ export default class ShoppingCart extends Component {
           <div className="emptyCar">
             <img src={emptyShopCar} alt="emptyCar" />
             <span>
-            Carrinho de Compras
+              Carrinho de Compras
             </span>
           </div>
         </div>
@@ -40,8 +40,6 @@ export default class ShoppingCart extends Component {
       items: [],
     };
   }
-
-
 
   render() {
     const { load } = this.state;

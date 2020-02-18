@@ -2,19 +2,6 @@
   clear: both;
 }
 
-.buttonReturn > img {
-  width: 40%;
-}
-
-.buttonReturn > img:hover {
-  cursor: pointer;
-  filter: invert(60%);
-}
-
-.buttonReturn {
-  width: 10%;
-}
-
 .emptyCar > img {
   width: 3%;
 }
@@ -45,3 +32,15 @@
   width: fit-content;
 }
 
+.buttonReturn > img {
+  width: 40%;
+}
+
+.buttonReturn > img:hover {
+  cursor: pointer;
+  filter: invert(60%);
+}
+
+.buttonReturn {
+  width: 10%;
+}
