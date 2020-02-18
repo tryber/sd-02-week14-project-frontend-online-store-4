@@ -44,8 +44,7 @@ class ListProducts extends React.Component {
           />
           {(Object.keys(results).length === 0) ?
             <h1>{value}</h1> :
-            <CardProduct arrCard={results}
-            />
+            <CardProduct arrCard={results} />
           }
         </div>
       </div>
