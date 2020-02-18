@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import emptyBox from './images/empty_box.png';
 import emptyShopCar from './images/empty_car.svg';
 import '../ShoppingCart/ShoppingCart.css';
@@ -9,14 +10,16 @@ export default class ShoppingCart extends Component {
     return (
       <div className="shoppingCart">
         <div className="buttonReturn">
-          <img src={backButton} alt="backButton" />
+          <Link className="buttonReturn" to="/">
+            <img src={backButton} alt="backButton" />
+          </Link>
         </div>
         <div className="clear" />
         <div className="emptyCarPai">
           <div className="emptyCar">
             <img src={emptyShopCar} alt="emptyCar" />
             <span>
-            Carrinho de Compras
+              Carrinho de Compras
             </span>
           </div>
         </div>
