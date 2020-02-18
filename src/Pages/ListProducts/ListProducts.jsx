@@ -1,20 +1,37 @@
 import React from 'react';
 import './ListProducts.css';
 import ListFilter from './Components/ListFilter';
+import CardProduct from './Components/CardProduct';
 
 class ListProducts extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       value: 'Você ainda não realizou uma Busca',
-      results: '',
+      results: [],
     };
+    this.pesquisa = this.pesquisa.bind(this);
+  }
+
+  pesquisa(e) {
+    fetch(`https://api.mercadolibre.com/sites/MLB/search?q=${e.target.value}`)
+      .then((resolve) => resolve.json())
+      .then((res) => {
+        if (res.resolve === undefined) this.setState({ value: 'Nenhum Produto foi Encontrado' });
+        this.setState({
+          results:
+            res.results.reduce((acc, curr) => {
+              const { id, title, price, thumbnail } = curr;
+              return [...acc, { id, title, price, thumbnail }];
+            }, []),
+        });
+      });
   }
 
   render() {
     const { value, results } = this.state;
     return (
-      <div className="maxContain">
+      <div className="maxContain" >
         <div className="SearchList">
           <ListFilter />
         </div>
@@ -23,9 +40,12 @@ class ListProducts extends React.Component {
           <input
             className="searchBar"
             type="text"
-            onChange={(e) => this.setState({ results: e.target.value })}
+            onKeyDown={(e) => { if (e.key === 'Enter') this.pesquisa(e); }}
           />
-          <h1>{(results === '') ? value : results}</h1>
+          {(Object.keys(results).length === 0) ?
+            <h1>{value}</h1> :
+            <CardProduct arrCard={results} />
+          }
         </div>
       </div>
     );
