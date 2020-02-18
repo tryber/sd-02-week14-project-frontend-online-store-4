@@ -39,7 +39,7 @@ class ListProducts extends React.Component {
     if (this.state.valorPesquisa === '') {
       fetch(`https://api.mercadolibre.com/sites/MLB/search?category=${value}`)
         .then((resolve) => resolve.json())
-        .then((res) => { this.reduceFunction(res) });
+        .then((res) => { this.reduceFunction(res); });
     }
   }
 
