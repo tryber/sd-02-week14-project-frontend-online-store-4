@@ -21,14 +21,13 @@ class Stars extends Component {
   initStars() {
     // const num = this.props.rate;
     const num = 2.55;
-    if(num > 0) {
+    if (num > 0) {
       const inteiro = Math.trunc(num);
       const decimal = Number((num).toFixed(1)).toString().split('.')[1];
 
-      for(let i = 0; i < inteiro; i ++) {
+      for (let i = 0; i < inteiro; i += 1) {
         this.icons[i].current.innerText = 'star';
       }
-  
       if (decimal > 3) {
         this.icons[inteiro].current.innerText = 'star_half';
       }
