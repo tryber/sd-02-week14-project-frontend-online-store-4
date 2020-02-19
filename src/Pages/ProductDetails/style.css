@@ -1,13 +1,13 @@
 .page_productDetails > .title {
   align-items: center;
   display: flex;
-  font-size: 2em;
+  font-size: 1em;
   justify-content: center;
 }
 
 .page_productDetails {
   display: grid;
   grid-template-columns: 1;
-  grid-template-rows: 7% 35% 12% 19% 30%;
+  grid-template-rows: 7% 35% 17% 22% 30%;
   margin: 0 5%;
 }

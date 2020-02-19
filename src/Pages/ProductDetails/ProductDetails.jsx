@@ -32,9 +32,25 @@ const obj = {
     rate: 14.69,
   },
 };
+
 export default class ProductDetails extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      comments: [],
+    };
+    this.submitHandle = this.submitHandle.bind(this);
+  }
+
+  submitHandle(comment) {
+    this.setState({
+      comments: [...this.state.comments, comment],
+    });
+  }
+
   render() {
     const { title, price, installments: { rate } } = obj;
+    const { comments } = this.state;
     return (
       <div className="page_productDetails">
         <div className="title">
@@ -43,8 +59,8 @@ export default class ProductDetails extends Component {
         </div>
         <Produto obj={obj} />
         <Quantidade />
-        <Avaliacoes rate={rate} />
-        <Comments />
+        <Avaliacoes rate={rate} submitHandle={this.submitHandle} />
+        <Comments comments={comments} />
       </div>
     );
   }

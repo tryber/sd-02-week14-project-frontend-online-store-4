@@ -7,6 +7,6 @@ import * as serviceWorker from './serviceWorker';
 ReactDOM.render(<App />, document.getElementById('root'));
 serviceWorker.unregister();
 
-if (module.hot) {
+/* if (module.hot) {
   module.hot.accept();
-}
+} */
