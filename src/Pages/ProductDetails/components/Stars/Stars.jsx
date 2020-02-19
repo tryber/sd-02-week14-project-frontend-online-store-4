@@ -17,53 +17,66 @@ class Stars extends Component {
   }
 
   componentDidMount() {
+    console.log(typeof this.props.callback )
     const { rate } = this.props;
     this.updateStars(rate);
-    if (this.props.callback) this.container.current.classList.add('comp_stars_pointer');
+    if (this.props.callback) {
+      for (let i = 0; i < 5; i += 1) {
+        this.icons[i].current.disabled = false;
+      }
+    }
   }
 
   updateStars(num) {
-    this.zerarStars()
+    this.zerarStars();
     if (num > 0) {
       for (let i = 0; i < num; i += 1) {
-        this.icons[i].current.innerText = 'star';
+        this.icons[i].current.firstChild.innerText = 'star';
       }
     }
     if (this.props.callback) {
       this.props.callback(num);
-    } 
+    }
   }
 
   zerarStars() {
     for (let i = 0; i < 5; i += 1) {
-      this.icons[i].current.innerText = 'star_border';
+      this.icons[i].current.firstChild.innerText = 'star_border';
     }
   }
 
   onClick(e) {
-    if (this.props.callback) {
-      this.updateStars(Number(e.target.getAttribute('name')));
-    }
+    this.updateStars(Number(e.target.getAttribute('name')));
   }
 
   render() {
     return (
       <div className="comp_stars" ref={this.container}>
-        <i className="material-icons" ref={this.icon} onClick={this.onClick} name='1'>
-          star_border
+        <button onClick={this.onClick} ref={this.icon}>
+          <i className="material-icons" name="1">
+            star_border
+          </i>
+        </button>
+        <button onClick={this.onClick} ref={this.icon2}>
+          <i className="material-icons" name="2">
+            star_border
         </i>
-        <i className="material-icons" ref={this.icon2} onClick={this.onClick} name='2'>
-          star_border
+        </button>
+        <button onClick={this.onClick} ref={this.icon3}>
+          <i className="material-icons" name="3">
+            star_border
         </i>
-        <i className="material-icons" ref={this.icon3} onClick={this.onClick} name='3'>
-          star_border
+        </button>
+        <button onClick={this.onClick} ref={this.icon4}>
+          <i className="material-icons" name="4">
+            star_border
         </i>
-        <i className="material-icons" ref={this.icon4} onClick={this.onClick} name='4'>
-          star_border
+        </button>
+        <button onClick={this.onClick} ref={this.icon5}>
+          <i className="material-icons" name="5">
+            star_border
         </i>
-        <i className="material-icons" ref={this.icon5} onClick={this.onClick} name='5'>
-          star_border
-        </i>
+        </button>
       </div>
     );
   }
@@ -71,10 +84,12 @@ class Stars extends Component {
 
 Stars.propTypes = {
   rate: PropTypes.number,
+  callback: PropTypes.func,
 };
 
 Stars.defaultProps = {
   rate: 0,
+  callback: undefined,
 };
 
 export default Stars;

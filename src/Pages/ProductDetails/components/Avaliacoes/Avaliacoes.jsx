@@ -15,14 +15,9 @@ class Avaliacoes extends Component {
         email: '',
         message: '',
         rate: 0,
-      }
-    }
+      },
+    };
     this.onChange = this.onChange.bind(this);
-  }
-
-  abacaxi() {
-    const { comment } = this.state;
-    this.props.submitHandle(comment);
   }
 
   updateRate(rate) {
@@ -30,7 +25,7 @@ class Avaliacoes extends Component {
       comment: {
         ...this.state.comment,
         rate,
-      }
+      },
     });
   }
 
@@ -39,12 +34,17 @@ class Avaliacoes extends Component {
       comment: {
         ...this.state.comment,
         [name]: value,
-      }
+      },
     });
   }
 
-  render() {
+  abacaxi() {
     const { comment } = this.state;
+    this.props.submitHandle(comment);
+  }
+
+  render() {
+    const { comment, rate } = this.state;
     const { email, message } = comment;
     return (
       <div className="comp_prod_details_av">
@@ -52,7 +52,7 @@ class Avaliacoes extends Component {
         <div className="container">
           <div>
             <input type="text" placeholder="email" onChange={(e) => this.onChange('email', e.target.value)} value={email} />
-            <Stars rate={this.state.rate} callback={this.updateRate} />
+            <Stars rate={rate} callback={this.updateRate} />
           </div>
           <textarea placeholder="mensagem" onChange={(e) => this.onChange('message', e.target.value)} value={message} />
           <button onClick={this.abacaxi}>Avaliar</button>
@@ -63,11 +63,11 @@ class Avaliacoes extends Component {
 }
 
 Avaliacoes.propTypes = {
-  rate: PropTypes.number,
+  submitHandle: PropTypes.func,
 };
 
 Avaliacoes.defaultProps = {
-  rate: 0,
+  submitHandle: undefined,
 };
 
 export default Avaliacoes;
