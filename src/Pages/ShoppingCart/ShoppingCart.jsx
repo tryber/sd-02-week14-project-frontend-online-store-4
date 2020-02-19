@@ -39,6 +39,21 @@ export default class ShoppingCart extends Component {
       load: false,
       items: [],
     };
+    this.atualizaState = this.atualizaState.bind(this);
+  }
+
+  componentDidMount() {
+    const infoKey = Object.keys(localStorage);
+    for (let i = 0; i < infoKey.length; i += 1) {
+      const objKeys = JSON.parse(localStorage.getItem(infoKey[i]));
+      this.atualizaState(objKeys);
+    }
+  }
+
+  atualizaState(objKeys) {
+    this.setState((state) => ({
+      items: [...state.items, objKeys],
+    }));
   }
 
   render() {
