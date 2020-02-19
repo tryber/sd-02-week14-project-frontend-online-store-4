@@ -30,12 +30,12 @@
   width: 100%;
 }
 
-.titleCard > .titleCard {
-  width: fit-content;
+.titleCard {
   font-size: 110%;
   margin: 5% 0;
   padding: 0 2%;
   text-align: center;
+  width: fit-content;
 }
 
 .buttonAddCart {

@@ -16,6 +16,7 @@ class ListProducts extends Component {
     };
     this.pesquisa = this.pesquisa.bind(this);
     this.callback = this.callback.bind(this);
+    this.caixaLupa = this.caixaLupa.bind(this);
   }
   reduceFunction(res) {
     if (res.resolve === undefined) this.setState({ value: 'Nenhum Produto foi Encontrado' });
@@ -45,6 +46,26 @@ class ListProducts extends Component {
     }
   }
 
+  caixaLupa() {
+    return (
+      <div className="container-input">
+      <div className="caixaLupa">
+        <input
+          className="searchBar"
+          type="text"
+          onChange={(e) => this.setState({ valorPesquisa: e.target.value })}
+          onKeyDown={(e) => { if (e.key === 'Enter') this.pesquisa(e.target.value); }}
+        />
+        <div className="lupa">
+          <div>
+          <img className="lupinha" src={lupa} alt="Lupa" />
+          </div>
+        </div>
+      </div>
+    </div>
+    );
+  }
+
   render() {
     const { value, results } = this.state;
     return (
@@ -58,21 +79,7 @@ class ListProducts extends Component {
               <img src="https://image.flaticon.com/icons/svg/126/126083.svg" alt="carrinho de compras" />
             </Link>
           </div>
-          <img src="https://image.flaticon.com/icons/svg/126/126083.svg" alt="carrinho de compras" />
-          <div className="container-input">
-            <div className="caixaLupa">
-              <input
-                className="searchBar"
-                type="text"
-                onChange={(e) => this.setState({ valorPesquisa: e.target.value })}
-                onKeyDown={(e) => { if (e.key === 'Enter') this.pesquisa(e.target.value); }}
-              />
-              <div className="lupa">
-                <img src={lupa} alt="Lupa" />
-              </div>
-            </div>
-          </div>
-          
+          {this.caixaLupa()}
           {(Object.keys(results).length === 0) ?
             <h1>{value}</h1> :
             <CardProduct arrCard={results} />

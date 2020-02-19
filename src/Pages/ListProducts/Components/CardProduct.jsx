@@ -5,7 +5,7 @@ import './CardProduct.css';
 class CardProduct extends React.Component {
   adicionaCart(idParam) {
     const { arrCard } = this.props;
-    const produto = arrCard.find(card => card.id === idParam);
+    const produto = arrCard.find((card) => card.id === idParam);
     if (localStorage.getItem(idParam) === null) {
       localStorage
         .setItem(idParam, JSON.stringify(
@@ -15,7 +15,6 @@ class CardProduct extends React.Component {
       const lS = { ...objKeyInfo, count: objKeyInfo.count += 1 };
       localStorage.setItem(idParam, JSON.stringify(lS));
     }
-
   }
 
   render() {
@@ -37,7 +36,7 @@ class CardProduct extends React.Component {
               <button
                 className="buttonAddCart"
                 value={element.id}
-                onClick={(event) => { this.adicionaCart(event.target.value) }}
+                onClick={(event) => { this.adicionaCart(event.target.value); }}
               >
                 Adicionar no Carrinho
               </button>
