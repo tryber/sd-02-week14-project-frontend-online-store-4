@@ -49,7 +49,7 @@ export default class ShoppingCart extends Component {
       this.atualizaState(objKeys);
     }
   }
-  
+
   atualizaState(objKeys) {
     this.setState((state) => ({
       items: [...state.items, objKeys],
