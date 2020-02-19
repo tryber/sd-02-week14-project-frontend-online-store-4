@@ -3,19 +3,18 @@ import PropTypes from 'prop-types';
 import './CardProduct.css';
 
 class CardProduct extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      cart: [],
-    }
-  }
-
   adicionaCart(idParam) {
-    console.log(idParam)
     const { arrCard } = this.props;
-    console.log(arrCard)
-    const produto = arrCard.find(card => card.id === idParam)
-    console.log(produto);
+    const produto = arrCard.find(card => card.id === idParam);
+    if (localStorage.getItem(idParam) === null) {
+      localStorage
+        .setItem(idParam, JSON.stringify(
+          { ...produto, count: 1 }));
+    } else {
+      const objKeyInfo = JSON.parse(localStorage.getItem(idParam));
+      const lS = { ...objKeyInfo, count: objKeyInfo.count += 1 };
+      localStorage.setItem(idParam, JSON.stringify(lS));
+    }
 
   }
 
