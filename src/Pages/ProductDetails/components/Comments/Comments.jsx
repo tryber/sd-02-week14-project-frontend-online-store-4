@@ -5,7 +5,7 @@ import Stars from '../Stars/Stars';
 
 class Comments extends Component {
   render() {
-  const { comments } = this.props; 
+    const { comments } = this.props;
     return (
       <div className="comp_comments">
         {comments.map((comment) => (
@@ -22,5 +22,21 @@ class Comments extends Component {
     );
   }
 }
+
+Comments.propTypes = {
+  comments: PropTypes.shape({
+    email: PropTypes.string,
+    rate: PropTypes.number,
+    message: PropTypes.string,
+  }),
+};
+
+Comments.defaultProps = {
+  comments: PropTypes.shape({
+    email: '',
+    rate: 0,
+    message: '',
+  }),
+};
 
 export default Comments;

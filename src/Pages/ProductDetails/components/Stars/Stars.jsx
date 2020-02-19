@@ -17,7 +17,6 @@ class Stars extends Component {
   }
 
   componentDidMount() {
-    console.log(typeof this.props.callback )
     const { rate } = this.props;
     this.updateStars(rate);
     if (this.props.callback) {
@@ -25,6 +24,16 @@ class Stars extends Component {
         this.icons[i].current.disabled = false;
       }
     }
+  }
+
+  zerarStars() {
+    for (let i = 0; i < 5; i += 1) {
+      this.icons[i].current.firstChild.innerText = 'star_border';
+    }
+  }
+
+  onClick(e) {
+    this.updateStars(Number(e.target.getAttribute('name')));
   }
 
   updateStars(num) {
@@ -37,16 +46,6 @@ class Stars extends Component {
     if (this.props.callback) {
       this.props.callback(num);
     }
-  }
-
-  zerarStars() {
-    for (let i = 0; i < 5; i += 1) {
-      this.icons[i].current.firstChild.innerText = 'star_border';
-    }
-  }
-
-  onClick(e) {
-    this.updateStars(Number(e.target.getAttribute('name')));
   }
 
   render() {

@@ -38,7 +38,7 @@ export default class ProductDetails extends Component {
     super(props);
     this.state = {
       comments: [],
-    }
+    };
     this.submitHandle = this.submitHandle.bind(this);
   }
 

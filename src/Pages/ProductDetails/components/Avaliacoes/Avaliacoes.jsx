@@ -10,7 +10,7 @@ class Avaliacoes extends Component {
     super(props);
     this.abacaxi = this.abacaxi.bind(this);
     this.updateRate = this.updateRate.bind(this);
-    this.state = { 
+    this.state = {
       comment: {
         email: '',
         message: '',
@@ -20,20 +20,20 @@ class Avaliacoes extends Component {
     this.onChange = this.onChange.bind(this);
   }
 
-  updateRate(rate) {
-    this.setState({
-      comment: {
-        ...this.state.comment,
-        rate,
-      },
-    });
-  }
-
   onChange(name, value) {
     this.setState({
       comment: {
         ...this.state.comment,
         [name]: value,
+      },
+    });
+  }
+
+  updateRate(rate) {
+    this.setState({
+      comment: {
+        ...this.state.comment,
+        rate,
       },
     });
   }
