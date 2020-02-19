@@ -26,14 +26,14 @@ class Stars extends Component {
     }
   }
 
+  onClick(e) {
+    this.updateStars(Number(e.target.getAttribute('name')));
+  }
+
   zerarStars() {
     for (let i = 0; i < 5; i += 1) {
       this.icons[i].current.firstChild.innerText = 'star_border';
     }
-  }
-
-  onClick(e) {
-    this.updateStars(Number(e.target.getAttribute('name')));
   }
 
   updateStars(num) {
