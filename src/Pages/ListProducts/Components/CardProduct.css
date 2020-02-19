@@ -26,12 +26,8 @@
 
 .titleCard {
   display: flex;
-  justify-content: center;
-  width: 100%;
-}
-
-.titleCard {
   font-size: 110%;
+  justify-content: center;
   margin: 5% 0;
   padding: 0 2%;
   text-align: center;

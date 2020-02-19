@@ -49,20 +49,20 @@ class ListProducts extends Component {
   caixaLupa() {
     return (
       <div className="container-input">
-      <div className="caixaLupa">
-        <input
-          className="searchBar"
-          type="text"
-          onChange={(e) => this.setState({ valorPesquisa: e.target.value })}
-          onKeyDown={(e) => { if (e.key === 'Enter') this.pesquisa(e.target.value); }}
-        />
-        <div className="lupa">
-          <div>
-          <img className="lupinha" src={lupa} alt="Lupa" />
+        <div className="caixaLupa">
+          <input
+            className="searchBar"
+            type="text"
+            onChange={(e) => this.setState({ valorPesquisa: e.target.value })}
+            onKeyDown={(e) => { if (e.key === 'Enter') this.pesquisa(e.target.value); }}
+          />
+          <div className="lupa">
+            <div>
+              <img className="lupinha" src={lupa} alt="Lupa" />
+            </div>
           </div>
         </div>
       </div>
-    </div>
     );
   }
 
