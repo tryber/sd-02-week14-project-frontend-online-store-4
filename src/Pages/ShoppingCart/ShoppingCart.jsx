@@ -6,14 +6,20 @@ import '../ShoppingCart/ShoppingCart.css';
 import backButton from './images/backButton.png';
 
 export default class ShoppingCart extends Component {
-  static loadingEmpty() {
+  static botaoVolta() {
     return (
-      <div className="shoppingCart">
-        <div className="buttonReturn">
+      <div className="buttonReturn">
           <Link className="buttonReturn" to="/">
             <img src={backButton} alt="backButton" />
           </Link>
-        </div>
+      </div>
+    )
+  }
+
+  static loadingEmpty() {
+    return (
+      <div className="shoppingCart">
+        {this.botaoVolta()}
         <div className="clear" />
         <div className="emptyCarPai">
           <div className="emptyCar">
@@ -32,6 +38,7 @@ export default class ShoppingCart extends Component {
       </div>
     );
   }
+
 
   constructor(props) {
     super(props);

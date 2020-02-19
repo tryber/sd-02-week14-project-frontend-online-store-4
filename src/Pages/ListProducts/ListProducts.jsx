@@ -17,14 +17,14 @@ class ListProducts extends Component {
     this.pesquisa = this.pesquisa.bind(this);
     this.callback = this.callback.bind(this);
     this.caixaLupa = this.caixaLupa.bind(this);
+    this.returnParam = this.returnParam.bind(this);
   }
   reduceFunction(res) {
     if (res.resolve === undefined) this.setState({ value: 'Nenhum Produto foi Encontrado' });
     this.setState({
       results:
         res.results.reduce((acc, curr) => {
-          const { id, title, price, thumbnail } = curr;
-          return [...acc, { id, title, price, thumbnail }];
+          return [...acc, curr];
         }, []),
     });
   }
@@ -66,6 +66,11 @@ class ListProducts extends Component {
     );
   }
 
+  returnParam(param) {
+    const { banana } = this.props;
+    banana(param);
+  }
+
   render() {
     const { value, results } = this.state;
     return (
@@ -82,7 +87,7 @@ class ListProducts extends Component {
           {this.caixaLupa()}
           {(Object.keys(results).length === 0) ?
             <h1>{value}</h1> :
-            <CardProduct arrCard={results} />
+            <CardProduct arrCard={results} retornaParam={this.returnParam}/>
           }
         </div>
       </div>

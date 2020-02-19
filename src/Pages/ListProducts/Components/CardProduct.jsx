@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import './CardProduct.css';
 
-class CardProduct extends React.Component {
+class CardProduct extends Component {
   adicionaCart(idParam) {
     const { arrCard } = this.props;
     const produto = arrCard.find((card) => card.id === idParam);
@@ -17,21 +18,29 @@ class CardProduct extends React.Component {
     }
   }
 
-  render() {
-    const { arrCard } = this.props;
+  abreDetail() {
+    return (
+    <Link to="/product-details" />
+    );
+  }
+
+  cardProduct() {
+    const { arrCard, retornaParam } = this.props;
     return (
       <div className="containCard">
         {arrCard.map((element) => (
           <div className="cardComplete" key={element.id}>
-            <div className="titleCard">
-              <h5 className="titleCard">{element.title}</h5>
-            </div>
-            <div className="containerImg">
-              <img className="cardImage" src={element.thumbnail} alt={element.title} />
-            </div>
-            <div>
-              <h6>{((element.price * 100) / 100).toFixed(2)}</h6>
-            </div>
+            <Link className="label" to={`/product-details/${element.id}`} onClick={() => retornaParam(element)} >
+              <div className="titleCard">
+                <h5 className="titleCard">{element.title}</h5>
+              </div>
+              <div className="containerImg">
+                <img className="cardImage" src={element.thumbnail} alt={element.title} />
+              </div>
+              <div>
+                <h6>{((element.price * 100) / 100).toFixed(2)}</h6>
+              </div>
+            </Link>
             <div>
               <button
                 className="buttonAddCart"
@@ -44,6 +53,12 @@ class CardProduct extends React.Component {
           </div>
         ))}
       </div>
+    );
+  }
+
+  render() {
+    return (
+      this.cardProduct()
     );
   }
 }
