@@ -42,7 +42,6 @@ export default class ShoppingCart extends Component {
     this.atualizaState = this.atualizaState.bind(this);
   }
 
-  
   componentDidMount() {
     const infoKey = Object.keys(localStorage);
     for (let i = 0; i < infoKey.length; i += 1) {
@@ -56,7 +55,7 @@ export default class ShoppingCart extends Component {
       items: [...state.items, objKeys],
     }));
   }
-  
+
   render() {
     const { load } = this.state;
     if (!load) return ShoppingCart.loadingEmpty();
