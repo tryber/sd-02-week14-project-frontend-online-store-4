@@ -5,22 +5,20 @@ import Stars from '../Stars/Stars';
 
 class Comments extends Component {
   render() {
+    console.log(this.state, this.props)
+    const { comments } = this.props; 
     return (
       <div className="comp_comments">
-        <div>
-          <p>fula@email.com</p>
-          <Stars />
-        </div>
-        <hr />
-        <div>
-          <p>fula@email.com</p>
-          <Stars />
-        </div>
-        <hr />
-        <div>
-          <p>fula@email.com</p>
-          <Stars />
-        </div>
+        {comments.map((comment) => (
+          <div key={comment.email}>
+            <div>
+              <p>{comment.email}</p>
+              <Stars rate={comment.rate}  />
+            </div>
+            <textarea disabled value={comment.message} />
+            <hr />
+          </div>
+        ))}
       </div>
     );
   }

@@ -1,4 +1,7 @@
-.comp_comments > div {
-  display: flex;
+.comp_comments {
   margin: 1%;
+}
+
+.comp_comments > div > div {
+  display: flex;
 }
