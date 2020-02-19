@@ -19,11 +19,6 @@ class Stars extends Component {
   componentDidMount() {
     const { rate } = this.props;
     this.updateStars(rate);
-    if (this.props.callback) {
-      for (let i = 0; i < 5; i += 1) {
-        this.icons[i].current.disabled = false;
-      }
-    }
   }
 
   onClick(e) {
@@ -49,29 +44,30 @@ class Stars extends Component {
   }
 
   render() {
+    const { disabled } = this.props;
     return (
       <div className="comp_stars" ref={this.container}>
-        <button onClick={this.onClick} ref={this.icon}>
+        <button onClick={this.onClick} ref={this.icon} disabled={disabled}>
           <i className="material-icons" name="1">
             star_border
           </i>
         </button>
-        <button onClick={this.onClick} ref={this.icon2}>
+        <button onClick={this.onClick} ref={this.icon2} disabled={disabled}>
           <i className="material-icons" name="2">
             star_border
         </i>
         </button>
-        <button onClick={this.onClick} ref={this.icon3}>
+        <button onClick={this.onClick} ref={this.icon3} disabled={disabled}>
           <i className="material-icons" name="3">
             star_border
         </i>
         </button>
-        <button onClick={this.onClick} ref={this.icon4}>
+        <button onClick={this.onClick} ref={this.icon4} disabled={disabled}>
           <i className="material-icons" name="4">
             star_border
         </i>
         </button>
-        <button onClick={this.onClick} ref={this.icon5}>
+        <button onClick={this.onClick} ref={this.icon5} disabled={disabled}>
           <i className="material-icons" name="5">
             star_border
         </i>
@@ -84,11 +80,13 @@ class Stars extends Component {
 Stars.propTypes = {
   rate: PropTypes.number,
   callback: PropTypes.func,
+  disabled: PropTypes.string,
 };
 
 Stars.defaultProps = {
   rate: 0,
   callback: undefined,
+  disabled: '',
 };
 
 export default Stars;

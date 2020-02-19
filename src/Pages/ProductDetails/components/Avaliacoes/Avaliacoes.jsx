@@ -40,7 +40,9 @@ class Avaliacoes extends Component {
 
   abacaxi() {
     const { comment } = this.state;
-    this.props.submitHandle(comment);
+    if (comment.email.length !== 0) {
+      this.props.submitHandle(comment);
+    }
   }
 
   render() {
