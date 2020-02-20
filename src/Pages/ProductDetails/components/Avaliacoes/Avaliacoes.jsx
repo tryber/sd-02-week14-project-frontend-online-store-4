@@ -43,6 +43,21 @@ class Avaliacoes extends Component {
     if (comment.email.length !== 0) {
       this.props.submitHandle(comment);
     }
+    this.setState({
+      comment: {
+        email: '',
+        message: '',
+        rate: 0,
+      },
+    });
+    if (comment.email) {
+      this.storage(comment);
+      this.props.submitHandle(comment);
+    }
+  }
+
+  storage({ email, message, rate }) {
+    localStorage.setItem(`ecommerceEmail ${email}`, `${email},${message},${rate}`);
   }
 
   render() {
@@ -53,7 +68,7 @@ class Avaliacoes extends Component {
         <strong>Avaliações</strong>
         <div className="container">
           <div>
-            <input type="text" placeholder="email" onChange={(e) => this.onChange('email', e.target.value)} value={email} />
+            <input type="email" placeholder="email" onChange={(e) => this.onChange('email', e.target.value)} value={email} />
             <Stars rate={rate} callback={this.updateRate} />
           </div>
           <textarea placeholder="mensagem" onChange={(e) => this.onChange('message', e.target.value)} value={message} />

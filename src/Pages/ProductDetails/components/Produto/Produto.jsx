@@ -23,7 +23,7 @@ class Produto extends Component {
           </div>
           <div className="endereco_vendedor">
             <strong>Endereço do vendedor: </strong>
-            <div>
+            <div className='local'>
               <Campo campo={country} label={'País'} />
               <Campo campo={state} label={'Estado'} />
               <Campo campo={city} label={'Cidade'} />

@@ -42,6 +42,25 @@ export default class ProductDetails extends Component {
     this.submitHandle = this.submitHandle.bind(this);
   }
 
+  allStorageKeys() {
+    const keys = Object.keys(localStorage);
+    return keys;
+  }
+
+  componentDidMount() {
+    let storages = this.allStorageKeys();
+    storages = storages.filter(item => item.includes('ecommerceEmail'));
+    storages = storages.map(item => localStorage[item]);
+    const comments = storages.map((item) => {
+      const array = item.split(',');
+      const comment = { email: array[0], message: array[1], rate: Number(array[2]) };
+      return comment;
+    });
+    this.setState({
+      comments: [...comments],
+    });
+  }
+
   submitHandle(comment) {
     this.setState({
       comments: [...this.state.comments, comment],
