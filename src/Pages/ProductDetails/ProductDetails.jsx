@@ -65,7 +65,8 @@ export default class ProductDetails extends Component {
   }
 
   componentsRender() {
-    const { title, price, installments } = this.props.passaObj;
+    const { passaObj } = this.props;
+    const { title, price, installments } = passaObj;
     const { comments } = this.state;
     return (
       <div>
