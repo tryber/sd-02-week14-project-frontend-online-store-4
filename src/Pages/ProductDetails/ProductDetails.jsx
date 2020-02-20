@@ -9,6 +9,11 @@ import Avaliacoes from './components/Avaliacoes/Avaliacoes';
 import Comments from './components/Comments/Comments';
 import CardProduct from '../ListProducts/Components/CardProduct';
 
+function allStorageKeys() {
+  const keys = Object.keys(localStorage);
+  return keys;
+}
+
 export default class ProductDetails extends Component {
   constructor(props) {
     super(props);
@@ -21,8 +26,25 @@ export default class ProductDetails extends Component {
   }
 
   componentDidMount() {
+    const { id } = this.props.passaObj;
     this.valueCart();
+    let keys = allStorageKeys();
+    keys = keys.filter((item) => item.includes(`ProductDetails,${id}`));
+    const storages = keys.map((item) => localStorage[item]);
+    const comments = storages.map((item) => {
+      const array = item.split(',');
+      const comment = { email: array[0], message: array[1], rate: Number(array[2]) };
+      return comment;
+    });
+    this.updateComment(comments);
   }
+
+  updateComment(comments) {
+    this.setState({
+      comments: [...comments],
+    });
+  }
+
   valueCart() {
     this.setState({ detailCount: Number(localStorage.getItem('CartCount')) });
   }
@@ -42,26 +64,40 @@ export default class ProductDetails extends Component {
     });
   }
 
-  render() {
+  componentsRender() {
     const { passaObj } = this.props;
     const { title, price, installments } = passaObj;
-    const { comments, detailCount } = this.state;
+    const { comments } = this.state;
+    return (
+      <div>
+        <div className="title">
+          <p>{title} - </p>
+          <p>{price},00 R$</p>
+        </div>
+        <Produto obj={passaObj} />
+        <Quantidade enviaCard={this.enviaArrCard} />
+        <Avaliacoes
+          rate={installments.rate}
+          submitHandle={this.submitHandle}
+          id={passaObj.id}
+        />
+        <Comments
+          comments={comments}
+        />
+      </div>
+    );
+  }
+
+  render() {
+    const { passaObj } = this.props;
+    const { title } = passaObj;
+    const { detailCount } = this.state;
     return (
       <div className="page_productDetails">
         {ShoppingCart.botaoVolta()}
         {ListProduct.caixaCarrinho(detailCount)}
         {(title) ?
-          <div>
-            <div className="title">
-              <p>{title} - </p>
-              <p>{price},00 R$</p>
-            </div>
-            <Produto obj={passaObj} />
-            <Quantidade enviaCard={this.enviaArrCard} />
-            <Avaliacoes rate={installments.rate} submitHandle={this.submitHandle} />
-            <Comments
-              comments={comments}
-            /> </div> :
+          this.componentsRender() :
           <div>
             <br />
             <span>Não Foi possivel carregar sua Pagina</span>

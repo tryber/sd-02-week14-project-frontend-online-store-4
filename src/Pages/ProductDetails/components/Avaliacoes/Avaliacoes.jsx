@@ -5,6 +5,12 @@ import './style.css';
 
 import Stars from '../Stars/Stars';
 
+function storage({ email, message, rate }, id) {
+  if (id) {
+    localStorage.setItem(`ProductDetails,${id}`, `${email},${message},${rate}`);
+  }
+}
+
 class Avaliacoes extends Component {
   constructor(props) {
     super(props);
@@ -40,7 +46,21 @@ class Avaliacoes extends Component {
 
   abacaxi() {
     const { comment } = this.state;
-    this.props.submitHandle(comment);
+    const { id } = this.props;
+    if (comment.email.length !== 0) {
+      this.props.submitHandle(comment);
+    }
+    this.setState({
+      comment: {
+        email: '',
+        message: '',
+        rate: 0,
+      },
+    });
+    if (comment.email) {
+      storage(comment, id);
+      this.props.submitHandle(comment);
+    }
   }
 
   render() {
@@ -51,7 +71,7 @@ class Avaliacoes extends Component {
         <strong>Avaliações</strong>
         <div className="container">
           <div>
-            <input type="text" placeholder="email" onChange={(e) => this.onChange('email', e.target.value)} value={email} />
+            <input type="email" placeholder="email" onChange={(e) => this.onChange('email', e.target.value)} value={email} />
             <Stars rate={rate} callback={this.updateRate} />
           </div>
           <textarea placeholder="mensagem" onChange={(e) => this.onChange('message', e.target.value)} value={message} />
@@ -64,11 +84,13 @@ class Avaliacoes extends Component {
 
 Avaliacoes.propTypes = {
   submitHandle: PropTypes.func,
+  id: PropTypes.number,
 };
 
 Avaliacoes.defaultProps = {
   submitHandle: undefined,
   rate: 0,
+  id: undefined,
 };
 
 export default Avaliacoes;
