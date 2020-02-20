@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import './ListProducts.css';
 import ListFilter from './Components/ListFilter';
 import CardProduct from './Components/CardProduct';
@@ -23,9 +24,7 @@ class ListProducts extends Component {
     if (res.resolve === undefined) this.setState({ value: 'Nenhum Produto foi Encontrado' });
     this.setState({
       results:
-        res.results.reduce((acc, curr) => {
-          return [...acc, curr];
-        }, []),
+        res.results.reduce((acc, curr) => [...acc, curr], []),
     });
   }
   pesquisa(e) {
@@ -87,7 +86,7 @@ class ListProducts extends Component {
           {this.caixaLupa()}
           {(Object.keys(results).length === 0) ?
             <h1>{value}</h1> :
-            <CardProduct arrCard={results} retornaParam={this.returnParam}/>
+            <CardProduct arrCard={results} retornaParam={this.returnParam} />
           }
         </div>
       </div>
@@ -96,3 +95,7 @@ class ListProducts extends Component {
 }
 
 export default ListProducts;
+
+ListProducts.propTypes = PropTypes.shape({
+  banana: PropTypes.func,
+}).isRequired;

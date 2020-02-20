@@ -18,12 +18,6 @@ class CardProduct extends Component {
     }
   }
 
-  abreDetail() {
-    return (
-    <Link to="/product-details" />
-    );
-  }
-
   cardProduct() {
     const { arrCard, retornaParam } = this.props;
     return (
