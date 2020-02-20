@@ -44,13 +44,13 @@ export default class ShoppingCart extends Component {
     this.state = {
       load: false,
       items: [],
-      qt: '',
     };
     this.atualizaState = this.atualizaState.bind(this);
     this.quantidadeProduto = this.quantidadeProduto.bind(this);
     this.carregaProdutos = this.carregaProdutos.bind(this);
     this.totalProdutos = this.totalProdutos.bind(this);
     this.finalizaCompra = this.finalizaCompra.bind(this);
+    this.atualizaContador = this.atualizaContador.bind(this);
   }
 
   componentDidMount() {
@@ -63,49 +63,90 @@ export default class ShoppingCart extends Component {
   }
 
   atualizaState(objKeys) {
-    this.setState((state) => ({
-      load: true,
-      items: [...state.items, objKeys],
-      qt: 1,
-    }));
+    if (Object.keys(objKeys).length > 0) {
+      this.setState((state) => ({
+        load: true,
+        items: [...state.items, objKeys],
+      }));
+    }
   }
-  
-  quantidadeProduto() {
+
+  quantidadeProduto(count) {
     return (
-      <div>
-          <p>1</p>
+      <div className="somaReduz">
+        <p>{count}</p>
       </div>
     );
   }
 
-  carregaProdutos() {
+  clearProduto() {
     return (
-      <div>
+      <button
+        className="SomeAndRemove"
+        type="button"
+      >
+        <i className="material-icons">
+          clear
+        </i>
+      </button>
+    );
+  }
+
+  carregaImagemTitulo(title, image) {
+    return (
+      <div className="imagemTitulo">
         <div>
-          <button>Excluir</button>
+          <img src={image} alt={title}></img>
         </div>
         <div>
-          Imagem
+          <p>{title}</p>
         </div>
-        <div>
-          <button
-            className="SomeAndRemove"
-            type="button"
-            onClick={() => this.setState((state) => ({ qt: state.qt + 1 }))}
-          >
-            <i className="material-icons">remove</i>
-          </button>
+      </div>
+    );
+  }
+
+  atualizaContador(value) {
+    const { items } = this.state
+    const contador = items.find((valor) => valor.id === value).count
+    this.quantidadeProduto(contador)
+  }
+
+  carregaProdutos(items, index) {
+    const { title, price, thumbnail, count, id } = items;
+    return (
+      <div className="containerCarrega" key={index}>
+        {this.clearProduto()}
+        {this.carregaImagemTitulo(title, thumbnail)}
+        <div className="containerBotoes">
+          <div className="somaReduz">
+            <button
+              className="SomeAndRemove"
+              type="button"
+              onClick={() => this.atualizaContador(id)}
+            >
+              <i className="material-icons">remove</i>
+            </button>
+          </div>
+          {this.quantidadeProduto(count)}
+          <div className="somaReduz">
+            <button
+              className="SomeAndRemove"
+              type="button"
+              onClick={() => this.setState((state) => ({ count: state.count + 1 }))}
+            >
+              <i className="material-icons">add</i>
+            </button>
+          </div>
+          {this.valorProduto(price)}
         </div>
-        {this.quantidadeProduto()}
-        <div>
-          <button
-            className="SomeAndRemove"
-            type="button"
-            onClick={() => this.setState((state) => ({ qt: state.qt + 1 }))}
-          >
-            <i className="material-icons">add</i>
-          </button>
-        </div>
+      </div>
+    );
+  }
+
+  valorProduto(price) {
+    return (
+      <div className="valorProduto">
+        <p>R$ {price}</p>
       </div>
     );
   }
@@ -129,12 +170,12 @@ export default class ShoppingCart extends Component {
   }
 
   render() {
-    const { load } = this.state;
+    const { load, items } = this.state;
     if (!load) return ShoppingCart.loadingEmpty();
-
     return (
-      <div>
-        {this.carregaProdutos()}
+      <div className="containerGeral">
+        {ShoppingCart.botaoVolta()}
+        {items.map((item, index) => this.carregaProdutos(item, index))}
         {this.totalProdutos()}
         {this.finalizaCompra()}
       </div>
