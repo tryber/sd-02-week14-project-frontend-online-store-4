@@ -7,8 +7,8 @@ import './style.css';
 class Produto extends Component {
   render() {
     const { obj } = this.props;
-    const { thumbnail, available_quantity, sold_quantity, condition } = obj;
-    const { shipping: { free_shipping } } = obj;
+    const { thumbnail, available_quantity: availableQuantity, sold_quantity: soldQuantity, condition } = obj;
+    const { shipping: { free_shipping: freeShipping } } = obj;
     const { seller_address: { country: { name: country },
       state: { name: state }, city: { name: city } } } = obj;
     return (
@@ -16,10 +16,10 @@ class Produto extends Component {
         <img src={thumbnail} alt="" />
         <div className="dados">
           <div className="campos">
-            <Campo campo={`${available_quantity} unidade(s)`} label={'estoque'} />
-            <Campo campo={`${sold_quantity} vendido(s)`} label={'vendidos'} />
+            <Campo campo={`${availableQuantity} unidade(s)`} label={'estoque'} />
+            <Campo campo={`${soldQuantity} vendido(s)`} label={'vendidos'} />
             <Campo campo={(condition === 'new') ? 'Novo' : 'Usado'} label={'condição'} />
-            <Campo campo={(free_shipping) ? 'Entrega grátis' : 'Fretado'} label={'frete'} />
+            <Campo campo={(freeShipping) ? 'Entrega grátis' : 'Fretado'} label={'frete'} />
           </div>
           <div className="endereco_vendedor">
             <strong>Endereço do vendedor: </strong>
