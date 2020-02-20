@@ -116,7 +116,9 @@ ProductDetails.propTypes = {
       rate: PropTypes.number.isRequired,
     }).isRequired,
   }).isRequired,
-  passaArr: PropTypes.any.isRequired,
+  passaArr: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.string.isRequired,
+  })),
 };
 
 

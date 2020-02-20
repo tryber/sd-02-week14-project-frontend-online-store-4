@@ -5,7 +5,6 @@ import './CardProduct.css';
 
 class CardProduct extends Component {
   static adicionaCart(idParam, arrCard, state) {
-    console.log(arrCard)
     const produto = arrCard.find((card) => card.id === idParam);
     if (localStorage.getItem(idParam) === null) {
       localStorage
