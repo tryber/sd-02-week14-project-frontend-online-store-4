@@ -6,15 +6,16 @@
 }
 
 .header img {
-  align-self: flex-end;
   margin: 10px;
-  width: 3%;
+  width: 100%;
 }
 
 .header .searchBar {
   border-radius: 100px;
+  display: flex;
   font-size: 110%;
   height: 40px;
+  justify-content: center;
   padding: 0.2%;
   text-align: center;
   width: 100%;
@@ -37,7 +38,7 @@
   display: flex;
   flex-direction: row;
   position: relative;
-  width: 50%;
+  width: 200%;
 }
 
 .lupa {
@@ -47,6 +48,19 @@
   width: 5%;
 }
 
-.lupa > img {
-  width: 80%;
+.container-input {
+  display: flex;
+  width: 50%;
+}
+
+.container-cart {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.carrinhoCart {
+  align-self: flex-end;
+  display: flex;
+  width: fit-content;
 }

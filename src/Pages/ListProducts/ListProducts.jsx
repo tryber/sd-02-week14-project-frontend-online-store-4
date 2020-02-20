@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import './ListProducts.css';
 import ListFilter from './Components/ListFilter';
 import CardProduct from './Components/CardProduct';
+import lupa from './images/lupa.png';
 
-class ListProducts extends React.Component {
+class ListProducts extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -14,6 +16,7 @@ class ListProducts extends React.Component {
     };
     this.pesquisa = this.pesquisa.bind(this);
     this.callback = this.callback.bind(this);
+    this.caixaLupa = this.caixaLupa.bind(this);
   }
   reduceFunction(res) {
     if (res.resolve === undefined) this.setState({ value: 'Nenhum Produto foi Encontrado' });
@@ -43,6 +46,26 @@ class ListProducts extends React.Component {
     }
   }
 
+  caixaLupa() {
+    return (
+      <div className="container-input">
+        <div className="caixaLupa">
+          <input
+            className="searchBar"
+            type="text"
+            onChange={(e) => this.setState({ valorPesquisa: e.target.value })}
+            onKeyDown={(e) => { if (e.key === 'Enter') this.pesquisa(e.target.value); }}
+          />
+          <div className="lupa">
+            <div>
+              <img className="lupinha" src={lupa} alt="Lupa" />
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   render() {
     const { value, results } = this.state;
     return (
@@ -51,13 +74,12 @@ class ListProducts extends React.Component {
           <ListFilter callback={this.callback} />
         </div>
         <div className="header">
-          <img src="https://image.flaticon.com/icons/svg/126/126083.svg" alt="carrinho de compras" />
-          <input
-            className="searchBar"
-            type="text"
-            onChange={(e) => this.setState({ valorPesquisa: e.target.value })}
-            onKeyDown={(e) => { if (e.key === 'Enter') this.pesquisa(e.target.value); }}
-          />
+          <div className="container-cart">
+            <Link className="carrinhoCart" to="/shopping-cart">
+              <img src="https://image.flaticon.com/icons/svg/126/126083.svg" alt="carrinho de compras" />
+            </Link>
+          </div>
+          {this.caixaLupa()}
           {(Object.keys(results).length === 0) ?
             <h1>{value}</h1> :
             <CardProduct arrCard={results} />
