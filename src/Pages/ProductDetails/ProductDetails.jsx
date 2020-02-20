@@ -27,7 +27,6 @@ export default class ProductDetails extends Component {
     const { passaObj } = this.props;
     const { title, price, installments } = passaObj;
     const { comments } = this.state;
-    console.log(passaObj.taitle)
     return (
       <div className="page_productDetails">
         {ShoppingCart.botaoVolta()}
@@ -40,7 +39,13 @@ export default class ProductDetails extends Component {
             <Produto obj={passaObj} />
             <Quantidade />
             <Avaliacoes rate={installments.rate} submitHandle={this.submitHandle} />
-            <Comments comments={comments} /> </div> : <div><br /> <span>Não Foi possivel carregar sua Pagina</span></div>}
+            <Comments
+              comments={comments}
+            /> </div> :
+          <div>
+            <br />
+            <span>Não Foi possivel carregar sua Pagina</span>
+          </div>}
       </div>
     );
   }

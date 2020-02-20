@@ -17,7 +17,12 @@ class Campo extends Component {
         <strong>Quantidade</strong>
         <div className="container">
           <div>
-            <button opacity="100%" className="SomeAndRemove" type="button" onClick={() => this.setState((state) => ({ qt: state.qt + 1 }))}>
+            <button
+              opacity="100%"
+              className="SomeAndRemove"
+              type="button"
+              onClick={() => this.setState((state) => ({ qt: state.qt + 1 }))}
+            >
               <i className="material-icons">
                 add
           </i>
@@ -25,7 +30,12 @@ class Campo extends Component {
           </div>
           <p>{qt}</p>
           <div>
-            <button opacity="100%" className="SomeAndRemove" type="button" onClick={() => this.setState((state) => ({ qt: (state.qt > 1 ) ? state.qt - 1 : 1 }))}>
+            <button
+              opacity="100%"
+              className="SomeAndRemove"
+              type="button"
+              onClick={() => this.setState((state) => ({ qt: (state.qt > 1) ? state.qt - 1 : 1 }))}
+            >
               <i className="material-icons">
                 remove
             </i>

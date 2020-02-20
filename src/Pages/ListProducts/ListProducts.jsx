@@ -24,10 +24,10 @@ class ListProducts extends Component {
     this.ValorCarrinho = this.ValorCarrinho.bind(this);
   }
   componentDidMount() {
-    this.ValorCarrinho()
+    this.ValorCarrinho();
   }
   ValorCarrinho() {
-    this.setState({ carrinhoCont: localStorage.getItem('CartCount') })
+    this.setState({ carrinhoCont: localStorage.getItem('CartCount') });
   }
   reduceFunction(res) {
     if (res.resolve === undefined) this.setState({ value: 'Nenhum Produto foi Encontrado' });
@@ -81,8 +81,8 @@ class ListProducts extends Component {
 
   numberCart() {
     this.setState((state) => {
-      localStorage.setItem('CartCount', (state.carrinhoCont + 1))
-      return ({ carrinhoCont: state.carrinhoCont + 1, })
+      localStorage.setItem('CartCount', (state.carrinhoCont + 1));
+      return ({ carrinhoCont: state.carrinhoCont + 1 });
     });
   }
 
@@ -103,7 +103,11 @@ class ListProducts extends Component {
           {this.caixaLupa()}
           {(Object.keys(results).length === 0) ?
             <h1>{value}</h1> :
-            <CardProduct arrCard={results} numberCart={this.numberCart} retornaParam={this.returnParam} />
+            <CardProduct
+              arrCard={results}
+              numberCart={this.numberCart}
+              retornaParam={this.returnParam}
+            />
           }
         </div>
       </div>
