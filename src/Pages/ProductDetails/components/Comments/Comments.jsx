@@ -24,7 +24,7 @@ class Comments extends Component {
 }
 
 Comments.propTypes = {
-  comments:  PropTypes.arrayOf(PropTypes.shape({
+  comments: PropTypes.arrayOf(PropTypes.shape({
     email: PropTypes.string,
     rate: PropTypes.number,
     message: PropTypes.string,

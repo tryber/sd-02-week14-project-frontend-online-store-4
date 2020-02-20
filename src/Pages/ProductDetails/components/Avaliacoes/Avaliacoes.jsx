@@ -52,13 +52,15 @@ class Avaliacoes extends Component {
       },
     });
     if (comment.email) {
-      this.storage(comment, id);
+      this.storage(comment, id, this);
       this.props.submitHandle(comment);
     }
   }
 
   storage({ email, message, rate }, id) {
-    localStorage.setItem(`ProductDetails,${id}`, `${email},${message},${rate}`);
+    if (id) {
+      localStorage.setItem(`ProductDetails,${id}`, `${email},${message},${rate}`);
+    }
   }
 
   render() {
@@ -82,11 +84,13 @@ class Avaliacoes extends Component {
 
 Avaliacoes.propTypes = {
   submitHandle: PropTypes.func,
+  id: PropTypes.number,
 };
 
 Avaliacoes.defaultProps = {
   submitHandle: undefined,
   rate: 0,
+  id: undefined,
 };
 
 export default Avaliacoes;
