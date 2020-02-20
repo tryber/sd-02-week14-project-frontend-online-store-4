@@ -40,6 +40,7 @@ class Avaliacoes extends Component {
 
   abacaxi() {
     const { comment } = this.state;
+    const { id } = this.props;
     if (comment.email.length !== 0) {
       this.props.submitHandle(comment);
     }
@@ -51,13 +52,13 @@ class Avaliacoes extends Component {
       },
     });
     if (comment.email) {
-      this.storage(comment);
+      this.storage(comment, id);
       this.props.submitHandle(comment);
     }
   }
 
-  storage({ email, message, rate }) {
-    localStorage.setItem(`ecommerceEmail ${email}`, `${email},${message},${rate}`);
+  storage({ email, message, rate }, id) {
+    localStorage.setItem(`ProductDetails,${id}`, `${email},${message},${rate}`);
   }
 
   render() {
@@ -85,6 +86,7 @@ Avaliacoes.propTypes = {
 
 Avaliacoes.defaultProps = {
   submitHandle: undefined,
+  rate: 0,
 };
 
 export default Avaliacoes;

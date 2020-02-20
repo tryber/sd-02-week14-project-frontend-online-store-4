@@ -1,11 +1,23 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import './ListProducts.css';
 import ListFilter from './Components/ListFilter';
 import CardProduct from './Components/CardProduct';
 import lupa from './images/lupa.png';
 
 class ListProducts extends Component {
+  static caixaCarrinho(carrinho) {
+    return (
+      <div className="container-cart">
+        <Link className="carrinhoCart" to="/shopping-cart">
+          <img src="https://image.flaticon.com/icons/svg/126/126083.svg" alt="carrinho de compras" />
+          <span>{carrinho}</span>
+        </Link>
+      </div>
+    );
+  }
+
   constructor(props) {
     super(props);
     this.state = {
@@ -13,19 +25,26 @@ class ListProducts extends Component {
       results: [],
       valueradio: '',
       valorPesquisa: '',
+      carrinhoCont: 0,
     };
     this.pesquisa = this.pesquisa.bind(this);
     this.callback = this.callback.bind(this);
     this.caixaLupa = this.caixaLupa.bind(this);
+    this.returnParam = this.returnParam.bind(this);
+    this.numberCart = this.numberCart.bind(this);
+    this.valorCarrinho = this.valorCarrinho.bind(this);
+  }
+  componentDidMount() {
+    this.valorCarrinho();
+  }
+  valorCarrinho() {
+    this.setState({ carrinhoCont: Number(localStorage.getItem('CartCount')) });
   }
   reduceFunction(res) {
     if (res.resolve === undefined) this.setState({ value: 'Nenhum Produto foi Encontrado' });
     this.setState({
       results:
-        res.results.reduce((acc, curr) => {
-          const { id, title, price, thumbnail } = curr;
-          return [...acc, { id, title, price, thumbnail }];
-        }, []),
+        res.results.reduce((acc, curr) => [...acc, curr], []),
     });
   }
   pesquisa(e) {
@@ -66,23 +85,35 @@ class ListProducts extends Component {
     );
   }
 
+  returnParam(element, arrCard) {
+    const { banana } = this.props;
+    banana(element, arrCard);
+  }
+
+  numberCart() {
+    this.setState((state) => {
+      localStorage.setItem('CartCount', (state.carrinhoCont + 1));
+      return ({ carrinhoCont: state.carrinhoCont + 1 });
+    });
+  }
+
   render() {
-    const { value, results } = this.state;
+    const { value, results, carrinhoCont } = this.state;
     return (
       <div className="maxContain" >
         <div className="SearchList">
           <ListFilter callback={this.callback} />
         </div>
         <div className="header">
-          <div className="container-cart">
-            <Link className="carrinhoCart" to="/shopping-cart">
-              <img src="https://image.flaticon.com/icons/svg/126/126083.svg" alt="carrinho de compras" />
-            </Link>
-          </div>
+          {ListProducts.caixaCarrinho(carrinhoCont)}
           {this.caixaLupa()}
           {(Object.keys(results).length === 0) ?
             <h1>{value}</h1> :
-            <CardProduct arrCard={results} />
+            <CardProduct
+              arrCard={results}
+              numberCart={this.numberCart}
+              retornaParam={this.returnParam}
+            />
           }
         </div>
       </div>
@@ -91,3 +122,7 @@ class ListProducts extends Component {
 }
 
 export default ListProducts;
+
+ListProducts.propTypes = PropTypes.shape({
+  banana: PropTypes.func,
+}).isRequired;

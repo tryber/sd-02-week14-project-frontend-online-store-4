@@ -14,7 +14,7 @@ class Comments extends Component {
               <p>{comment.email}</p>
               <Stars rate={comment.rate} disabled={'disabled'} />
             </div>
-            <textarea disabled value={comment.message} />
+            <p>{comment.message}</p>
             <hr />
           </div>
         ))}
@@ -24,7 +24,7 @@ class Comments extends Component {
 }
 
 Comments.propTypes = {
-  comments: PropTypes.arrayOf(PropTypes.shape({
+  comments:  PropTypes.arrayOf(PropTypes.shape({
     email: PropTypes.string,
     rate: PropTypes.number,
     message: PropTypes.string,

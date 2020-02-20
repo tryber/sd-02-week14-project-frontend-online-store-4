@@ -1,45 +1,27 @@
 import React, { Component } from 'react';
-
+import PropTypes from 'prop-types';
+import ShoppingCart from '../ShoppingCart/ShoppingCart';
+import ListProduct from '../ListProducts/ListProducts';
 import './style.css';
-
 import Produto from './components/Produto/Produto';
 import Quantidade from './components/Quantidade/Quantidade';
 import Avaliacoes from './components/Avaliacoes/Avaliacoes';
 import Comments from './components/Comments/Comments';
-
-const obj = {
-  image: 'http://mlb-s1-p.mlstatic.com/660944-MLA40360945636_012020-I.jpg',
-  title: 'Cadeira De Escritório Pelegrin 502 Preta',
-  price: 299,
-  availableQuantity: 500,
-  soldQuantity: 4,
-  condition: 'new',
-  shipping: {
-    freeShipping: true,
-  },
-  sellerAddress: {
-    country: {
-      name: 'Brasil',
-    },
-    state: {
-      name: 'SP',
-    },
-    city: {
-      name: 'São Paulo',
-    },
-  },
-  installments: {
-    rate: 14.69,
-  },
-};
+import CardProduct from '../ListProducts/Components/CardProduct';
 
 export default class ProductDetails extends Component {
   constructor(props) {
     super(props);
     this.state = {
       comments: [],
+      detailCount: 0,
     };
     this.submitHandle = this.submitHandle.bind(this);
+    this.enviaArrCard = this.enviaArrCard.bind(this);
+  }
+
+  valueCart() {
+    this.setState({ detailCount: Number(localStorage.getItem('CartCount')) });
   }
 
   allStorageKeys() {
@@ -48,9 +30,11 @@ export default class ProductDetails extends Component {
   }
 
   componentDidMount() {
-    let storages = this.allStorageKeys();
-    storages = storages.filter(item => item.includes('ecommerceEmail'));
-    storages = storages.map(item => localStorage[item]);
+    const { id } = this.props.passaObj;
+    this.valueCart();
+    let keys = this.allStorageKeys();
+    keys = keys.filter(item => item.includes(`ProductDetails,${id}`));
+    const storages = keys.map(item => localStorage[item]);
     const comments = storages.map((item) => {
       const array = item.split(',');
       const comment = { email: array[0], message: array[1], rate: Number(array[2]) };
@@ -67,20 +51,53 @@ export default class ProductDetails extends Component {
     });
   }
 
+  enviaArrCard(stateQt) {
+    const { passaObj, passaArr } = this.props;
+    CardProduct.adicionaCart(passaObj.id, passaArr, stateQt);
+    this.setState((state) => {
+      localStorage.setItem('CartCount', (state.detailCount + stateQt));
+      return ({ detailCount: state.detailCount + stateQt });
+    });
+  }
+
   render() {
-    const { title, price, installments: { rate } } = obj;
-    const { comments } = this.state;
+    const { passaObj } = this.props;
+    const { title, price, installments } = passaObj;
+    const { comments, detailCount } = this.state;
     return (
       <div className="page_productDetails">
-        <div className="title">
-          <p>{title} - </p>
-          <p>{price},00 R$</p>
-        </div>
-        <Produto obj={obj} />
-        <Quantidade />
-        <Avaliacoes rate={rate} submitHandle={this.submitHandle} />
-        <Comments comments={comments} />
+        {ShoppingCart.botaoVolta()}
+        {ListProduct.caixaCarrinho(detailCount)}
+        {(title) ?
+          <div>
+            <div className="title">
+              <p>{title} - </p>
+              <p>{price},00 R$</p>
+            </div>
+            <Produto obj={passaObj} />
+            <Quantidade enviaCard={this.enviaArrCard} />
+            <Avaliacoes rate={installments.rate} submitHandle={this.submitHandle} id={passaObj.id} />
+            <Comments
+              comments={comments}
+            /> 
+          </div> :
+          <div>
+            <br />
+            <span>Não Foi possivel carregar sua Pagina</span>
+          </div>}
       </div>
     );
   }
 }
+
+ProductDetails.propTypes = PropTypes.shape({
+  installments: {
+    rate: PropTypes.number,
+  },
+}).isRequired;
+
+ProductDetails.defaultProps = {
+  installments: {
+    rate: 0,
+  },
+};
