@@ -7,7 +7,8 @@ import './style.css';
 class Produto extends Component {
   render() {
     const { obj } = this.props;
-    const { thumbnail, available_quantity: availableQuantity, sold_quantity: soldQuantity, condition } = obj;
+    const { thumbnail, available_quantity: availableQuantity,
+      sold_quantity: soldQuantity, condition } = obj;
     const { shipping: { free_shipping: freeShipping } } = obj;
     const { seller_address: { country: { name: country },
       state: { name: state }, city: { name: city } } } = obj;
