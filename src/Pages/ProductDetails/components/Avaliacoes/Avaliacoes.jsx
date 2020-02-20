@@ -7,7 +7,7 @@ import Stars from '../Stars/Stars';
 
 function storage({ email, message, rate }, id) {
   if (id) {
-    localStorage.setItem(`ProductDetails,${id}`, `${email},${message},${rate}`);
+    localStorage.setItem(`${id}`, `${email},${message},${rate}`);
   }
 }
 
@@ -64,7 +64,7 @@ class Avaliacoes extends Component {
   }
 
   render() {
-    const { comment, rate } = this.state;
+    const { comment } = this.state;
     const { email, message } = comment;
     return (
       <div className="comp_prod_details_av">
@@ -89,7 +89,6 @@ Avaliacoes.propTypes = {
 
 Avaliacoes.defaultProps = {
   submitHandle: undefined,
-  rate: 0,
   id: undefined,
 };
 
