@@ -26,7 +26,7 @@ class App extends Component {
         <Switch>
           <Route
             exact path="/"
-            render={props => (
+            render={(props) => (
               <ListProduct {...props} banana={this.bananinha} />
             )}
           />
