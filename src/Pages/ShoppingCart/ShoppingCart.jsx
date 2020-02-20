@@ -9,11 +9,11 @@ export default class ShoppingCart extends Component {
   static botaoVolta() {
     return (
       <div className="buttonReturn">
-          <Link className="buttonReturn" to="/">
-            <img src={backButton} alt="backButton" />
-          </Link>
+        <Link className="buttonReturn" to="/">
+          <img src={backButton} alt="backButton" />
+        </Link>
       </div>
-    )
+    );
   }
 
   static loadingEmpty() {
@@ -32,7 +32,7 @@ export default class ShoppingCart extends Component {
         <div className="emptyBoxPai">
           <img className="emptyBox-Img" src={emptyBox} alt="emptyBox" />
           <span>
-          Seu carrinho de compras está vazio.
+            Seu carrinho de compras está vazio.
           </span>
         </div>
       </div>
