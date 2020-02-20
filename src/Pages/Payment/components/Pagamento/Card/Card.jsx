@@ -4,13 +4,13 @@ import './style.css';
 
 class Card extends Component {
   render() {
-    const { value, title = '' } = this.props;
+    const { value, title = '', icon } = this.props;
     return (
       <div className="payment_pagamento_card">
         <input type="radio" id={value} name="payment" value={value} />
         <p>{title}</p>
-        <i class="material-icons">
-          credit_card
+        <i className="material-icons">
+          {icon}
         </i>
       </div>
     );
@@ -20,11 +20,13 @@ class Card extends Component {
 Card.propTypes = {
   value: PropTypes.string,
   title: PropTypes.string,
+  icon: PropTypes.string,
 };
 
 Card.defaultProps = {
   value: '',
   title: '',
+  icon: '',
 };
 
 export default Card;

@@ -20,7 +20,7 @@ class Payment extends Component {
       <div className="page_payment">
         <div className="products">
           <p>Revise seus produtos</p>
-          {produtos.map(produto => (
+          {produtos.map((produto) => (
             <Produto key={produto.id} produto={produto} />
           ))}
         </div>
