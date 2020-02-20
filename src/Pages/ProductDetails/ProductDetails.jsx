@@ -33,14 +33,14 @@ export default class ProductDetails extends Component {
     });
   }
 
-enviaArrCard(stateQt) {
-  const { passaObj, passaArr } = this.props;
-  CardProduct.adicionaCart(passaObj.id, passaArr, stateQt);
-  this.setState((state) => {
-    localStorage.setItem('CartCount', (state.detailCount + stateQt));
-    return ({ detailCount: state.detailCount + stateQt });
-  });
-}
+  enviaArrCard(stateQt) {
+    const { passaObj, passaArr } = this.props;
+    CardProduct.adicionaCart(passaObj.id, passaArr, stateQt);
+    this.setState((state) => {
+      localStorage.setItem('CartCount', (state.detailCount + stateQt));
+      return ({ detailCount: state.detailCount + stateQt });
+    });
+  }
 
   render() {
     const { passaObj } = this.props;
@@ -57,7 +57,7 @@ enviaArrCard(stateQt) {
               <p>{price},00 R$</p>
             </div>
             <Produto obj={passaObj} />
-            <Quantidade enviaCard={this.enviaArrCard}/>
+            <Quantidade enviaCard={this.enviaArrCard} />
             <Avaliacoes rate={installments.rate} submitHandle={this.submitHandle} />
             <Comments
               comments={comments}

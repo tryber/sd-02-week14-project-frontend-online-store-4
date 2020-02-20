@@ -10,11 +10,11 @@ class ListProducts extends Component {
   static caixaCarrinho(carrinho) {
     return (
       <div className="container-cart">
-      <Link className="carrinhoCart" to="/shopping-cart">
-        <img src="https://image.flaticon.com/icons/svg/126/126083.svg" alt="carrinho de compras" />
-        <span>{carrinho}</span>
-      </Link>
-    </div>
+        <Link className="carrinhoCart" to="/shopping-cart">
+          <img src="https://image.flaticon.com/icons/svg/126/126083.svg" alt="carrinho de compras" />
+          <span>{carrinho}</span>
+        </Link>
+      </div>
     );
   }
 

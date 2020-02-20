@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import PropTypes from 'prop-types';
 import './style.css';
 
 class Campo extends Component {
@@ -36,7 +36,12 @@ class Campo extends Component {
       </i>
           </button>
         </div>
-        <button type="button" onClick={() => this.props.enviaCard(this.state.qt)}>Adicionar no carrinho</button>
+        <button
+          type="button"
+          onClick={() => this.props.enviaCard(this.state.qt)}
+        >
+          Adicionar no carrinho
+        </button>
       </div>
     );
   }
@@ -52,3 +57,7 @@ class Campo extends Component {
 }
 
 export default Campo;
+
+Campo.propTypes = PropTypes.shape({
+  enviaCard: PropTypes.func,
+}).isRequired;

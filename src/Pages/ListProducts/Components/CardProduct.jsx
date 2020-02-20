@@ -38,7 +38,7 @@ class CardProduct extends Component {
               <button
                 className="buttonAddCart"
                 value={element.id}
-                onClick={(event) => { 
+                onClick={(event) => {
                   CardProduct.adicionaCart(event.target.value, arrCard, 1);
                   this.props.numberCart();
                 }}
