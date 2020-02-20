@@ -10,13 +10,15 @@ class App extends Component {
     super(props);
     this.state = {
       objVazio: {},
+      arrCard: [],
     };
     this.bananinha = this.bananinha.bind(this);
   }
 
-  bananinha(param) {
+  bananinha(element, arrCard) {
     this.setState({
-      objVazio: param,
+      objVazio: element,
+      arrCard,
     });
   }
 
@@ -33,9 +35,12 @@ class App extends Component {
           <Route path="/shopping-cart" component={ShoppingCart} />
           <Route
             path="/product-details/:id"
-            render={(props) => (
-              <ProductDetails {...props} passaObj={this.state.objVazio} />
-            )}
+            render={(props) => {
+              const { objVazio, arrCard } = this.state;
+              return (
+                <ProductDetails {...props} passaObj={objVazio} passaArr={arrCard} />
+              );
+            }}
           />
         </Switch>
       </BrowserRouter>

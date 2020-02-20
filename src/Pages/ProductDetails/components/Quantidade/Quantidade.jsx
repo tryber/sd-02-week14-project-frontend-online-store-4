@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import PropTypes from 'prop-types';
 import './style.css';
 
 class Campo extends Component {
@@ -15,30 +15,26 @@ class Campo extends Component {
       <div className="container">
         <div>
           <button
-            opacity="100%"
             className="SomeAndRemove"
             type="button"
             onClick={() => this.setState((state) => ({ qt: state.qt + 1 }))}
           >
-            <i className="material-icons">
-              add
-    </i>
+            <i className="material-icons">add</i>
           </button>
         </div>
         <p>{qt}</p>
         <div>
           <button
-            opacity="100%"
             className="SomeAndRemove"
             type="button"
             onClick={() => this.setState((state) => ({ qt: (state.qt > 1) ? state.qt - 1 : 1 }))}
           >
-            <i className="material-icons">
-              remove
-      </i>
+            <i className="material-icons">remove</i>
           </button>
         </div>
-        <button type="button">Adicionar no carrinho</button>
+        <button type="button" onClick={() => this.props.enviaCard(this.state.qt)}>
+          Adicionar no carrinho
+        </button>
       </div>
     );
   }
@@ -54,3 +50,7 @@ class Campo extends Component {
 }
 
 export default Campo;
+
+Campo.propTypes = PropTypes.shape({
+  enviaCard: PropTypes.func,
+}).isRequired;
