@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import './ListProducts.css';
 import ListFilter from './Components/ListFilter';
 import CardProduct from './Components/CardProduct';
@@ -17,15 +18,13 @@ class ListProducts extends Component {
     this.pesquisa = this.pesquisa.bind(this);
     this.callback = this.callback.bind(this);
     this.caixaLupa = this.caixaLupa.bind(this);
+    this.returnParam = this.returnParam.bind(this);
   }
   reduceFunction(res) {
     if (res.resolve === undefined) this.setState({ value: 'Nenhum Produto foi Encontrado' });
     this.setState({
       results:
-        res.results.reduce((acc, curr) => {
-          const { id, title, price, thumbnail } = curr;
-          return [...acc, { id, title, price, thumbnail }];
-        }, []),
+        res.results.reduce((acc, curr) => [...acc, curr], []),
     });
   }
   pesquisa(e) {
@@ -66,6 +65,11 @@ class ListProducts extends Component {
     );
   }
 
+  returnParam(param) {
+    const { banana } = this.props;
+    banana(param);
+  }
+
   render() {
     const { value, results } = this.state;
     return (
@@ -82,7 +86,7 @@ class ListProducts extends Component {
           {this.caixaLupa()}
           {(Object.keys(results).length === 0) ?
             <h1>{value}</h1> :
-            <CardProduct arrCard={results} />
+            <CardProduct arrCard={results} retornaParam={this.returnParam} />
           }
         </div>
       </div>
@@ -91,3 +95,6 @@ class ListProducts extends Component {
 }
 
 export default ListProducts;
+ListProducts.propTypes = PropTypes.shape({
+  banana: PropTypes.func,
+}).isRequired;

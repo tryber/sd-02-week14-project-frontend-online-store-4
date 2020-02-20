@@ -42,3 +42,19 @@
   display: flex;
   width: 40%;
 }
+
+.label {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.label:link {
+  color: black;
+  text-decoration: none;
+}
+
+.label:visited {
+  color: black;
+}
