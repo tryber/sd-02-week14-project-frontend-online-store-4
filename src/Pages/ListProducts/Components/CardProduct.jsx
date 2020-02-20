@@ -17,39 +17,50 @@ class CardProduct extends Component {
     }
   }
 
+  constructor(props) {
+    super(props);
+    this.carregaCardProduct = this.carregaCardProduct.bind(this);
+  }
+
+  carregaCardProduct(element, arrCard) {
+    return (
+      <div>
+        <button
+          className="buttonAddCart"
+          value={element.id}
+          onClick={(event) => {
+            CardProduct.adicionaCart(event.target.value, arrCard, 1);
+            this.props.numberCart();
+          }}
+        >
+          Adicionar no Carrinho
+        </button>
+      </div>
+    );
+  }
+
   cardProduct() {
     const { arrCard, retornaParam } = this.props;
     return (
       <div className="containCard">
         {arrCard.map((element) => (
-          <div className="cardComplete" key={element.id}>
-            <Link className="label" to={`/product-details/${element.id}`} onClick={() => retornaParam(element, arrCard)} >
-              <div className="titleCard">
-                <h5 className="titleCard">{element.title}</h5>
-              </div>
-              <div className="containerImg">
-                <img className="cardImage" src={element.thumbnail} alt={element.title} />
-              </div>
-              <div>
-                <h6>{((element.price * 100) / 100).toFixed(2)}</h6>
-              </div>
-            </Link>
-            <div>
-              <button
-                className="buttonAddCart"
-                value={element.id}
-                onClick={(event) => {
-                  CardProduct.adicionaCart(event.target.value, arrCard, 1);
-                  this.props.numberCart();
-                }}
-              >
-                Adicionar no Carrinho
-              </button>
+            <div className="cardComplete" key={element.id}>
+              <Link className="label" to={`/product-details/${element.id}`} onClick={() => retornaParam(element, arrCard)} >
+                <div className="titleCard">
+                  <h5 className="titleCard">{element.title}</h5>
+                </div>
+                <div className="containerImg">
+                  <img className="cardImage" src={element.thumbnail} alt={element.title} />
+                </div>
+                <div>
+                  <h6>{((element.price * 100) / 100).toFixed(2)}</h6>
+                </div>
+              </Link>
+              {this.carregaCardProduct(element, arrCard)}
             </div>
-          </div>
         ))}
       </div>
-    );
+    )
   }
 
   render() {

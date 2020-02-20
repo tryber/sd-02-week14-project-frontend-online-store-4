@@ -19,9 +19,7 @@ class Campo extends Component {
             type="button"
             onClick={() => this.setState((state) => ({ qt: state.qt + 1 }))}
           >
-            <i className="material-icons">
-              add
-    </i>
+            <i className="material-icons">add</i>
           </button>
         </div>
         <p>{qt}</p>
@@ -31,15 +29,10 @@ class Campo extends Component {
             type="button"
             onClick={() => this.setState((state) => ({ qt: (state.qt > 1) ? state.qt - 1 : 1 }))}
           >
-            <i className="material-icons">
-              remove
-      </i>
+            <i className="material-icons">remove</i>
           </button>
         </div>
-        <button
-          type="button"
-          onClick={() => this.props.enviaCard(this.state.qt)}
-        >
+        <button type="button" onClick={() => this.props.enviaCard(this.state.qt)}>
           Adicionar no carrinho
         </button>
       </div>
