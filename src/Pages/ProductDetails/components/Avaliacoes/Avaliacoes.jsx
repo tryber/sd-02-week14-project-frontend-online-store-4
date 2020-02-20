@@ -72,7 +72,7 @@ class Avaliacoes extends Component {
         <div className="container">
           <div>
             <input type="email" placeholder="email" onChange={(e) => this.onChange('email', e.target.value)} value={email} />
-            <Stars rate={rate} callback={this.updateRate} />
+            <Stars callback={this.updateRate} />
           </div>
           <textarea placeholder="mensagem" onChange={(e) => this.onChange('message', e.target.value)} value={message} />
           <button onClick={this.abacaxi}>Avaliar</button>
