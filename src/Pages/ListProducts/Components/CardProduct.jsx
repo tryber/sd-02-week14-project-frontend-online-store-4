@@ -44,23 +44,23 @@ class CardProduct extends Component {
     return (
       <div className="containCard">
         {arrCard.map((element) => (
-            <div className="cardComplete" key={element.id}>
-              <Link className="label" to={`/product-details/${element.id}`} onClick={() => retornaParam(element, arrCard)} >
-                <div className="titleCard">
-                  <h5 className="titleCard">{element.title}</h5>
-                </div>
-                <div className="containerImg">
-                  <img className="cardImage" src={element.thumbnail} alt={element.title} />
-                </div>
-                <div>
-                  <h6>{((element.price * 100) / 100).toFixed(2)}</h6>
-                </div>
-              </Link>
-              {this.carregaCardProduct(element, arrCard)}
-            </div>
+          <div className="cardComplete" key={element.id}>
+            <Link className="label" to={`/product-details/${element.id}`} onClick={() => retornaParam(element, arrCard)} >
+              <div className="titleCard">
+                <h5 className="titleCard">{element.title}</h5>
+              </div>
+              <div className="containerImg">
+                <img className="cardImage" src={element.thumbnail} alt={element.title} />
+              </div>
+              <div>
+                <h6>{((element.price * 100) / 100).toFixed(2)}</h6>
+              </div>
+            </Link>
+            {this.carregaCardProduct(element, arrCard)}
+          </div>
         ))}
       </div>
-    )
+    );
   }
 
   render() {
