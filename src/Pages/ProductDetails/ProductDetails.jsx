@@ -29,17 +29,17 @@ export default class ProductDetails extends Component {
     const { id } = this.props.passaObj;
     this.valueCart();
     let keys = allStorageKeys();
-    keys = keys.filter(item => item.includes(`ProductDetails,${id}`));
+    keys = keys.filter((item) => item.includes(`ProductDetails,${id}`));
     const storages = keys.map((item) => localStorage[item]);
     const comments = storages.map((item) => {
       const array = item.split(',');
       const comment = { email: array[0], message: array[1], rate: Number(array[2]) };
       return comment;
     });
-    this.updateComment();
+    this.updateComment(comments);
   }
 
-  updateComment() {
+  updateComment(comments) {
     this.setState({
       comments: [...comments],
     });
@@ -65,7 +65,7 @@ export default class ProductDetails extends Component {
   }
 
   componentsRender() {
-    const { title, price, installments } = passaObj;
+    const { title, price, installments } = this.props.passaObj;
     const { comments } = this.state;
     return (
       <div>
@@ -84,7 +84,7 @@ export default class ProductDetails extends Component {
           comments={comments}
         />
       </div>
-    )
+    );
   }
 
   render() {
