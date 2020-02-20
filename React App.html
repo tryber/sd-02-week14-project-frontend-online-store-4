@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<!-- saved from url=(0051)http://localhost:3000/product-details/MLB1432653048 -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <link rel="icon" href="http://localhost:3000/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#000000">
+    <meta name="description" content="Web site created using create-react-app">
+    <link rel="apple-touch-icon" href="http://localhost:3000/product-details/logo192.png">
+    <!--
+      manifest.json provides metadata used when your web app is installed on a
+      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
+    -->
+    <link href="./React App_files/icon" rel="stylesheet">
+    <link rel="manifest" href="http://localhost:3000/manifest.json">
+    <!--
+      Notice the use of  in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+
+      Unlike "/favicon.ico" or "favicon.ico", "/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+    <title>React App</title>
+  <script type="text/javascript">var adl_removeElementById = function(id) { var element = document.getElementById(id); if (element && element.parentNode) { element.parentNode.removeChild(element); }};</script><script type="text/javascript">var adl_each = function(selector, fn) { if (!document.querySelectorAll) return; var elements = document.querySelectorAll(selector); for (var i = 0; i < elements.length; i++) { fn(elements[i]); }; };</script><script type="text/javascript">var adl_removeParent = function(el, fn) { while (el && el.parentNode) { if (fn(el)) { el.parentNode.removeChild(el); return; } el = el.parentNode; } };</script><script type="text/javascript">var adl_onLoad=function(func){if(document.readyState==="complete"||document.readyState==="interactive")func();else if(document.addEventListener)document.addEventListener("DOMContentLoaded",func);else if(document.attachEvent)document.attachEvent("DOMContentLoaded",func)};</script><script type="text/javascript">var adl_removeElementBySelector = function(selector) { if (!document.querySelectorAll) { return; } var nodes = document.querySelectorAll(selector); if (nodes) { for (var i = 0; i < nodes.length; i++) { if (nodes[i] && nodes[i].parentNode) { nodes[i].parentNode.removeChild(nodes[i]); } } } };</script><script type="text/javascript">var adl_removeCookie=function(a){var e=/./;/^\/.+\/$/.test(a)?e=new RegExp(a.slice(1,-1)):""!==a&&(e=new RegExp(a.replace(/[.*+?^${}()|[\]\\]/g,"\\$&")));a=function(){for(var a=document.cookie.split(";"),g=a.length;g--;){cookieStr=a[g];var d=cookieStr.indexOf("=");if(-1!==d&&(d=cookieStr.slice(0,d).trim(),e.test(d)))for(var h=document.location.hostname.split("."),f=0;f<h.length-1;f++){var b=h.slice(f).join(".");if(b){var c=d+"=",k="; domain="+b;b="; domain=."+b;document.cookie=c+"; expires=Thu, 01 Jan 1970 00:00:00 GMT";document.cookie=c+k+"; expires=Thu, 01 Jan 1970 00:00:00 GMT";document.cookie=c+b+"; expires=Thu, 01 Jan 1970 00:00:00 GMT";document.cookie=c+"; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT";document.cookie=c+k+"; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT";document.cookie=c+b+"; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT"}}}};a();window.addEventListener("beforeunload",a)};</script><script type="text/javascript">var adl_defineProperty=function(){var p,q=Object.defineProperty;if("function"==typeof WeakMap)p=WeakMap;else{var r=0,t=function(){this.a=(r+=Math.random()).toString()};t.prototype.set=function(a,b){var d=a[this.a];d&&d[0]===a?d[1]=b:q(a,this.a,{value:[a,b],writable:!0});return this};t.prototype.get=function(a){var b;return(b=a[this.a])&&b[0]===a?b[1]:void 0};t.prototype.has=function(a){var b=a[this.a];return b?b[0]===a:!1};p=t}function u(a){this.b=a;this.h=Object.create(null)}function v(a,b,d,e){this.a=a;this.i=b;this.c=d;this.f=e}function w(){this.g=/^([^\\\.]|\\.)*?\./;this.j=/\\(.)/g;this.a=new p}function x(a,b){var d=b.f;if(d&&!("beforeGet"in d||"beforeSet"in d))return z(d);var e={get:function(){var c=b.f;c&&c.beforeGet&&c.beforeGet.call(this,b.a.b);a:if(c=b.g)c=A(c)?c.value:c.get?c.get.call(this):void 0;else{c=b.a.b;if(b.i in c&&(c=B(c),null!==c)){var d=C.call(c,b.i);c=d?d.call(this):c[b.i];break a}c=void 0}(this===b.a.b||D.call(b.a.b,this))&&E(a,c,b.c);return c},set:function(c){if(this===b.a.b||D.call(b.a.b,this)){b.f&&b.f.beforeSet&&(c=b.f.beforeSet.call(this,c,this));var d=b.g;d&&A(d)&&d.value===c?c=!0:(d=F(b,c,this),G(c)&&(c=H(a,c),I(a,c,b.c)),c=d)}else c=F(b,c,this);return c}};d&&J(d,e,K);return e}function I(a,b,d){for(var e in d.h){var c=d.h[e];if(b.h[e]){var h=a,g=b.h[e],k=c;!k.f||g.f||"undefined"===typeof g.a.b||g.g||(g.g=z(k.f));g.c&&k.c&&g.c!==k.c&&I(h,g.c,k.c)}else{g=h=void 0;k=a;var f=b,l=c.i,m="undefined"!==typeof f.b,y=!1;m&&(g=L(f.b,l))&&!g.configurable&&(y=!0,h=f.b[l]);var n=y?H(k,h):new u(c.c.b);I(k,n,c.c);n=new v(f,l,n,c.f);f.h[l]=n;m&&(n.g=g,m=x(k,n),y?E(k,h,c.c):(q(f.b,l,m),g&&A(g)&&(M(m,g.value,f.b),E(k,g.value,c.c))))}}}function E(a,b,d){G(b)&&(b=H(a,b),I(a,b,d))}function F(a,b,d){var e=a.g;if(!e){e=B(a.a.b);if(null!==e&&(e=N.call(e,a.i)))return e.call(d,b);if(!O(a.a.b))return!1;a.g={value:b,configurable:!0,writable:!0,enumerable:!0};return!0}return M(e,b,d)}function H(a,b){var d=a.a.get(b);d||(d=new u(b),a.a.set(b,d));return d}function A(a){return"undefined"!==typeof a.writable}function J(a,b,d){for(var e=0,c=d.length;e<c;e++){var h=d[e];h in a&&(b[h]=a[h])}}function z(a){if(a){var b={};J(a,b,P);return b}}function M(a,b,d){if(A(a))return a.writable?(a.value=b,!0):!1;if(!a.set)return!1;a.set.call(d,b);return!0}var P="configurable enumerable value get set writable".split(" "),K=P.slice(0,2),L=Object.getOwnPropertyDescriptor,O=Object.isExtensible,B=Object.getPrototypeOf,D=Object.prototype.isPrototypeOf,C=Object.prototype.__lookupGetter__||function(a){return(a=Q(this,a))&&a.get?a.get:void 0},N=Object.prototype.__lookupSetter__||function(a){return(a=Q(this,a))&&a.set?a.set:void 0};function Q(a,b){if(b in a){for(;!w.hasOwnProperty.call(a,b);)a=B(a);return L(a,b)}}function G(a){var b=typeof a;return"function"===b||"object"===b&&null!==a?!0:!1}var R;return function(a,b,d){R||(R=new w);var e=R;d=d||window;var c=new u;a+=".";var h=c||new u;for(var g=e.g,k=e.j,f,l,m;a;){f=g.exec(a);if(null===f)throw 1;f=f[0].length;l=a.slice(0,f-1).replace(k,"$1");a=a.slice(f);(f=h.h[l])?m=f.c:(m=new u,f=new v(h,l,m),h.h[l]=f);h=m}if(!f)throw 1;a=f;a.f=b;E(e,d,c)};}();</script><script type="text/javascript">var adl_abortOnPropertyWrite=function(a,b){var c=Math.random().toString(36).substr(2,8);adl_defineProperty(a,{beforeSet:function(){b&&console.warn("AdLock aborted property write: "+a);throw new ReferenceError(c);}});var d=window.onerror;window.onerror=function(e){if("string"===typeof e&&-1!==e.indexOf(c))return b&&console.warn("AdLock has caught window.onerror: "+a),!0;if(d instanceof Function)return d.apply(this,arguments)}};</script><script type="text/javascript">var adl_abortOnPropertyRead=function(a,b){var c=Math.random().toString(36).substr(2,8);adl_defineProperty(a,{beforeGet:function(){b&&console.warn("AdLock aborted property read: "+a);throw new ReferenceError(c);}});var d=window.onerror;window.onerror=function(e){if("string"===typeof e&&-1!==e.indexOf(c))return b&&console.warn("AdLock has caught window.onerror: "+a),!0;if(d instanceof Function)return d.apply(this,arguments)}};</script><script type="text/javascript">var adl_abortInlineScript=function(g,b,c){var d=function(){if("currentScript"in document)return document.currentScript;var a=document.getElementsByTagName("script");return a[a.length-1]},e=Math.random().toString(36).substr(2,8),h=d();adl_defineProperty(b,{beforeGet:function(){var a=d();if(a instanceof HTMLScriptElement&&a!==h&&""===a.src&&g.test(a.textContent))throw c&&console.warn("AdLock aborted execution of an inline script"),new ReferenceError(e);}});var f=window.onerror;window.onerror=function(a){if("string"===typeof a&&-1!==a.indexOf(e))return c&&console.warn("AdLock has caught window.onerror: "+b),!0;if(f instanceof Function)return f.apply(this,arguments)}};</script><script type="text/javascript">var adl_setConstant=function(e,a){if("undefined"===a)a=void 0;else if("false"===a)a=!1;else if("true"===a)a=!0;else if("noopFunc"===a)a=function(){};else if("trueFunc"===a)a=function(){return!0};else if("falseFunc"===a)a=function(){return!1};else if(/^\d+$/.test(a)){if(a=parseFloat(a),isNaN(a)||32767<Math.abs(a))return}else return;var b=!1;adl_defineProperty(e,{get:function(){return a},set:function(c){if(b)var d=!0;else void 0!==c&&void 0!==a&&typeof c!==typeof a&&(b=!0),d=b;d&&(a=c)}})};</script><script type="text/javascript">navigator.getBattery = undefined;</script><script type="text/javascript">var _gaq = []; var _gat = { _getTracker: function() { return { _initData: function(){}, _trackPageview: function(){}, _trackEvent: function(){}, _setAllowLinker: function() {}, _setCustomVar: function() {} } }, _createTracker: function() { return this._getTracker(); }, _anonymizeIp: function() {} };</script><script type="text/javascript">function urchinTracker() {};</script><script type="text/javascript">var addthis = { init: function() {}, addEventListener: function() {}, button: function() {}, counter: function() {}, update: function() {}, toolbox: function() {}, layers: function() {} };</script><style type="text/css">* {
+  box-sizing: border-box;  
+}
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+</style><style type="text/css">/* .App {
+  text-align: center;
+} */
+</style><style type="text/css">.clear {
+  clear: both;
+}
+
+.emptyCar > img {
+  width: 3%;
+}
+
+.emptyCar {
+  align-items: flex-end;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.emptyCarPai {
+  margin: 1%;
+  width: 100%;
+}
+
+.emptyBoxPai {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.emptyBoxPai > img {
+  width: 20%;
+}
+
+.emptyBoxPai > span {
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+.buttonReturn > img {
+  width: 40%;
+}
+
+.buttonReturn > img:hover {
+  cursor: pointer;
+  filter: invert(60%);
+}
+
+.buttonReturn {
+  width: 10%;
+}
+</style><style type="text/css">.header {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.header img {
+  margin: 10px;
+  width: 100%;
+}
+
+.header .searchBar {
+  border-radius: 100px;
+  display: flex;
+  font-size: 110%;
+  height: 40px;
+  justify-content: center;
+  padding: 0.2%;
+  text-align: center;
+  width: 100%;
+}
+
+.maxContain {
+  display: flex;
+  flex-direction: row;
+}
+
+.maxContain .SearchList {
+  border: 1px solid black;
+  height: 100%;
+  margin: 20px;
+  padding: 5px;
+  width: 30%;
+}
+
+.caixaLupa {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  width: 200%;
+}
+
+.lupa {
+  align-self: center;
+  display: flex;
+  position: absolute;
+  width: 5%;
+}
+
+.container-input {
+  display: flex;
+  width: 50%;
+}
+
+.container-cart {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.carrinhoCart {
+  align-self: flex-end;
+  display: flex;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+</style><style type="text/css">.containCard {
+  display: flex;
+  flex-wrap: wrap;
+  height: 100%;
+  justify-content: space-around;
+  margin-top: 2%;
+  width: 90%;
+}
+
+.containCard .cardComplete {
+  align-items: center;
+  background-image: linear-gradient(gray 25%, white 25%);
+  border: 1px solid black;
+  border-radius: 10%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 1%;
+  width: 30%;
+}
+
+.cardComplete img {
+  align-self: auto;
+  width: 100%;
+}
+
+.titleCard {
+  display: flex;
+  font-size: 110%;
+  justify-content: center;
+  margin: 5% 0;
+  padding: 0 2%;
+  text-align: center;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+.buttonAddCart {
+  margin-bottom: 5%;
+}
+
+.containerImg {
+  display: flex;
+  width: 40%;
+}
+
+.label {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.label:link {
+  color: black;
+  text-decoration: none;
+}
+
+.label:visited {
+  color: black;
+}
+</style><style type="text/css">.page_productDetails > .title {
+  align-items: center;
+  display: flex;
+  font-size: 1em;
+  justify-content: center;
+}
+
+.page_productDetails {
+  display: grid;
+  grid-template-columns: 1;
+  grid-template-rows: 7% 35% 17% 22% 30%;
+  margin: 0 5%;
+}
+</style><style type="text/css">.comp_campo {
+  align-items: center;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.comp_campo > p {
+  margin-left: 2%;
+}
+</style><style type="text/css">.comp_product_details {
+  display: grid;
+  grid-template-columns: 33% 66%;
+  grid-template-rows: 100%;
+}
+
+.comp_product_details > img {
+  margin: auto;
+  width: 60%;
+}
+
+.comp_product_details .dados {
+  align-items: center;
+  display: flex;
+}
+
+.comp_product_details .endereco_vendedor {
+  margin-left: 5%;
+}
+</style><style type="text/css">.comp_prod_details_qt strong {
+  margin: 1%;
+}
+
+.comp_prod_details_qt .container {
+  align-items: center;
+  display: flex;
+  width: 40%;
+}
+
+.comp_prod_details_qt .container > button {
+  background-color: white;
+  border-color: black;
+  border-style: solid;
+  border-width: 1px;
+  cursor: pointer;
+  margin: 2%;
+  padding: 3%;
+  width: 100%;
+}
+
+.comp_prod_details_qt .container > i {
+  cursor: pointer;
+  margin: 2%;
+}
+
+.comp_prod_details_qt .container > p {
+  border-color: black;
+  border-radius: 8px;
+  border-style: solid;
+  border-width: 1px;
+  padding: 2%;
+  text-align: center;
+  width: 8%;
+}
+</style><style type="text/css">.comp_prod_details_av strong {
+  margin: 1%;
+}
+
+.comp_prod_details_av .container {
+  align-items: center;
+  display: block;
+  width: 20%;
+}
+
+.comp_prod_details_av .container > button {
+  background-color: white;
+  border-color: black;
+  border-style: solid;
+  border-width: 1px;
+  cursor: pointer;
+  margin: 2% 5%;
+  padding: 3%;
+}
+
+.comp_prod_details_av .container > div {
+  display: flex;
+}
+
+.comp_prod_details_av .container input {
+  margin: 2% 5%;
+}
+
+.comp_prod_details_av .container textarea {
+  margin: 2% 5%;
+}
+</style><style type="text/css">.comp_stars {
+  align-items: center;
+  display: flex;
+}
+
+.comp_stars > i {
+  cursor: pointer;
+  margin: 5%;
+}
+
+.comp_stars > button {
+  background-color: white;
+  border-style: none;
+}
+</style><style type="text/css">.comp_comments {
+  margin: 1%;
+}
+
+.comp_comments > div > div {
+  display: flex;
+}
+</style></head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"><div class="page_productDetails"><div class="buttonReturn"><a class="buttonReturn" href="http://localhost:3000/"><img src="data:image/png;base64,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" alt="backButton"></a></div><div class="title"><p>Prensa Sublimadora E Transfer Maquinatec 40x50 110v - </p><p>1599,00 R$</p></div><div class="comp_product_details"><img src="./React App_files/657748-MLA32541998001_102019-I.jpg" alt=""><div class="dados"><div class="campos"><div class="comp_campo"><strong>estoque: </strong><p>1 unidade(s)</p></div><div class="comp_campo"><strong>vendidos: </strong><p>0 vendido(s)</p></div><div class="comp_campo"><strong>condição: </strong><p>Novo</p></div><div class="comp_campo"><strong>frete: </strong><p>Fretado</p></div></div><div class="endereco_vendedor"><strong>Endereço do vendedor: </strong><div><div class="comp_campo"><strong>País: </strong><p>Brasil</p></div><div class="comp_campo"><strong>Estado: </strong><p>Minas Gerais</p></div><div class="comp_campo"><strong>Cidade: </strong><p>Belo Horizonte</p></div></div></div></div></div><div class="comp_prod_details_qt"><strong>Quantidade</strong><div class="container"><i class="material-icons">add</i><p>0</p><button opacity="100%" type="button" style="
+    opacity: 0;
+"><i class="material-icons" style="
+    opacity: 1;
+">remove</i></button><button>Adicionar no carrinho</button></div></div><div class="comp_prod_details_av"><strong>Avaliações</strong><div class="container"><div><input type="text" placeholder="email" value=""><div class="comp_stars"><button><i class="material-icons" name="1">star_border</i></button><button><i class="material-icons" name="2">star_border</i></button><button><i class="material-icons" name="3">star_border</i></button><button><i class="material-icons" name="4">star_border</i></button><button><i class="material-icons" name="5">star_border</i></button></div></div><textarea placeholder="mensagem"></textarea><button>Avaliar</button></div></div><div class="comp_comments"></div></div></div>
+    <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
+
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
+
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    -->
+  <script src="./React App_files/bundle.js"></script><script src="./React App_files/0.chunk.js"></script><script src="./React App_files/main.chunk.js"></script><script src="./React App_files/main.64f71d84285e894dfefd.hot-update.js"></script>
+
+</body></html>

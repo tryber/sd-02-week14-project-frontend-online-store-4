@@ -21,6 +21,13 @@ class ListProducts extends Component {
     this.caixaLupa = this.caixaLupa.bind(this);
     this.returnParam = this.returnParam.bind(this);
     this.numberCart = this.numberCart.bind(this);
+    this.ValorCarrinho = this.ValorCarrinho.bind(this);
+  }
+  componentDidMount() {
+    this.ValorCarrinho()
+  }
+  ValorCarrinho() {
+    this.setState({ carrinhoCont: localStorage.getItem('CartCount') })
   }
   reduceFunction(res) {
     if (res.resolve === undefined) this.setState({ value: 'Nenhum Produto foi Encontrado' });
