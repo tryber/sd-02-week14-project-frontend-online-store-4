@@ -39,14 +39,18 @@ export default class ShoppingCart extends Component {
     );
   }
 
-
   constructor(props) {
     super(props);
     this.state = {
       load: false,
       items: [],
+      qt: '',
     };
     this.atualizaState = this.atualizaState.bind(this);
+    this.quantidadeProduto = this.quantidadeProduto.bind(this);
+    this.carregaProdutos = this.carregaProdutos.bind(this);
+    this.totalProdutos = this.totalProdutos.bind(this);
+    this.finalizaCompra = this.finalizaCompra.bind(this);
   }
 
   componentDidMount() {
@@ -60,8 +64,68 @@ export default class ShoppingCart extends Component {
 
   atualizaState(objKeys) {
     this.setState((state) => ({
+      load: true,
       items: [...state.items, objKeys],
+      qt: 1,
     }));
+  }
+  
+  quantidadeProduto() {
+    return (
+      <div>
+          <p>1</p>
+      </div>
+    );
+  }
+
+  carregaProdutos() {
+    return (
+      <div>
+        <div>
+          <button>Excluir</button>
+        </div>
+        <div>
+          Imagem
+        </div>
+        <div>
+          <button
+            className="SomeAndRemove"
+            type="button"
+            onClick={() => this.setState((state) => ({ qt: state.qt + 1 }))}
+          >
+            <i className="material-icons">remove</i>
+          </button>
+        </div>
+        {this.quantidadeProduto()}
+        <div>
+          <button
+            className="SomeAndRemove"
+            type="button"
+            onClick={() => this.setState((state) => ({ qt: state.qt + 1 }))}
+          >
+            <i className="material-icons">add</i>
+          </button>
+        </div>
+      </div>
+    );
+  }
+
+  totalProdutos() {
+    return (
+      <div>
+        Valor Total da Compra: R$ XXXX,XX
+      </div>
+    );
+  }
+
+  finalizaCompra() {
+    return (
+      <div>
+        <button>
+          Finalizar Compra
+        </button>
+      </div>
+    );
   }
 
   render() {
@@ -70,7 +134,9 @@ export default class ShoppingCart extends Component {
 
     return (
       <div>
-        Hello World!
+        {this.carregaProdutos()}
+        {this.totalProdutos()}
+        {this.finalizaCompra()}
       </div>
     );
   }
