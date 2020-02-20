@@ -7,6 +7,17 @@ import CardProduct from './Components/CardProduct';
 import lupa from './images/lupa.png';
 
 class ListProducts extends Component {
+  static caixaCarrinho(carrinho) {
+    return (
+      <div className="container-cart">
+      <Link className="carrinhoCart" to="/shopping-cart">
+        <img src="https://image.flaticon.com/icons/svg/126/126083.svg" alt="carrinho de compras" />
+        <span>{carrinho}</span>
+      </Link>
+    </div>
+    );
+  }
+
   constructor(props) {
     super(props);
     this.state = {
@@ -27,7 +38,7 @@ class ListProducts extends Component {
     this.valorCarrinho();
   }
   valorCarrinho() {
-    this.setState({ carrinhoCont: localStorage.getItem('CartCount') });
+    this.setState({ carrinhoCont: Number(localStorage.getItem('CartCount')) });
   }
   reduceFunction(res) {
     if (res.resolve === undefined) this.setState({ value: 'Nenhum Produto foi Encontrado' });
@@ -74,9 +85,9 @@ class ListProducts extends Component {
     );
   }
 
-  returnParam(param) {
+  returnParam(element, arrCard) {
     const { banana } = this.props;
-    banana(param);
+    banana(element, arrCard);
   }
 
   numberCart() {
@@ -94,12 +105,7 @@ class ListProducts extends Component {
           <ListFilter callback={this.callback} />
         </div>
         <div className="header">
-          <div className="container-cart">
-            <Link className="carrinhoCart" to="/shopping-cart">
-              <img src="https://image.flaticon.com/icons/svg/126/126083.svg" alt="carrinho de compras" />
-              <span>{carrinhoCont}</span>
-            </Link>
-          </div>
+          {ListProducts.caixaCarrinho(carrinhoCont)}
           {this.caixaLupa()}
           {(Object.keys(results).length === 0) ?
             <h1>{value}</h1> :

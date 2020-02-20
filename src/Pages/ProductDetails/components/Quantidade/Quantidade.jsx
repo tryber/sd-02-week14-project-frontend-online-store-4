@@ -15,7 +15,6 @@ class Campo extends Component {
       <div className="container">
         <div>
           <button
-            opacity="100%"
             className="SomeAndRemove"
             type="button"
             onClick={() => this.setState((state) => ({ qt: state.qt + 1 }))}
@@ -28,7 +27,6 @@ class Campo extends Component {
         <p>{qt}</p>
         <div>
           <button
-            opacity="100%"
             className="SomeAndRemove"
             type="button"
             onClick={() => this.setState((state) => ({ qt: (state.qt > 1) ? state.qt - 1 : 1 }))}
@@ -38,7 +36,7 @@ class Campo extends Component {
       </i>
           </button>
         </div>
-        <button type="button">Adicionar no carrinho</button>
+        <button type="button" onClick={() => this.props.enviaCard(this.state.qt)}>Adicionar no carrinho</button>
       </div>
     );
   }
