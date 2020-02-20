@@ -16,14 +16,22 @@ class Campo extends Component {
       <div className="comp_prod_details_qt">
         <strong>Quantidade</strong>
         <div className="container">
-          <i className="material-icons">
-            add
+          <div>
+            <button opacity="100%" className="SomeAndRemove" type="button" onClick={() => this.setState((state) => ({ qt: state.qt + 1 }))}>
+              <i className="material-icons">
+                add
           </i>
+            </button>
+          </div>
           <p>{qt}</p>
-          <i className="material-icons">
-            remove
-          </i>
-          <button>Adicionar no carrinho</button>
+          <div>
+            <button opacity="100%" className="SomeAndRemove" type="button" onClick={() => this.setState((state) => ({ qt: (state.qt > 1 ) ? state.qt - 1 : 1 }))}>
+              <i className="material-icons">
+                remove
+            </i>
+            </button>
+          </div>
+          <button type="button">Adicionar no carrinho</button>
         </div>
       </div>
     );
