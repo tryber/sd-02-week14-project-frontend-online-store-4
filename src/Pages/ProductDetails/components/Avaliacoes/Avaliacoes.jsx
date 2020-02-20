@@ -7,7 +7,7 @@ import Stars from '../Stars/Stars';
 
 function storage({ email, message, rate }, id) {
   if (id) {
-    localStorage.setItem(`ProductDetails,${id}`, `${email},${message},${rate}`);
+    localStorage.setItem(`${id}`, `${email},${message},${rate}`);
   }
 }
 
@@ -64,7 +64,7 @@ class Avaliacoes extends Component {
   }
 
   render() {
-    const { comment, rate } = this.state;
+    const { comment } = this.state;
     const { email, message } = comment;
     return (
       <div className="comp_prod_details_av">
@@ -72,7 +72,7 @@ class Avaliacoes extends Component {
         <div className="container">
           <div>
             <input type="email" placeholder="email" onChange={(e) => this.onChange('email', e.target.value)} value={email} />
-            <Stars rate={rate} callback={this.updateRate} />
+            <Stars callback={this.updateRate} />
           </div>
           <textarea placeholder="mensagem" onChange={(e) => this.onChange('message', e.target.value)} value={message} />
           <button onClick={this.abacaxi}>Avaliar</button>
@@ -84,12 +84,11 @@ class Avaliacoes extends Component {
 
 Avaliacoes.propTypes = {
   submitHandle: PropTypes.func,
-  id: PropTypes.number,
+  id: PropTypes.string,
 };
 
 Avaliacoes.defaultProps = {
   submitHandle: undefined,
-  rate: 0,
   id: undefined,
 };
 
