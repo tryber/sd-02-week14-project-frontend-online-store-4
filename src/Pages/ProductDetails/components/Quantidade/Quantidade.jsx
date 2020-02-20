@@ -40,7 +40,7 @@ class Campo extends Component {
         </div>
         <button type="button">Adicionar no carrinho</button>
       </div>
-    )
+    );
   }
   render() {
     const { qt } = this.state;
