@@ -1,0 +1,27 @@
+.payment_comprador {
+  border-color: black;
+  box-sizing: border-box;
+  border-style: solid;
+  border-width: 1px;
+  padding: 2%;
+}
+
+.payment_comprador > .container {
+  display: grid;
+  grid-template-columns: 25% 25% 25% 25%;
+}
+
+.payment_comprador > .container2 {
+  display: grid;
+  grid-template-columns: 25% 75%;
+}
+
+.payment_comprador > .container3 {
+  display: grid;
+  grid-template-columns: 25% 20% 35% 20%;
+}
+
+.payment_comprador input {
+  margin: 1%;
+}
+

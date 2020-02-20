@@ -1,0 +1,21 @@
+.payment_pagamento {
+  border-color: black;
+  border-style: solid;
+  border-width: 1px;
+  display: flex;
+  padding: 2%;
+  width: 100%;
+}
+.payment_pagamento > div {
+  margin: 0 2%;
+}
+
+.payment_pagamento > .cred {
+  width: 100%;
+}
+
+.payment_pagamento label {
+  width: 100%;
+  padding: 1%;
+}
+

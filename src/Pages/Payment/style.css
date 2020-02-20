@@ -1,0 +1,18 @@
+.page_payment {
+  height: 130vh;
+  width: 90vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 0 auto;
+}
+
+.page_payment > .comprador {
+  background-color: red;
+  padding: 2%;
+}
+
+.page_payment button {
+  margin: 2% 0;
+}
+
