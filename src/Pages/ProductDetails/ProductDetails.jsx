@@ -120,5 +120,3 @@ ProductDetails.propTypes = {
     id: PropTypes.string.isRequired,
   })).isRequired,
 };
-
-
