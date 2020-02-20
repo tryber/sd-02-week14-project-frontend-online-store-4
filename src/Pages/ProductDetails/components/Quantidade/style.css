@@ -33,3 +33,9 @@
   text-align: center;
   width: 8%;
 }
+
+.SomeAndRemove {
+  background: transparent;
+  border: none;
+  width: 36px;
+}

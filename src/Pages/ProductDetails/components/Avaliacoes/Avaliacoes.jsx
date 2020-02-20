@@ -68,6 +68,7 @@ Avaliacoes.propTypes = {
 
 Avaliacoes.defaultProps = {
   submitHandle: undefined,
+  rate: 0,
 };
 
 export default Avaliacoes;

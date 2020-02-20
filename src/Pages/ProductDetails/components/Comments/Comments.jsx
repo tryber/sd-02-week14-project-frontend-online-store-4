@@ -14,7 +14,7 @@ class Comments extends Component {
               <p>{comment.email}</p>
               <Stars rate={comment.rate} disabled={"disabled"} />
             </div>
-            <textarea disabled value={comment.message} />
+            <p>{comment.message}</p>
             <hr />
           </div>
         ))}
