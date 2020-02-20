@@ -10,30 +10,33 @@ class App extends Component {
     super(props);
     this.state = {
       objVazio: {},
-    }
+    };
     this.bananinha = this.bananinha.bind(this);
   }
 
-bananinha(param) {
-  this.setState({
-    objVazio: param,
-  });
-}
+  bananinha(param) {
+    this.setState({
+      objVazio: param,
+    });
+  }
 
   render() {
     return (
       <BrowserRouter>
         <Switch>
-          <Route exact path="/"
-            render={props => (
-              <ListProduct {...props} banana={this.bananinha}/>
+          <Route
+            exact path="/"
+            render={(props) => (
+              <ListProduct {...props} banana={this.bananinha} />
             )}
           />
           <Route path="/shopping-cart" component={ShoppingCart} />
-          <Route path="/product-details/:id"
-            render={props => (
-              <ProductDetails {...props} passaObj={this.state.objVazio}/>
-            )} />
+          <Route
+            path="/product-details/:id"
+            render={(props) => (
+              <ProductDetails {...props} passaObj={this.state.objVazio} />
+            )}
+          />
         </Switch>
       </BrowserRouter>
     );

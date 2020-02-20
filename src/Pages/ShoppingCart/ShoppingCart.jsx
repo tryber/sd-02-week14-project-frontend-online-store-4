@@ -9,11 +9,11 @@ export default class ShoppingCart extends Component {
   static botaoVolta() {
     return (
       <div className="buttonReturn">
-          <Link className="buttonReturn" to="/">
-            <img src={backButton} alt="backButton" />
-          </Link>
+        <Link className="buttonReturn" to="/">
+          <img src={backButton} alt="backButton" />
+        </Link>
       </div>
-    )
+    );
   }
 
   static loadingEmpty() {
@@ -32,7 +32,7 @@ export default class ShoppingCart extends Component {
         <div className="emptyBoxPai">
           <img className="emptyBox-Img" src={emptyBox} alt="emptyBox" />
           <span>
-          Seu carrinho de compras está vazio.
+            Seu carrinho de compras está vazio.
           </span>
         </div>
       </div>
@@ -52,6 +52,7 @@ export default class ShoppingCart extends Component {
   componentDidMount() {
     const infoKey = Object.keys(localStorage);
     for (let i = 0; i < infoKey.length; i += 1) {
+      if (infoKey[i] === 'CartCount' && infoKey[i + 1] !== undefined) i += 1;
       const objKeys = JSON.parse(localStorage.getItem(infoKey[i]));
       this.atualizaState(objKeys);
     }
