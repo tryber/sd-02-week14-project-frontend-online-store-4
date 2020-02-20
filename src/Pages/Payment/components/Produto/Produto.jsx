@@ -34,7 +34,7 @@ Produto.defaultProps = {
     img: '',
     title: '',
     price: 0,
-  }
+  },
 };
 
 export default Produto;
