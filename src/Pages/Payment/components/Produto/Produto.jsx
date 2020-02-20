@@ -23,9 +23,9 @@ class Produto extends Component {
 
 Produto.propTypes = {
   produto: PropTypes.shape({
-  img: PropTypes.string,
-  title: PropTypes.string,
-  price: PropTypes.number,
+    img: PropTypes.string,
+    title: PropTypes.string,
+    price: PropTypes.number,
   }),
 };
 
