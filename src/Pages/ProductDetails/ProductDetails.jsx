@@ -106,3 +106,17 @@ export default class ProductDetails extends Component {
     );
   }
 }
+
+ProductDetails.propTypes = {
+  passaObj: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    price: PropTypes.number.isRequired,
+    installments: PropTypes.shape({
+      rate: PropTypes.number.isRequired,
+    }).isRequired,
+  }).isRequired,
+  passaArr: PropTypes.any.isRequired,
+};
+
+

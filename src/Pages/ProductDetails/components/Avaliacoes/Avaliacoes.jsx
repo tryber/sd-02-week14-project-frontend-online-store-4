@@ -84,7 +84,7 @@ class Avaliacoes extends Component {
 
 Avaliacoes.propTypes = {
   submitHandle: PropTypes.func,
-  id: PropTypes.number,
+  id: PropTypes.string,
 };
 
 Avaliacoes.defaultProps = {
