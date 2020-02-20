@@ -22,15 +22,19 @@ class Produto extends Component {
 }
 
 Produto.propTypes = {
+  produto: PropTypes.shape({
   img: PropTypes.string,
   title: PropTypes.string,
   price: PropTypes.number,
+  }),
 };
 
 Produto.defaultProps = {
-  img: '',
-  title: '',
-  price: 0,
+  produto: {
+    img: '',
+    title: '',
+    price: 0,
+  }
 };
 
 export default Produto;
