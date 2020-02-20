@@ -54,6 +54,7 @@ export default class ShoppingCart extends Component {
     for (let i = 0; i < infoKey.length; i += 1) {
       const objKeys = JSON.parse(localStorage.getItem(infoKey[i]));
       this.atualizaState(objKeys);
+      if (infoKey[i] === 'CartCount') i += 1
     }
   }
 
@@ -66,7 +67,6 @@ export default class ShoppingCart extends Component {
   render() {
     const { load } = this.state;
     if (!load) return ShoppingCart.loadingEmpty();
-
     return (
       <div>
         Hello World!

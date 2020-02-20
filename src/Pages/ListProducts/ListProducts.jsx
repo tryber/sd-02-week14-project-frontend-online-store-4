@@ -14,11 +14,13 @@ class ListProducts extends Component {
       results: [],
       valueradio: '',
       valorPesquisa: '',
+      carrinhoCont: 0,
     };
     this.pesquisa = this.pesquisa.bind(this);
     this.callback = this.callback.bind(this);
     this.caixaLupa = this.caixaLupa.bind(this);
     this.returnParam = this.returnParam.bind(this);
+    this.numberCart = this.numberCart.bind(this);
   }
   reduceFunction(res) {
     if (res.resolve === undefined) this.setState({ value: 'Nenhum Produto foi Encontrado' });
@@ -70,8 +72,15 @@ class ListProducts extends Component {
     banana(param);
   }
 
+  numberCart() {
+    this.setState((state) => {
+      localStorage.setItem('CartCount', (state.carrinhoCont + 1))
+      return ({ carrinhoCont: state.carrinhoCont + 1, })
+    });
+  }
+
   render() {
-    const { value, results } = this.state;
+    const { value, results, carrinhoCont } = this.state;
     return (
       <div className="maxContain" >
         <div className="SearchList">
@@ -81,12 +90,13 @@ class ListProducts extends Component {
           <div className="container-cart">
             <Link className="carrinhoCart" to="/shopping-cart">
               <img src="https://image.flaticon.com/icons/svg/126/126083.svg" alt="carrinho de compras" />
+              <span>{carrinhoCont}</span>
             </Link>
           </div>
           {this.caixaLupa()}
           {(Object.keys(results).length === 0) ?
             <h1>{value}</h1> :
-            <CardProduct arrCard={results} retornaParam={this.returnParam} />
+            <CardProduct arrCard={results} numberCart={this.numberCart} retornaParam={this.returnParam} />
           }
         </div>
       </div>
