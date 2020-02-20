@@ -46,11 +46,11 @@ export default class ProductDetails extends Component {
 ProductDetails.propTypes = PropTypes.shape({
   installments: {
     rate: PropTypes.number,
-  }
+  },
 }).isRequired;
 
 ProductDetails.defaultProps = {
   installments: {
     rate: 0,
-  }
+  },
 };
