@@ -19,68 +19,69 @@ const produtos = [
     price: 12,
   },
 ];
+const campos = {
+  nome: {
+    name: 'Nome',
+    value: '',
+    red: false,
+  },
+  email: {
+    name: 'Email',
+    value: '',
+    red: false,
+  },
+  cpf: {
+    name: 'CPF',
+    value: '',
+    red: false,
+  },
+  tel: {
+    name: 'Telefone',
+    value: '',
+    red: false,
+  },
+  cep: {
+    name: 'CEP',
+    value: '',
+    red: false,
+  },
+  end: {
+    name: 'Endereço',
+    value: '',
+    red: false,
+  },
+  comp: {
+    name: 'Complemento',
+    value: '',
+    red: false,
+  },
+  num: {
+    name: 'Número',
+    value: '',
+    red: false,
+  },
+  cid: {
+    name: 'Cidade',
+    value: '',
+    red: false,
+  },
+  est: {
+    name: 'Estado',
+    value: '',
+    red: false,
+  },
+  pagamento: {
+    name: 'Forma de pagamento',
+    value: '',
+    red: false,
+  },
+};
 
 class Payment extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      campos: {
-        nome: {
-          name: 'Nome',
-          value: '',
-          red: false,
-        },
-        email: {
-          name: 'Email',
-          value: '',
-          red: false,
-        },
-        cpf: {
-          name: 'CPF',
-          value: '',
-          red: false,
-        },
-        tel: {
-          name: 'Telefone',
-          value: '',
-          red: false,
-        },
-        cep: {
-          name: 'CEP',
-          value: '',
-          red: false,
-        },
-        end: {
-          name: 'Endereço',
-          value: '',
-          red: false,
-        },
-        comp: {
-          name: 'Complemento',
-          value: '',
-          red: false,
-        },
-        num: {
-          name: 'Número',
-          value: '',
-          red: false,
-        },
-        cid: {
-          name: 'Cidade',
-          value: '',
-          red: false,
-        },
-        est: {
-          name: 'Estado',
-          value: '',
-          red: false,
-        },
-        pagamento: {
-          name: 'Forma de pagamento',
-          value: '',
-          red: false,
-        },
-      },
+      campos: {...campos},
     };
     this.submitHandle = this.submitHandle.bind(this);
     this.produtoHandle = this.produtoHandle.bind(this);
@@ -110,7 +111,6 @@ class Payment extends Component {
     if (verifica) {
       // redirect
     }
-    console.log(this.state.campos.nome.red);
   }
 
   produtoHandle(e) {
