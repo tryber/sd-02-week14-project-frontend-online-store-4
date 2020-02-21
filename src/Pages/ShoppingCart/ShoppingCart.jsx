@@ -5,6 +5,37 @@ import emptyShopCar from './images/empty_car.svg';
 import '../ShoppingCart/ShoppingCart.css';
 import backButton from './images/backButton.png';
 
+function carregaImagemTitulo(title, image) {
+  return (
+    <div className="imagemTitulo">
+      <div>
+        <img src={image} alt={title} />
+      </div>
+      <div>
+        <p>{title}</p>
+      </div>
+    </div>
+  );
+}
+
+function valorProduto(price) {
+  return (
+    <div className="valorProduto">
+      <p>R$ {((price * 100) / 100).toFixed(2)}</p>
+    </div>
+  );
+}
+
+function finalizaCompra() {
+  return (
+    <div>
+      <button>
+        Finalizar Compra
+      </button>
+    </div>
+  );
+}
+
 export default class ShoppingCart extends Component {
   static botaoVolta() {
     return (
@@ -45,10 +76,8 @@ export default class ShoppingCart extends Component {
       items: [],
     };
     this.atualizaState = this.atualizaState.bind(this);
-    this.quantidadeProduto = this.quantidadeProduto.bind(this);
     this.carregaProdutos = this.carregaProdutos.bind(this);
     this.totalProdutos = this.totalProdutos.bind(this);
-    this.finalizaCompra = this.finalizaCompra.bind(this);
     this.abaixaContador = this.abaixaContador.bind(this);
     this.aumentaContador = this.aumentaContador.bind(this);
     this.clearProduto = this.clearProduto.bind(this);
@@ -71,14 +100,6 @@ export default class ShoppingCart extends Component {
         items: [...state.items, objKeys],
       }));
     }
-  }
-
-  quantidadeProduto(count) {
-    return (
-      <div className="somaReduz">
-        <p>{count}</p>
-      </div>
-    );
   }
 
   clearProduto(id) {
@@ -106,37 +127,25 @@ export default class ShoppingCart extends Component {
     );
   }
 
-  carregaImagemTitulo(title, image) {
-    return (
-      <div className="imagemTitulo">
-        <div>
-          <img src={image} alt={title}></img>
-        </div>
-        <div>
-          <p>{title}</p>
-        </div>
-      </div>
-    );
-  }
   aumentaContador(value) {
     const { items } = this.state;
-    const index = items.indexOf(items.find(e => e.id === value));
+    const index = items.indexOf(items.find((e) => e.id === value));
     items[index].count += 1;
-    this.setState({ items: items });
+    this.setState({ items });
     localStorage.setItem(value, JSON.stringify(items[index]));
     localStorage.setItem('CartCount', Number(localStorage.getItem('CartCount')) + 1);
   }
 
   abaixaContador(value) {
     const { items } = this.state;
-    const countValue = items.find(e => e.id === value);
+    const countValue = items.find((e) => e.id === value);
     const index = items.indexOf(countValue);
     if (countValue.count >= 1) {
       items[index].count -= 1;
-      this.setState({ items: items });
+      this.setState({ items });
       localStorage.setItem(value, JSON.stringify(items[index]));
       localStorage.setItem('CartCount', Number(localStorage.getItem('CartCount')) - 1);
-    } 
+    }
     if (countValue.count === 0) {
       items.splice(index, 1);
       localStorage.removeItem(value);
@@ -149,7 +158,7 @@ export default class ShoppingCart extends Component {
     return (
       <div className="containerCarrega" key={index}>
         {this.clearProduto(id)}
-        {this.carregaImagemTitulo(title, thumbnail)}
+        {carregaImagemTitulo(title, thumbnail)}
         <div className="containerBotoes">
           <div className="somaReduz">
             <button
@@ -170,16 +179,8 @@ export default class ShoppingCart extends Component {
               <i className="material-icons">add</i>
             </button>
           </div>
-          {this.valorProduto(price)}
+          {valorProduto(price)}
         </div>
-      </div>
-    );
-  }
-
-  valorProduto(price) {
-    return (
-      <div className="valorProduto">
-        <p>R$ {((price*100)/100).toFixed(2)}</p>
       </div>
     );
   }
@@ -188,19 +189,11 @@ export default class ShoppingCart extends Component {
     const { items } = this.state;
     return (
       <div>
-        Valor Total da Compra: R${items.reduce((curr, acc) => {
-          return curr += ((Number(acc.count) * 100) / 100) * ((Number(acc.price) * 100) / 100)}, 0).
-          toFixed(2)}
-      </div>
-    );
-  }
-
-  finalizaCompra() {
-    return (
-      <div>
-        <button>
-          Finalizar Compra
-        </button>
+        Valor Total da Compra: R$
+        {items.reduce((curr, acc) =>
+          curr += ((Number(acc.count) * 100) / 100) * ((Number(acc.price) * 100) / 100), 0)
+          .toFixed(2)
+        }
       </div>
     );
   }
@@ -213,7 +206,7 @@ export default class ShoppingCart extends Component {
         {ShoppingCart.botaoVolta()}
         {items.map((item, index) => this.carregaProdutos(item, index))}
         {this.totalProdutos()}
-        {this.finalizaCompra()}
+        {finalizaCompra()}
       </div>
     );
   }
