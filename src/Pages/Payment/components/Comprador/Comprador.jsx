@@ -6,25 +6,37 @@ import './style.css';
 class Comprador extends Component {
   render() {
     const cb = this.props.produtoHandle;
-    const { nome, email, cpf, tel, cep, end, comp, cid, num, est } = this.props.campos;
+    const { 
+      nome: { red: redNome },
+      email: { red: redEmail },
+      cpf: { red: redCpf },
+      tel: { red: redTel },
+      cep: { red: redCep },
+      end: { red: redEnd },
+      comp: { red: redComp },
+      cid: { red: redCid },
+      num: { red: redNum },
+      est: { red: redEst }
+    } = this.props.campos;
+
     return (
       <div className="payment_comprador">
         <p>Informações do comprador</p>
         <div className="container">
-          <Input name={'nome'} place={'Nome completo'} cb={cb} red={nome.red} />
-          <Input name={'email'} place={'Email'} cb={cb} red={email.red} />
-          <Input name={'cpf'} place={'CPF'} cb={cb} red={cpf.red} />
-          <Input name={'tel'} place={'Telefone'} cb={cb} red={tel.red} />
+          <Input name={'nome'} place={'Nome completo'} cb={cb} red={redNome} />
+          <Input name={'email'} place={'Email'} cb={cb} red={redEmail} />
+          <Input name={'cpf'} place={'CPF'} cb={cb} red={redCpf} />
+          <Input name={'tel'} place={'Telefone'} cb={cb} red={redTel} />
         </div>
         <div className="container2">
-          <Input name={'cep'} place={'Cep'} cb={cb} red={cep.red} />
-          <Input name={'end'} place={'Endereço'} cb={cb} red={end.red} />
+          <Input name={'cep'} place={'Cep'} cb={cb} red={redCep} />
+          <Input name={'end'} place={'Endereço'} cb={cb} red={redEnd} />
         </div>
         <div className="container3">
-          <Input name={'comp'} place={'Complemento'} cb={cb} red={comp.red} />
-          <Input name={'num'} place={'Número'} cb={cb} red={num.red} />
-          <Input name={'cid'} place={'Cidade'} cb={cb} red={cid.red} />
-          <Input name={'est'} place={'Estado'} cb={cb} red={est.red} />
+          <Input name={'comp'} place={'Complemento'} cb={cb} red={redComp} />
+          <Input name={'num'} place={'Número'} cb={cb} red={redNum} />
+          <Input name={'cid'} place={'Cidade'} cb={cb} red={redCid} />
+          <Input name={'est'} place={'Estado'} cb={cb} red={redEst} />
         </div>
       </div>
     );
@@ -32,34 +44,75 @@ class Comprador extends Component {
 }
 
 Comprador.propTypes = {
-  produtoHandle: PropTypes.func.isRequired,
+  produtoHandle: PropTypes.func,
   campos: PropTypes.shape({
-    nome: PropTypes.string,
-    email: PropTypes.string,
-    cpf: PropTypes.string,
-    tel: PropTypes.string,
-    cep: PropTypes.string,
-    end: PropTypes.string,
-    comp: PropTypes.string,
-    cid: PropTypes.string,
-    num: PropTypes.string,
-    est: PropTypes.string,
+    nome: PropTypes.shape({
+      red: PropTypes.bool,
+    }),
+    email: PropTypes.shape({
+      red: PropTypes.bool,
+    }),
+    cpf: PropTypes.shape({
+      red: PropTypes.bool,
+    }),
+    tel: PropTypes.shape({
+      red: PropTypes.bool,
+    }),
+    cep: PropTypes.shape({
+      red: PropTypes.bool,
+    }),
+    end: PropTypes.shape({
+      red: PropTypes.bool,
+    }),
+    comp: PropTypes.shape({
+      red: PropTypes.bool,
+    }),
+    cid: PropTypes.shape({
+      red: PropTypes.bool,
+    }),
+    num: PropTypes.shape({
+      red: PropTypes.bool,
+    }),
+    est: PropTypes.shape({
+      red: PropTypes.bool,
+    }),
   }),
 };
 
 Comprador.defaultProps = {
-  campos: PropTypes.shape({
-    nome: '',
-    email: '',
-    cpf: '',
-    tel: '',
-    cep: '',
-    end: '',
-    comp: '',
-    cid: '',
-    num: '',
-    est: '',
-  }),
+  produtoHandle: undefined,
+  campos: {
+    nome: {
+      red: false,
+    },
+    email: {
+      red: false,
+    },
+    cpf: {
+      red: false,
+    },
+    tel: {
+      red: false,
+    },
+    cep: {
+      red: false,
+    },
+    end: {
+      red: false,
+    },
+    comp: {
+      red: false,
+    },
+    cid: {
+      red: false,
+    },
+    num: {
+      red: false,
+    },
+    est: {
+      red: false,
+    }
+  },
 };
 
 export default Comprador;
