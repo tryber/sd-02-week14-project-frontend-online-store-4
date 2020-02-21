@@ -12,7 +12,7 @@ class Comments extends Component {
           <div key={comment.email}>
             <div>
               <p>{comment.email}</p>
-              <Stars rate={comment.rate} />
+              <Stars rate={comment.rate} disabled={'disabled'} />
             </div>
             <p>{comment.message}</p>
             <hr />
@@ -24,19 +24,19 @@ class Comments extends Component {
 }
 
 Comments.propTypes = {
-  comments: PropTypes.shape({
+  comments: PropTypes.arrayOf(PropTypes.shape({
     email: PropTypes.string,
     rate: PropTypes.number,
     message: PropTypes.string,
-  }),
+  })),
 };
 
 Comments.defaultProps = {
-  comments: PropTypes.shape({
+  comments: PropTypes.arrayOf(PropTypes.shape({
     email: '',
     rate: 0,
     message: '',
-  }),
+  })),
 };
 
 export default Comments;

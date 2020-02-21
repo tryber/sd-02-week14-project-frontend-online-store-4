@@ -4,6 +4,7 @@ import './App.css';
 import ShoppingCart from './Pages/ShoppingCart/ShoppingCart';
 import ListProduct from './Pages/ListProducts/ListProducts';
 import ProductDetails from './Pages/ProductDetails/ProductDetails';
+import Payment from './Pages/Payment/Payment';
 
 class App extends Component {
   constructor(props) {
@@ -33,6 +34,7 @@ class App extends Component {
             )}
           />
           <Route path="/shopping-cart" component={ShoppingCart} />
+          <Route path="/payment" component={Payment} />
           <Route
             path="/product-details/:id"
             render={(props) => {
