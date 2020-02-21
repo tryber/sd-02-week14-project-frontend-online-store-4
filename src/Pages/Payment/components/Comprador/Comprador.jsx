@@ -4,21 +4,8 @@ import Input from './Input/Input';
 import './style.css';
 
 class Comprador extends Component {
-  render() {
-    const cb = this.props.produtoHandle;
-    const { 
-      nome: { red: redNome },
-      email: { red: redEmail },
-      cpf: { red: redCpf },
-      tel: { red: redTel },
-      cep: { red: redCep },
-      end: { red: redEnd },
-      comp: { red: redComp },
-      cid: { red: redCid },
-      num: { red: redNum },
-      est: { red: redEst }
-    } = this.props.campos;
 
+  rederiza(cb, redNome, redEmail, redCpf, redTel, redCep, redEnd, redComp, redCid, redNum, redEst) {
     return (
       <div className="payment_comprador">
         <p>Informações do comprador</p>
@@ -38,6 +25,28 @@ class Comprador extends Component {
           <Input name={'cid'} place={'Cidade'} cb={cb} red={redCid} />
           <Input name={'est'} place={'Estado'} cb={cb} red={redEst} />
         </div>
+      </div>
+    );
+  }
+
+  render() {
+    const cb = this.props.produtoHandle;
+    const {
+      nome: { red: redNome },
+      email: { red: redEmail },
+      cpf: { red: redCpf },
+      tel: { red: redTel },
+      cep: { red: redCep },
+      end: { red: redEnd },
+      comp: { red: redComp },
+      cid: { red: redCid },
+      num: { red: redNum },
+      est: { red: redEst },
+    } = this.props.campos;
+
+    return (
+      <div>
+        {this.renderiza(cb, redNome, redEmail, redCpf, redTel, redCep, redEnd, redComp, redCid, redNum, redEst)}
       </div>
     );
   }

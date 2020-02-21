@@ -17,7 +17,7 @@ class Input extends Component {
     return (
       <div className="payment_comprador_input">
         <input type="text" name={name} placeholder={place} onChange={cb} />
-        {(red) ? <p>{name} é obrigatório</p> : (<p></p>)}
+        {(red) ? <p>{name} é obrigatório</p> : (<p/>)}
       </div>
     );
   }
@@ -33,6 +33,6 @@ Input.propTypes = {
 
 Input.defaultProps = {
   produtoHandle: undefined,
-}
+};
 
 export default Input;
