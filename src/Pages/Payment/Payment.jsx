@@ -100,7 +100,7 @@ class Payment extends Component {
             red: true
           },
           },
-        });
+          });
         });
         acc = false;
       }
