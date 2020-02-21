@@ -19,6 +19,7 @@ const produtos = [
     price: 12,
   },
 ];
+
 const campos = {
   nome: {
     name: 'Nome',
@@ -81,7 +82,7 @@ class Payment extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      campos: {...campos},
+      campos: { ...campos },
     };
     this.submitHandle = this.submitHandle.bind(this);
     this.produtoHandle = this.produtoHandle.bind(this);
@@ -89,21 +90,21 @@ class Payment extends Component {
 
   submitHandle(e) {
     e.preventDefault();
-    const campos = this.state.campos;
-    const verifica = Object.keys(campos).reduce((acc, key) => {
-      if (campos[key].value.length === 0) {
-        this.setState((state) => {
+    const campos2 = this.state.campos;
+    const verifica = Object.keys(campos2).reduce((acc, key) => {
+      if (campos2[key].value.length === 0) {
+        this.setState(state => {
           return ({
-          campos: {
-          ...state.campos,
-          [key]: {
-            ...state.campos[key],
-            red: true
-          },
-          },
+            campos: {
+            ...state.campos,
+            [key]: {
+              ...state.campos[key],
+              red: true,
+            },
+            },
           });
         });
-        acc = false;
+        return false;
       }
       return acc;
     }, true);
@@ -119,7 +120,7 @@ class Payment extends Component {
       campos: {
         ...this.state.campos,
         [name]: value,
-      }
+      },
     });
   }
 

@@ -27,35 +27,39 @@ class Comprador extends Component {
           <Input name={'est'} place={'Estado'} cb={cb} red={est.red} />
         </div>
       </div>
-    )
-  };
+    );
+  }
 }
 
 Comprador.propTypes = {
   produtoHandle: PropTypes.func.isRequired,
-  nome: PropTypes.string,
-  email: PropTypes.string,
-  cpf: PropTypes.string,
-  tel: PropTypes.string,
-  cep: PropTypes.string,
-  end: PropTypes.string,
-  comp: PropTypes.string,
-  cid: PropTypes.string,
-  num: PropTypes.string,
-  est: PropTypes.string,
+  campos: PropTypes.shape({
+    nome: PropTypes.string,
+    email: PropTypes.string,
+    cpf: PropTypes.string,
+    tel: PropTypes.string,
+    cep: PropTypes.string,
+    end: PropTypes.string,
+    comp: PropTypes.string,
+    cid: PropTypes.string,
+    num: PropTypes.string,
+    est: PropTypes.string,
+  }),
 };
 
 Comprador.defaultProps = {
-  nome: '',
-  email: '',
-  cpf: '',
-  tel: '',
-  cep: '',
-  end: '',
-  comp: '',
-  cid: '',
-  num: '',
-  est: '',
+  campos: PropTypes.shape({
+    nome: '',
+    email: '',
+    cpf: '',
+    tel: '',
+    cep: '',
+    end: '',
+    comp: '',
+    cid: '',
+    num: '',
+    est: '',
+  }),
 };
 
 export default Comprador;

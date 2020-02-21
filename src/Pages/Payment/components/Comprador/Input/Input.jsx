@@ -19,11 +19,12 @@ class Input extends Component {
         <input type="text" name={name} placeholder={place} onChange={cb} />
         {(red) ? <p>{name} é obrigatório</p> : (<p></p>)}
       </div>
-    )
-  };
+    );
+  }
 }
 
 Input.propTypes = {
+  produtoHandle: PropTypes.func.isRequired,
   name: PropTypes.string.isRequired,
   place: PropTypes.string.isRequired,
   cb: PropTypes.func.isRequired,
