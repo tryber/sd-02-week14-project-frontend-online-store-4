@@ -96,13 +96,10 @@ class Payment extends Component {
       }
       return acc;
     }, true);
-    if (!verifica) {
-      Object.keys(campos).forEach((key) => {
-        if (campos[key].red) {
-
-        }
-      });
+    if (verifica) {
+      // redirect
     }
+    // console.log(this.state.campos.nome)
   }
 
   produtoHandle(e) {
@@ -128,7 +125,7 @@ class Payment extends Component {
             </div>
           </div>
           <div className="comprador">
-            <Comprador produtoHandle={this.produtoHandle} />
+            <Comprador produtoHandle={this.produtoHandle} campos={this.state.campos} />
           </div>
           <Pagamento />
           <div>
