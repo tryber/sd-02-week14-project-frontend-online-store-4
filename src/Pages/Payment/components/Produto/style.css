@@ -1,8 +1,5 @@
 .payment_comp_produto {
   align-items: center;
-  border-color: black;
-  border-style: solid;
-  border-width: 1px;
   display: flex;
   flex-direction: row;
   padding: 2%;

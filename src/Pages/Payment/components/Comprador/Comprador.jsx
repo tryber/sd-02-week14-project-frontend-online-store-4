@@ -1,31 +1,32 @@
 import React, { Component } from 'react';
-
+import Input from './Input/Input';
 import './style.css';
 
 class Comprador extends Component {
   render() {
+    const { cb } = this.props.produtoHandle;
     return (
       <div className="payment_comprador">
         <p>Informações do comprador</p>
         <div className="container">
-          <input type="text" className="nome" placeholder="Nome completo" />
-          <input type="email" className="email" placeholder="Email" />
-          <input type="text" className="cpf" placeholder="cpf" />
-          <input type="text" className="tel" placeholder="telefone" />
+          <Input name={'nome'} place={'Nome completo'} onChange={cb} />
+          <Input name={'email'} place={'Email'} onChange={cb} />
+          <Input name={'cpf'} place={'CPF'} onChange={cb} />
+          <Input name={'tel'} place={'Telefone'} onChange={cb} />
         </div>
         <div className="container2">
-          <input type="text" className="cep" placeholder="CEP" />
-          <input type="text" className="endereco" placeholder="Endereço" />
+          <Input name={'cep'} place={'Cep'} onChange={cb} />
+          <Input name={'end'} place={'Endereço'} onChange={cb} />
         </div>
         <div className="container3">
-          <input type="text" className="comp" placeholder="Complemento" />
-          <input type="text" className="num" placeholder="Número" />
-          <input type="text" className="cid" placeholder="Cidade" />
-          <input type="text" className="estado" placeholder="Estado" />
+          <Input name={'comp'} place={'Complemento'} onChange={cb} />
+          <Input name={'num'} place={'Número'} onChange={cb} />
+          <Input name={'cid'} place={'Cidade'} onChange={cb} />
+          <Input name={'est'} place={'Estado'} onChange={cb} />
         </div>
       </div>
     );
-  }
+  };
 }
 
 export default Comprador;

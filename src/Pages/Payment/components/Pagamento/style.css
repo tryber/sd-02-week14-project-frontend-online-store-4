@@ -15,7 +15,12 @@
   width: 100%;
 }
 
+.payment_pagamento > .cred > div {
+  display: flex;
+}
+
 .payment_pagamento strong {
   padding: 1%;
   width: 100%;
 }
+

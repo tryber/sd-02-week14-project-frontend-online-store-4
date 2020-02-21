@@ -24,7 +24,3 @@
   display: grid;
   grid-template-columns: 25% 20% 35% 20%;
 }
-
-.payment_comprador input {
-  margin: 1%;
-}

@@ -1,0 +1,7 @@
+.payment_comprador_input {
+  width: auto;
+}
+
+.payment_comprador_input > input {
+  width: 100%;
+}
