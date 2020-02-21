@@ -51,8 +51,9 @@ export default class ShoppingCart extends Component {
   componentDidMount() {
     const infoKey = Object.keys(localStorage);
     for (let i = 0; i < infoKey.length; i += 1) {
-      if (infoKey[i] !== 'CartCount' && !infoKey[i].match(/ProductDetails/))
+      if (infoKey[i] !== 'CartCount' && !infoKey[i].match(/ProductDetails/)) {
         this.atualizaState(infoKey, i);
+      }
     }
   }
 
@@ -65,7 +66,6 @@ export default class ShoppingCart extends Component {
 
   render() {
     const { load } = this.state;
-    console.log(this.state)
     if (!load) return ShoppingCart.loadingEmpty();
 
     return (
