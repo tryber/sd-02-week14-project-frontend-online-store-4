@@ -33,16 +33,29 @@ class Comprador extends Component {
 
 Comprador.propTypes = {
   produtoHandle: PropTypes.func.isRequired,
-  nome: PropTypes.string.isRequired,
-  email: PropTypes.string.isRequired,
-  cpf: PropTypes.string.isRequired,
-  tel: PropTypes.string.isRequired,
-  cep: PropTypes.string.isRequired,
-  end: PropTypes.string.isRequired,
-  comp: PropTypes.string.isRequired,
-  cid: PropTypes.string.isRequired,
-  num: PropTypes.string.isRequired,
-  est: PropTypes.string.isRequired,
+  nome: PropTypes.string,
+  email: PropTypes.string,
+  cpf: PropTypes.string,
+  tel: PropTypes.string,
+  cep: PropTypes.string,
+  end: PropTypes.string,
+  comp: PropTypes.string,
+  cid: PropTypes.string,
+  num: PropTypes.string,
+  est: PropTypes.string,
+};
+
+Comprador.defaultProps = {
+  nome: '',
+  email: '',
+  cpf: '',
+  tel: '',
+  cep: '',
+  end: '',
+  comp: '',
+  cid: '',
+  num: '',
+  est: '',
 };
 
 export default Comprador;

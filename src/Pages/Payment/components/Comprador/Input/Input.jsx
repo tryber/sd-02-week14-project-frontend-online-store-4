@@ -23,7 +23,7 @@ class Input extends Component {
   };
 }
 
-Comprador.propTypes = {
+Input.propTypes = {
   name: PropTypes.string.isRequired,
   place: PropTypes.string.isRequired,
   cb: PropTypes.func.isRequired,
