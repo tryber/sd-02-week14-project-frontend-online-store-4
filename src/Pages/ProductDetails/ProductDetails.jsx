@@ -29,7 +29,7 @@ export default class ProductDetails extends Component {
     const { id } = this.props.passaObj;
     this.valueCart();
     let keys = allStorageKeys();
-    keys = keys.filter((item) => item.includes(`ProductDetails,${id}`));
+    keys = keys.filter((item) => item.includes(`${id}`));
     const storages = keys.map((item) => localStorage[item]);
     const comments = storages.map((item) => {
       const array = item.split(',');
@@ -107,14 +107,16 @@ export default class ProductDetails extends Component {
   }
 }
 
-ProductDetails.propTypes = PropTypes.shape({
-  installments: {
-    rate: PropTypes.number,
-  },
-}).isRequired;
-
-ProductDetails.defaultProps = {
-  installments: {
-    rate: 0,
-  },
+ProductDetails.propTypes = {
+  passaObj: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    price: PropTypes.number.isRequired,
+    installments: PropTypes.shape({
+      rate: PropTypes.number.isRequired,
+    }).isRequired,
+  }).isRequired,
+  passaArr: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.string.isRequired,
+  })).isRequired,
 };
