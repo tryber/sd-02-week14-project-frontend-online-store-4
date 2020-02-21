@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-
-import './style.css'
+import PropTypes from 'prop-types';
+import './style.css';
 
 class Input extends Component {
   constructor(props) {
@@ -19,8 +19,15 @@ class Input extends Component {
         <input type="text" name={name} placeholder={place} onChange={cb} />
         {(red) ? <p>{name} é obrigatório</p> : (<p></p>)}
       </div>
-    );
+    )
   };
 }
+
+Comprador.propTypes = {
+  name: PropTypes.string.isRequired,
+  place: PropTypes.string.isRequired,
+  cb: PropTypes.func.isRequired,
+  red: PropTypes.bool.isRequired,
+};
 
 export default Input;

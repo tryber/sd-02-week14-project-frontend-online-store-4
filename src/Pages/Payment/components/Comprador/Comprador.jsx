@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import Input from './Input/Input';
 import './style.css';
 
@@ -26,8 +27,22 @@ class Comprador extends Component {
           <Input name={'est'} place={'Estado'} cb={cb} red={est.red} />
         </div>
       </div>
-    );
+    )
   };
 }
+
+Comprador.propTypes = {
+  produtoHandle: PropTypes.func.isRequired,
+  nome: PropTypes.string.isRequired,
+  email: PropTypes.string.isRequired,
+  cpf: PropTypes.string.isRequired,
+  tel: PropTypes.string.isRequired,
+  cep: PropTypes.string.isRequired,
+  end: PropTypes.string.isRequired,
+  comp: PropTypes.string.isRequired,
+  cid: PropTypes.string.isRequired,
+  num: PropTypes.string.isRequired,
+  est: PropTypes.string.isRequired,
+};
 
 export default Comprador;
