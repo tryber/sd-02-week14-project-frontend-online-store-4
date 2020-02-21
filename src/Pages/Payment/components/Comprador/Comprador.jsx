@@ -5,13 +5,13 @@ import './style.css';
 class Comprador extends Component {
   render() {
     const cb = this.props.produtoHandle;
-    
+    const { nome, email } = this.props.campos;
     return (
       <div className="payment_comprador">
         <p>Informações do comprador</p>
         <div className="container">
-          <Input name={'nome'} place={'Nome completo'} cb={cb} red={'red'} />
-          <Input name={'email'} place={'Email'} cb={cb} />
+          <Input name={'nome'} place={'Nome completo'} cb={cb} red={nome.red} />
+          <Input name={'email'} place={'Email'} cb={cb} red={email.red} />
           <Input name={'cpf'} place={'CPF'} cb={cb} />
           <Input name={'tel'} place={'Telefone'} cb={cb} />
         </div>

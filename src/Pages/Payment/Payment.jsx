@@ -91,15 +91,22 @@ class Payment extends Component {
     const campos = this.state.campos;
     const verifica = Object.keys(campos).reduce((acc, key) => {
       if (campos[key].value.length === 0) {
-        campos[key].red = true;
+        this.setState((state) => ({
+          ...state.campos,
+          [key]: {
+            ...state.campos[key],
+            red: true,
+          } 
+        }));
         acc = false;
       }
       return acc;
     }, true);
+
     if (verifica) {
       // redirect
     }
-    // console.log(this.state.campos.nome)
+    console.log(this.state.campos.nome.red);
   }
 
   produtoHandle(e) {
