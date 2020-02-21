@@ -95,11 +95,11 @@ class Payment extends Component {
       if (campos2[key].value.length === 0) {
         this.setState((state) => ({
             campos: {
-            ...state.campos,
-            [key]: {
-              ...state.campos[key],
-              red: true,
-            },
+              ...state.campos,
+              [key]: {
+                ...state.campos[key],
+                red: true,
+              },
             },
           }),
         );
