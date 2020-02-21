@@ -5,6 +5,37 @@ import emptyShopCar from './images/empty_car.svg';
 import '../ShoppingCart/ShoppingCart.css';
 import backButton from './images/backButton.png';
 
+function carregaImagemTitulo(title, image) {
+  return (
+    <div className="imagemTitulo">
+      <div>
+        <img src={image} alt={title} />
+      </div>
+      <div>
+        <p>{title}</p>
+      </div>
+    </div>
+  );
+}
+
+function valorProduto(price) {
+  return (
+    <div className="valorProduto">
+      <p>R$ {((price * 100) / 100).toFixed(2)}</p>
+    </div>
+  );
+}
+
+function finalizaCompra() {
+  return (
+    <div>
+      <button>
+        Finalizar Compra
+      </button>
+    </div>
+  );
+}
+
 export default class ShoppingCart extends Component {
   static botaoVolta() {
     return (
@@ -38,7 +69,6 @@ export default class ShoppingCart extends Component {
     );
   }
 
-
   constructor(props) {
     super(props);
     this.state = {
@@ -46,6 +76,11 @@ export default class ShoppingCart extends Component {
       items: [],
     };
     this.atualizaState = this.atualizaState.bind(this);
+    this.carregaProdutos = this.carregaProdutos.bind(this);
+    this.totalProdutos = this.totalProdutos.bind(this);
+    this.abaixaContador = this.abaixaContador.bind(this);
+    this.aumentaContador = this.aumentaContador.bind(this);
+    this.clearProduto = this.clearProduto.bind(this);
   }
 
   componentDidMount() {
@@ -59,18 +94,118 @@ export default class ShoppingCart extends Component {
 
   atualizaState(infoKey, i) {
     const objKeys = JSON.parse(localStorage.getItem(infoKey[i]));
-    this.setState((state) => ({
-      items: [...state.items, objKeys],
-    }));
+    if (Object.keys(objKeys)) {
+      this.setState((state) => ({
+        load: true,
+        items: [...state.items, objKeys],
+      }));
+    }
+  }
+
+  clearProduto(id) {
+    return (
+      <button
+        className="SomeAndRemove"
+        type="button"
+        onClick={(() => {
+          const { items } = this.state;
+          localStorage.removeItem(id);
+          const itemUnit = items.find((item) => item.id === id);
+          const resul = items.indexOf(itemUnit);
+          const { count } = itemUnit;
+          localStorage.setItem('CartCount', Number(localStorage.getItem('CartCount')) - count);
+          items.splice(resul, 1);
+          this.setState((state) => ({
+            items: state.items,
+          }));
+        })}
+      >
+        <i className="material-icons">
+          clear
+        </i>
+      </button>
+    );
+  }
+
+  aumentaContador(value) {
+    const { items } = this.state;
+    const index = items.indexOf(items.find((e) => e.id === value));
+    items[index].count += 1;
+    this.setState({ items });
+    localStorage.setItem(value, JSON.stringify(items[index]));
+    localStorage.setItem('CartCount', Number(localStorage.getItem('CartCount')) + 1);
+  }
+
+  abaixaContador(value) {
+    const { items } = this.state;
+    const countValue = items.find((e) => e.id === value);
+    const index = items.indexOf(countValue);
+    if (countValue.count >= 1) {
+      items[index].count -= 1;
+      this.setState({ items });
+      localStorage.setItem(value, JSON.stringify(items[index]));
+      localStorage.setItem('CartCount', Number(localStorage.getItem('CartCount')) - 1);
+    }
+    if (countValue.count === 0) {
+      items.splice(index, 1);
+      localStorage.removeItem(value);
+      this.setState({ items });
+    }
+  }
+
+  carregaProdutos(items, index) {
+    const { title, price, thumbnail, id } = items;
+    return (
+      <div className="containerCarrega" key={index}>
+        {this.clearProduto(id)}
+        {carregaImagemTitulo(title, thumbnail)}
+        <div className="containerBotoes">
+          <div className="somaReduz">
+            <button
+              className="SomeAndRemove"
+              type="button"
+              onClick={() => this.abaixaContador(id)}
+            >
+              <i className="material-icons">remove</i>
+            </button>
+          </div>
+          {items.count}
+          <div className="somaReduz">
+            <button
+              className="SomeAndRemove"
+              type="button"
+              onClick={() => this.aumentaContador(id)}
+            >
+              <i className="material-icons">add</i>
+            </button>
+          </div>
+          {valorProduto(price)}
+        </div>
+      </div>
+    );
+  }
+
+  totalProdutos() {
+    const { items } = this.state;
+    return (
+      <div>
+        Valor Total da Compra: R$
+        {items.reduce((curr, acc) => (curr + (((Number(acc.count) * 100) / 100) *
+          ((Number(acc.price) * 100) / 100))), 0).toFixed(2)
+        }
+      </div>
+    );
   }
 
   render() {
-    const { load } = this.state;
+    const { load, items } = this.state;
     if (!load) return ShoppingCart.loadingEmpty();
-
     return (
-      <div>
-        Hello World!
+      <div className="containerGeral">
+        {ShoppingCart.botaoVolta()}
+        {items.map((item, index) => this.carregaProdutos(item, index))}
+        {this.totalProdutos()}
+        {finalizaCompra()}
       </div>
     );
   }
