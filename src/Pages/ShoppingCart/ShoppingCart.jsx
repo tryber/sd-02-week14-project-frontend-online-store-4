@@ -190,7 +190,8 @@ export default class ShoppingCart extends Component {
     return (
       <div>
         Valor Total da Compra: R$
-        {items.reduce((curr, acc) => (curr + ((Number(acc.count) * 100) / 100) * ((Number(acc.price) * 100) / 100)), 0).toFixed(2)
+        {items.reduce((curr, acc) => (curr + (((Number(acc.count) * 100) / 100) *
+          ((Number(acc.price) * 100) / 100))), 0).toFixed(2)
         }
       </div>
     );
