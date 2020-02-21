@@ -15,7 +15,6 @@ export default class ShoppingCart extends Component {
       </div>
     );
   }
-
   static loadingEmpty() {
     return (
       <div className="shoppingCart">
@@ -52,13 +51,14 @@ export default class ShoppingCart extends Component {
   componentDidMount() {
     const infoKey = Object.keys(localStorage);
     for (let i = 0; i < infoKey.length; i += 1) {
-      if (infoKey[i] === 'CartCount' && infoKey[i + 1] !== undefined) i += 1;
-      const objKeys = JSON.parse(localStorage.getItem(infoKey[i]));
-      this.atualizaState(objKeys);
+      if (infoKey[i] !== 'CartCount' && !infoKey[i].match(/ProductDetails/)) {
+        this.atualizaState(infoKey, i);
+      }
     }
   }
 
-  atualizaState(objKeys) {
+  atualizaState(infoKey, i) {
+    const objKeys = JSON.parse(localStorage.getItem(infoKey[i]));
     this.setState((state) => ({
       items: [...state.items, objKeys],
     }));
