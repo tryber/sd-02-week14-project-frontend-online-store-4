@@ -1,18 +1,22 @@
 .page_payment {
   display: flex;
   flex-direction: column;
-  height: 130vh;
+  height: 120vh;
   justify-content: space-between;
   margin: 0 auto;
   width: 90vw;
-}
-
-.page_payment > .comprador {
-  background-color: red;
-  padding: 2%;
 }
 
 .page_payment button {
   margin: 2% 0;
 }
 
+.page_payment .comprador {
+  margin: 2% 0;
+}
+
+.page_payment .products {
+  border-color: black;
+  border-style: solid;
+  border-width: 1px;
+}

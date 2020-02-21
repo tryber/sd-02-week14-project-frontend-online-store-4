@@ -1,0 +1,15 @@
+.payment_comprador_input {
+  display: flex;
+  flex-direction: column;
+  width: auto;
+}
+
+.payment_comprador_input > input {
+  width: 100%;
+}
+
+.payment_comprador_input > p {
+  color: red;
+  font-size: 0.5em;
+  margin: 0;
+}
