@@ -88,12 +88,12 @@ export default class ShoppingCart extends Component {
         type="button"
         onClick={(() => {
           const { items } = this.state;
-          localStorage.removeItem(id)
-          const itemUnit = items.find((item) => item.id === id)
+          localStorage.removeItem(id);
+          const itemUnit = items.find((item) => item.id === id);
           const resul = items.indexOf(itemUnit);
-          const { count } = itemUnit
+          const { count } = itemUnit;
           localStorage.setItem('CartCount', Number(localStorage.getItem('CartCount')) - count);
-          items.splice(resul,1)
+          items.splice(resul, 1);
           this.setState((state) => ({
             items: state.items,
           }));
@@ -126,15 +126,18 @@ export default class ShoppingCart extends Component {
     localStorage.setItem(value, JSON.stringify(items[index]));
     localStorage.setItem('CartCount', Number(localStorage.getItem('CartCount')) + 1);
   }
+
   abaixaContador(value) {
     const { items } = this.state;
-    const index = items.indexOf(items.find(e => e.id === value));
-    if (items.find(e => e.id === value).count > 1) {
+    const countValue = items.find(e => e.id === value);
+    const index = items.indexOf(countValue);
+    if (countValue.count >= 1) {
       items[index].count -= 1;
       this.setState({ items: items });
       localStorage.setItem(value, JSON.stringify(items[index]));
       localStorage.setItem('CartCount', Number(localStorage.getItem('CartCount')) - 1);
-    } else {
+    } 
+    if (countValue.count === 0) {
       items.splice(index, 1);
       localStorage.removeItem(value);
       this.setState({ items });
@@ -145,7 +148,7 @@ export default class ShoppingCart extends Component {
     const { title, price, thumbnail, id } = items;
     return (
       <div className="containerCarrega" key={index}>
-        {this.clearProduto(id, items)}
+        {this.clearProduto(id)}
         {this.carregaImagemTitulo(title, thumbnail)}
         <div className="containerBotoes">
           <div className="somaReduz">
