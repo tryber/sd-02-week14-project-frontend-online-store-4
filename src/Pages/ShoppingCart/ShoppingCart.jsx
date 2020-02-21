@@ -191,8 +191,11 @@ export default class ShoppingCart extends Component {
       <div>
         Valor Total da Compra: R$
         {items.reduce((curr, acc) => {
-          return (curr += ((Number(acc.count) * 100) / 100) * ((Number(acc.price) * 100) / 100)
-          .toFixed(2)); },0)
+          const valorSomado = ((Number(acc.count) * 100) / 100) * ((Number(acc.price) * 100) / 100)
+          .toFixed(2);
+          valorSomado += curr;
+          return valorSomado;
+        }, 0)
         }
       </div>
     );
