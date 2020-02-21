@@ -4,7 +4,8 @@ import Input from './Input/Input';
 import './style.css';
 
 class Comprador extends Component {
-  static renderiza(cb, redNome, redEmail, redCpf, redTel, redCep, redEnd, redComp, redCid, redNum, redEst) {
+  static renderiza(cb, redNome, redEmail, redCpf,
+    redTel, redCep, redEnd, redComp, redCid, redNum, redEst) {
     return (
       <div className="payment_comprador">
         <p>Informações do comprador</p>
@@ -45,7 +46,8 @@ class Comprador extends Component {
 
     return (
       <div>
-        {Comprador.renderiza(cb, redNome, redEmail, redCpf, redTel, redCep, redEnd, redComp, redCid, redNum, redEst)}
+        {Comprador.renderiza(cb, redNome, redEmail, redCpf,
+          redTel, redCep, redEnd, redComp, redCid, redNum, redEst)}
       </div>
     );
   }
@@ -119,7 +121,7 @@ Comprador.defaultProps = {
     },
     est: {
       red: false,
-    }
+    },
   },
 };
 
