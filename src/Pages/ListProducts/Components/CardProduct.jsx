@@ -43,22 +43,29 @@ class CardProduct extends Component {
     const { arrCard, retornaParam } = this.props;
     return (
       <div className="containCard">
-        {arrCard.map((element) => (
-          <div className="cardComplete" key={element.id}>
-            <Link className="label" to={`/product-details/${element.id}`} onClick={() => retornaParam(element, arrCard)} >
-              <div className="titleCard">
-                <h5 className="titleCard">{element.title}</h5>
-              </div>
-              <div className="containerImg">
-                <img className="cardImage" src={element.thumbnail} alt={element.title} />
-              </div>
-              <div>
-                <h6>{((element.price * 100) / 100).toFixed(2)}</h6>
-              </div>
-            </Link>
-            {this.carregaCardProduct(element, arrCard)}
-          </div>
-        ))}
+        {arrCard.map((element) => {
+          const { shipping: { free_shipping: freeShipping } } = element;
+          return (
+            <div className="cardComplete" key={element.id}>
+              <Link className="label" to={`/product-details/${element.id}`} onClick={() => retornaParam(element, arrCard)} >
+                <div className="titleCard">
+                  <h5 className="titleCard">{element.title}</h5>
+                </div>
+                <div className="containerImg">
+                  <img className="cardImage" src={element.thumbnail} alt={element.title} />
+                </div>
+                <p>{(freeShipping) ? 'Entrega grátis' : 'Fretado'}</p>
+                <i class="material-icons">
+                  local_shipping
+                </i>
+                <div>
+                  <h6>{((element.price * 100) / 100).toFixed(2)}</h6>
+                </div>
+              </Link>
+              {this.carregaCardProduct(element, arrCard)}
+            </div>
+          );
+        })}
       </div>
     );
   }
