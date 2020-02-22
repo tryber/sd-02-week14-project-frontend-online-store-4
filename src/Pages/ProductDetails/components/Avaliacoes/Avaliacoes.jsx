@@ -7,7 +7,7 @@ import Stars from '../Stars/Stars';
 
 function storage({ email, message, rate }, id) {
   if (id) {
-    localStorage.setItem(`ProductDetails,${id}${message}`, `${email},${message},${rate}`);
+    localStorage.setItem(`ProductDetails,${id},${message}`, `${email},${message},${rate}`);
   }
 }
 

@@ -20,16 +20,18 @@ export default class ProductDetails extends Component {
     this.state = {
       comments: [],
       detailCount: 0,
+      item: {},
     };
     this.submitHandle = this.submitHandle.bind(this);
     this.enviaArrCard = this.enviaArrCard.bind(this);
   }
 
   componentDidMount() {
-    const { id } = this.props.passaObj;
+    this.setState((state) => ({ ...state,item: JSON.parse(localStorage.getItem('Product')) }))
+    const { id } = JSON.parse(localStorage.getItem('Product'));
     this.valueCart();
     let keys = allStorageKeys();
-    keys = keys.filter((item) => item.includes(`${id}`));
+    keys = keys.filter((item) => item.includes(`ProductDetails,${id}`));
     const storages = keys.map((item) => localStorage[item]);
     const comments = storages.map((item) => {
       const array = item.split(',');
@@ -65,21 +67,19 @@ export default class ProductDetails extends Component {
   }
 
   componentsRender() {
-    const { passaObj } = this.props;
-    const { title, price, installments } = passaObj;
-    const { comments } = this.state;
+    const { comments, item } = this.state;
+    const { title, price } = item;
     return (
       <div>
         <div className="title">
           <p>{title} - </p>
           <p>{price},00 R$</p>
         </div>
-        <Produto obj={passaObj} />
+        <Produto obj={item} />
         <Quantidade enviaCard={this.enviaArrCard} />
         <Avaliacoes
-          rate={installments.rate}
           submitHandle={this.submitHandle}
-          id={passaObj.id}
+          id={item.id}
         />
         <Comments
           comments={comments}
@@ -90,8 +90,10 @@ export default class ProductDetails extends Component {
 
   render() {
     const { passaObj } = this.props;
-    const { title } = passaObj;
-    const { detailCount } = this.state;
+    if (Object.keys(passaObj).length > 0)
+      localStorage.setItem('Product', JSON.stringify(passaObj));
+    const { detailCount, item } = this.state;
+    const { title } = item;
     return (
       <div className="page_productDetails">
         {ShoppingCart.botaoVolta()}
