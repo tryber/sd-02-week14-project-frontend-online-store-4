@@ -27,7 +27,6 @@ export default class ProductDetails extends Component {
   }
 
   componentDidMount() {
-    this.setState((state) => ({ ...state,item: JSON.parse(localStorage.getItem('Product')) }))
     const { id } = JSON.parse(localStorage.getItem('Product'));
     this.valueCart();
     let keys = allStorageKeys();
@@ -48,7 +47,7 @@ export default class ProductDetails extends Component {
   }
 
   valueCart() {
-    this.setState({ detailCount: Number(localStorage.getItem('CartCount')) });
+    this.setState((state) => ({ ...state, item: JSON.parse(localStorage.getItem('Product')), detailCount: Number(localStorage.getItem('CartCount')) }));
   }
 
   submitHandle(comment) {
@@ -90,8 +89,9 @@ export default class ProductDetails extends Component {
 
   render() {
     const { passaObj } = this.props;
-    if (Object.keys(passaObj).length > 0)
+    if (Object.keys(passaObj).length > 0) {
       localStorage.setItem('Product', JSON.stringify(passaObj));
+    }
     const { detailCount, item } = this.state;
     const { title } = item;
     return (
