@@ -41,11 +41,14 @@ class ListProducts extends Component {
     this.setState({ carrinhoCont: Number(localStorage.getItem('CartCount')) });
   }
   reduceFunction(res) {
-    if (res.resolve === undefined) this.setState({ value: 'Nenhum Produto foi Encontrado' });
-    this.setState({
-      results:
-        res.results.reduce((acc, curr) => [...acc, curr], []),
-    });
+    if (res.results.length === 0) {
+      this.setState({ value: 'Nenhum Produto foi Encontrado' });
+    } else {
+      this.setState({
+        results:
+          res.results.reduce((acc, curr) => [...acc, curr], []),
+      });
+    }
   }
   pesquisa(e) {
     const { valueradio } = this.state;
