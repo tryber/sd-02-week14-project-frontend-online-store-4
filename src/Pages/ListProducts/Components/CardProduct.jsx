@@ -55,7 +55,7 @@ class CardProduct extends Component {
                   <img className="cardImage" src={element.thumbnail} alt={element.title} />
                 </div>
                 <p>{(freeShipping) ? 'Entrega grátis' : 'Fretado'}</p>
-                <i class="material-icons">
+                <i className="material-icons">
                   local_shipping
                 </i>
                 <div>
