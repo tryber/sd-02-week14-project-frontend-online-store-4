@@ -59,30 +59,30 @@ class CardProduct extends Component {
                     <p>Entrega grátis</p>
                     <i className="material-icons">
                       local_shipping
-                </i></div> : ''}
-  
+                    </i>
+                  </div> : ''}
                 <div>
-                      <h6>{((element.price * 100) / 100).toFixed(2)}</h6>
-                    </div>
+                  <h6>{((element.price * 100) / 100).toFixed(2)}</h6>
+                </div>
               </Link>
               {this.carregaCardProduct(element, arrCard)}
             </div>
-              );
-            })}
-      </div>
           );
-        }
+        })}
+      </div>
+    );
+  }
 
   render() {
-          return(
-            this.cardProduct()
+    return (
+      this.cardProduct()
     );
-          }
-        }
-        export default CardProduct;
+  }
+}
+export default CardProduct;
 CardProduct.propTypes = PropTypes.shape({
-          id: PropTypes.string,
-      title: PropTypes.string,
-      thumbnail: PropTypes.string,
-      price: PropTypes.number,
-    }).isRequired;
+  id: PropTypes.string,
+  title: PropTypes.string,
+  thumbnail: PropTypes.string,
+  price: PropTypes.number,
+}).isRequired;
