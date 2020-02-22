@@ -86,7 +86,7 @@ export default class ShoppingCart extends Component {
   componentDidMount() {
     const infoKey = Object.keys(localStorage);
     for (let i = 0; i < infoKey.length; i += 1) {
-      if (infoKey[i] !== 'CartCount' && !infoKey[i].match(/ProductDetails/)) {
+      if (infoKey[i].match(/Item/)) {
         this.atualizaState(infoKey, i);
       }
     }

@@ -6,14 +6,14 @@ import './CardProduct.css';
 class CardProduct extends Component {
   static adicionaCart(idParam, arrCard, state) {
     const produto = arrCard.find((card) => card.id === idParam);
-    if (localStorage.getItem(idParam) === null) {
+    if (localStorage.getItem(`Item${idParam}`) === null) {
       localStorage
-        .setItem(idParam, JSON.stringify(
+        .setItem(`Item${idParam}`, JSON.stringify(
           { ...produto, count: state }));
     } else {
-      const objKeyInfo = JSON.parse(localStorage.getItem(idParam));
+      const objKeyInfo = JSON.parse(localStorage.getItem(`Item${idParam}`));
       const lS = { ...objKeyInfo, count: objKeyInfo.count += state };
-      localStorage.setItem(idParam, JSON.stringify(lS));
+      localStorage.setItem(`Item${idParam}`, JSON.stringify(lS));
     }
   }
 
@@ -43,22 +43,30 @@ class CardProduct extends Component {
     const { arrCard, retornaParam } = this.props;
     return (
       <div className="containCard">
-        {arrCard.map((element) => (
-          <div className="cardComplete" key={element.id}>
-            <Link className="label" to={`/product-details/${element.id}`} onClick={() => retornaParam(element, arrCard)} >
-              <div className="titleCard">
-                <h5 className="titleCard">{element.title}</h5>
-              </div>
-              <div className="containerImg">
-                <img className="cardImage" src={element.thumbnail} alt={element.title} />
-              </div>
-              <div>
-                <h6>{((element.price * 100) / 100).toFixed(2)}</h6>
-              </div>
-            </Link>
-            {this.carregaCardProduct(element, arrCard)}
-          </div>
-        ))}
+        {arrCard.map((element) => {
+          const { shipping: { free_shipping: freeShipping } } = element;
+          return (
+            <div className="cardComplete" key={element.id}>
+              <Link className="label" to={`/product-details/${element.id}`} onClick={() => retornaParam(element, arrCard)} >
+                <div className="titleCard">
+                  <h5 className="titleCard">{element.title}</h5>
+                </div>
+                <div className="containerImg">
+                  <img className="cardImage" src={element.thumbnail} alt={element.title} />
+                </div>
+                {(freeShipping) ?
+                  <div>
+                    <p>Entrega grátis</p>
+                    <i className="material-icons">local_shipping</i>
+                  </div> : ''}
+                <div>
+                  <h6>{((element.price * 100) / 100).toFixed(2)}</h6>
+                </div>
+              </Link>
+              {this.carregaCardProduct(element, arrCard)}
+            </div>
+          );
+        })}
       </div>
     );
   }
