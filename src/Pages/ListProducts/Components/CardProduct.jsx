@@ -57,9 +57,7 @@ class CardProduct extends Component {
                 {(freeShipping) ?
                   <div>
                     <p>Entrega grátis</p>
-                    <i className="material-icons">
-                      local_shipping
-                    </i>
+                    <i className="material-icons">local_shipping</i>
                   </div> : ''}
                 <div>
                   <h6>{((element.price * 100) / 100).toFixed(2)}</h6>
