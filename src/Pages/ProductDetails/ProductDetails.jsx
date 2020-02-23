@@ -111,14 +111,11 @@ export default class ProductDetails extends Component {
 
 ProductDetails.propTypes = {
   passaObj: PropTypes.shape({
-    id: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
-    price: PropTypes.number.isRequired,
-    installments: PropTypes.shape({
-      rate: PropTypes.number.isRequired,
-    }).isRequired,
+    id: PropTypes.string,
+    title: PropTypes.string,
+    price: PropTypes.number,
   }).isRequired,
   passaArr: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.string.isRequired,
+    id: PropTypes.string,
   })).isRequired,
 };

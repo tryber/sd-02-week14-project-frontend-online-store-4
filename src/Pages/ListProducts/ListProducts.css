@@ -26,12 +26,29 @@
   flex-direction: row;
 }
 
-.maxContain .SearchList {
+.maxContain .container {
   border: 1px solid black;
   height: 100%;
   margin: 20px;
   padding: 5px;
   width: 30%;
+}
+
+.inputs {
+  -webkit-appearance: none;
+}
+
+.labels {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+}
+
+.labels:hover {
+  background-color: grey;
+  cursor: pointer;
 }
 
 .caixaLupa {
