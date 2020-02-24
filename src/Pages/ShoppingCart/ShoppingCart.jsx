@@ -111,7 +111,7 @@ export default class ShoppingCart extends Component {
         type="button"
         onClick={(() => {
           const { items } = this.state;
-          localStorage.removeItem(id);
+          localStorage.removeItem(`Item${id}`);
           const itemUnit = items.find((item) => item.id === id);
           const resul = items.indexOf(itemUnit);
           const { count } = itemUnit;
@@ -134,7 +134,7 @@ export default class ShoppingCart extends Component {
     const index = items.indexOf(items.find((e) => e.id === value));
     items[index].count += 1;
     this.setState({ items });
-    localStorage.setItem(value, JSON.stringify(items[index]));
+    localStorage.setItem(`Item${value}`, JSON.stringify(items[index]));
     localStorage.setItem('CartCount', Number(localStorage.getItem('CartCount')) + 1);
   }
 
@@ -145,12 +145,12 @@ export default class ShoppingCart extends Component {
     if (countValue.count >= 1) {
       items[index].count -= 1;
       this.setState({ items });
-      localStorage.setItem(value, JSON.stringify(items[index]));
+      localStorage.setItem(`Item${value}`, JSON.stringify(items[index]));
       localStorage.setItem('CartCount', Number(localStorage.getItem('CartCount')) - 1);
     }
     if (countValue.count === 0) {
       items.splice(index, 1);
-      localStorage.removeItem(value);
+      localStorage.removeItem(`Item${value}`);
       this.setState({ items });
     }
   }
