@@ -29,9 +29,11 @@ function valorProduto(price) {
 function finalizaCompra() {
   return (
     <div>
-      <button>
-        Finalizar Compra
-      </button>
+      <Link to={'/payment'}>
+        <button>
+          Finalizar Compra
+        </button>
+      </Link>
     </div>
   );
 }

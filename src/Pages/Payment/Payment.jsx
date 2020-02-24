@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-
+import ShoppinCart from '../ShoppingCart/ShoppingCart';
 import Produto from './components/Produto/Produto';
 import Comprador from './components/Comprador/Comprador';
 import Pagamento from './components/Pagamento/Pagamento';
 import './style.css';
+import ShoppingCart from '../ShoppingCart/ShoppingCart';
 
 const produtos = [
   {
@@ -126,6 +127,7 @@ class Payment extends Component {
   render() {
     return (
       <div className="page_payment">
+        {ShoppingCart.botaoVolta()}
         <p>Revise seus produtos</p>
         <form onSubmit={this.submitHandle}>
           <div className="products">

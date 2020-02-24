@@ -35,14 +35,14 @@
 }
 
 .inputs {
-  -webkit-appearance: none;
+  appearance: none;
 }
 
 .labels {
+  align-items: center;
   display: flex;
   flex-direction: row-reverse;
   justify-content: flex-end;
-  align-items: center;
   width: 100%;
 }
 

@@ -6,57 +6,49 @@ class SearchList extends React.Component {
     super(props);
     this.state = {
       term: '',
-      icone: false,
-      iconeLoad: 'check_box_outline_blank',
     };
     this.trocaIcone = this.trocaIcone.bind(this);
   }
-
+  
   componentDidMount() {
     fetch('https://api.mercadolibre.com/sites/MLB/categories')
-      .then((resolve) => resolve.json())
-      .then((result) => this.setState({ term: result, iconeLoad: [] }));
-  }
-
-  trocaIcone(value) {/* 
-    const { term } = this.state;
-    const index = term.indexOf(term.find((e) => e.id === value)); */
-/* 
-    const node = this.myRef.current;
-    node.innerText = 'check_box_outline_blank'
-    console.log(node); */
-/*     term[index].count += 1;
-    this.setState({ items });
-
-    const { icone } = this.state;
-    !icone ? this.setState({
-      iconeLoad: 'check_box',
-      icone: !icone,
-    }) :
-    this.setState({
-      iconeLoad: 'check_box_outline_blank',
-      icone: !icone,
-    }); */
-  }
+    .then((resolve) => resolve.json())
+    .then((result) => {
+      result.map((item) => {
+          return item.isSelected = false
+        });
+        this.setState({ term: result });
+      });
+    }
+    
+    trocaIcone(index) {
+      //debugger
+      let teste = this.state.term;
+      for (let i = 0; i < teste.length; i += 1) {
+        teste[i].isSelected = false;
+      }
+      !teste[index].isSelected ? teste[index].isSelected = true : teste[index].isSelected = false;
+    }
 
   render() {
-    const { term, iconeLoad } = this.state;
+    let { term } = this.state;
     const { callback } = this.props;
     return (
-      <div className="container">{(term !== '') ? term.map((categoria) => (
+      <div className="container">{(term !== '') ? term.map((categoria, index) => (
         <label key={categoria.id} htmlFor={categoria.id} className="labels">{categoria.name}
-          <div className="containerCategorias">
-            <i className="material-icons">
-            {iconeLoad}
-            </i>
+          <div className="containerCategorias" onClick={() => this.trocaIcone(index)}>
+            <span>
+              <i className="material-icons">
+                { categoria.isSelected ? 'check_box' : 'check_box_outline_blank' }
+              </i>
+            </span>
             <input
               className="inputs"
               id={categoria.id}
               name="categoria"
               value={categoria.id}
-              onClick={() => this.trocaIcone(categoria.id)}
               onChange={((e) => callback(e.target.value))}
-              type="radio"
+              type="checkbox"
             />
           </div>
         </label>
