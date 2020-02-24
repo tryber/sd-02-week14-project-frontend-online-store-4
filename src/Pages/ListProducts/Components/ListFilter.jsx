@@ -14,11 +14,9 @@ class SearchList extends React.Component {
     fetch('https://api.mercadolibre.com/sites/MLB/categories')
     .then((resolve) => resolve.json())
     .then((result) => {
-      result.map((item) => {
-        return (item.isSelected = false);
-      });
+      result.map((item) => ({...item, isSelected: false}));
       this.setState({ term: result });
-    });
+      });
   }
 
   trocaIcone(index) {
