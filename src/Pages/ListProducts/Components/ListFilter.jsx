@@ -26,11 +26,11 @@ class SearchList extends React.Component {
         icone: icone[i].isSelected = false,
       });
     }
-    this.setState(() => ({
+    this.setState({
       icone: !icone[index].isSelected ?
       icone[index].isSelected = true :
       icone[index].isSelected = false,
-    }));
+    });
   }
 
 
