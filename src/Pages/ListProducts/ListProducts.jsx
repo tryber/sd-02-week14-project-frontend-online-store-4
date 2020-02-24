@@ -11,8 +11,10 @@ class ListProducts extends Component {
     return (
       <div className="container-cart">
         <Link className="carrinhoCart" to="/shopping-cart">
-          <img className="carrinho"
-            src="https://image.flaticon.com/icons/svg/126/126083.svg" alt="carrinho de compras" />
+          <img
+            className="carrinho"
+            src="https://image.flaticon.com/icons/svg/126/126083.svg" alt="carrinho de compras"
+          />
           <div className="contadorCarrinho">
             <span className="numero">{carrinho}</span>
           </div>
@@ -107,7 +109,7 @@ class ListProducts extends Component {
     const { value, results, carrinhoCont } = this.state;
     return (
       <div className="maxContain" >
-          <ListFilter callback={this.callback} />
+        <ListFilter callback={this.callback} />
         <div className="header">
           {ListProducts.caixaCarrinho(carrinhoCont)}
           {this.caixaLupa()}

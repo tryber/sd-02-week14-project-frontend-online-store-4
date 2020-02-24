@@ -20,19 +20,19 @@ class SearchList extends React.Component {
   }
 
   trocaIcone(index) {
-    let teste = this.state.term;
-    for (let i = 0; i < teste.length; i += 1) teste[i].isSelected = false;
-    return ( !teste[index].isSelected ?
-      teste[index].isSelected = true : teste[index].isSelected = false);
+    const icone = this.state.term;
+    for (let i = 0; i < icone.length; i += 1) icone[i].isSelected = false;
+    return ( !icone[index].isSelected ?
+      icone[index].isSelected = true : icone[index].isSelected = false);
   }
 
   render() {
-    let { term } = this.state;
+    const { term } = this.state;
     const { callback } = this.props;
     return (
       <div className="container">{(term !== '') ? term.map((categoria, index) => (
         <label key={categoria.id} htmlFor={categoria.id} className="labels">{categoria.name}
-          <div className="containerCategorias" onClick={() => this.trocaIcone(index)}>
+          <div className="containerCategorias">
             <span>
               <i className="material-icons">
                 { categoria.isSelected ? 'check_box' : 'check_box_outline_blank' }
@@ -43,6 +43,7 @@ class SearchList extends React.Component {
               id={categoria.id}
               name="categoria"
               value={categoria.id}
+              onClick={() => this.trocaIcone(index)}
               onChange={((e) => callback(e.target.value))}
               type="checkbox"
             />
