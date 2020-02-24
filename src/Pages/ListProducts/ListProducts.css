@@ -55,9 +55,9 @@
 .lupa {
   align-self: center;
   display: flex;
-  margin: 0.5% 0 0 2%;
+  margin: 0.5% 0 0 1%;
   position: absolute;
-  width: 5%;
+  width: 4.5%;
 }
 
 .lupinha {

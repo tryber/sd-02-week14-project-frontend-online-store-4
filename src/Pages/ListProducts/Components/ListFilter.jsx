@@ -9,26 +9,22 @@ class SearchList extends React.Component {
     };
     this.trocaIcone = this.trocaIcone.bind(this);
   }
-  
+
   componentDidMount() {
     fetch('https://api.mercadolibre.com/sites/MLB/categories')
     .then((resolve) => resolve.json())
     .then((result) => {
-      result.map((item) => {
-          return item.isSelected = false
-        });
-        this.setState({ term: result });
-      });
-    }
-    
-    trocaIcone(index) {
-      //debugger
-      let teste = this.state.term;
-      for (let i = 0; i < teste.length; i += 1) {
-        teste[i].isSelected = false;
-      }
-      !teste[index].isSelected ? teste[index].isSelected = true : teste[index].isSelected = false;
-    }
+      result.map((item) => item.isSelected = false );
+      this.setState({ term: result });
+    });
+  }
+
+  trocaIcone(index) {
+    let teste = this.state.term;
+    for (let i = 0; i < teste.length; i += 1) teste[i].isSelected = false;
+    return ( !teste[index].isSelected ?
+      teste[index].isSelected = true : teste[index].isSelected = false);
+  }
 
   render() {
     let { term } = this.state;
