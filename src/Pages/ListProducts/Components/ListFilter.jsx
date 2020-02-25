@@ -12,38 +12,30 @@ class SearchList extends React.Component {
 
   componentDidMount() {
     fetch('https://api.mercadolibre.com/sites/MLB/categories')
-    .then((resolve) => resolve.json())
-    .then((result) => {
-      result.map((item) => ({ ...item, isSelected: false }));
-      this.setState({ term: result });
-    });
+      .then((resolve) => resolve.json())
+      .then((result) => {
+        result.map((item) => ({ ...item, isSelected: false }));
+        this.setState({ term: result });
+      });
   }
 
   trocaIcone(index) {
     const icone = this.state.term;
-    for (let i = 0; i < icone.length; i += 1) {
-      this.setState({
-        icone: icone[i].isSelected = false,
-      });
-    }
-    this.setState({
-      icone: !icone[index].isSelected ?
-      icone[index].isSelected = true :
-      icone[index].isSelected = false,
-    });
+    Object.values(icone).forEach(ele =>
+      this.setState({ icone: ele.isSelected = false }));
+    this.setState({ icone: icone[index].isSelected = !icone[index].isSelected });
   }
-
 
   render() {
     const { term } = this.state;
     const { callback } = this.props;
     return (
-      <div className="container">{(term !== '') ? term.map((categoria, index) => (
+      <div className="container" > {(term !== '') ? term.map((categoria, index) => (
         <label key={categoria.id} htmlFor={categoria.id} className="labels">{categoria.name}
           <div className="containerCategorias">
             <span>
               <i className="material-icons">
-                { categoria.isSelected ? 'check_box' : 'check_box_outline_blank' }
+                {categoria.isSelected ? 'check_box' : 'check_box_outline_blank'}
               </i>
             </span>
             <input
@@ -57,7 +49,7 @@ class SearchList extends React.Component {
             />
           </div>
         </label>
-      )) : term}</div>
+      )) : term}</div >
     );
   }
 }
