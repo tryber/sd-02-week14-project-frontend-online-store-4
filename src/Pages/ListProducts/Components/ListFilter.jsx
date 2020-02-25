@@ -23,7 +23,7 @@ class SearchList extends React.Component {
     const icone = this.state.term;
     Object.values(icone).forEach(ele => 
       this.setState({ icone: ele.isSelected = false }));
-    this.setState({ icone: icone[index].isSelected = (!icone[index].isSelected) ? true : false });
+    this.setState({ icone: icone[index].isSelected = !icone[index].isSelected });
   }
 
 
