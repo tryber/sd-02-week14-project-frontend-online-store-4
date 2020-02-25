@@ -2,12 +2,7 @@
   align-items: center;
   display: flex;
   flex-direction: column;
-  width: 100%;
-}
-
-.header img {
-  margin: 10px;
-  width: 100%;
+  width: 70%;
 }
 
 .header .searchBar {
@@ -26,12 +21,28 @@
   flex-direction: row;
 }
 
-.maxContain .SearchList {
+.maxContain .container {
   border: 1px solid black;
   height: 100%;
-  margin: 20px;
   padding: 5px;
   width: 30%;
+}
+
+.inputs {
+  appearance: none;
+}
+
+.labels {
+  align-items: center;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.labels:hover {
+  background-color: grey;
+  cursor: pointer;
 }
 
 .caixaLupa {
@@ -44,8 +55,13 @@
 .lupa {
   align-self: center;
   display: flex;
+  margin: 0.5% 0 0 1%;
   position: absolute;
-  width: 4%;
+  width: 4.5%;
+}
+
+.lupinha {
+  width: 100%;
 }
 
 .container-input {
@@ -54,13 +70,37 @@
 }
 
 .container-cart {
+  align-self: flex-end;
   display: flex;
-  justify-content: flex-end;
-  width: 100%;
+  width: 12%;
 }
 
 .carrinhoCart {
-  align-self: flex-end;
+  align-items: center;
   display: flex;
-  width: fit-content;
+  position: relative;
+  width: 100%;
+}
+
+.contadorCarrinho {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  width: 100%;
+}
+
+.numero {
+  background-color: gold;
+  border: 2px solid black;
+  border-radius: 20px;
+  color: black;
+  font-size: 200%;
+  margin-left: 15%;
+  padding: 3%;
+  text-align: center;
+}
+
+.carrinho {
+  width: 100%;
 }
