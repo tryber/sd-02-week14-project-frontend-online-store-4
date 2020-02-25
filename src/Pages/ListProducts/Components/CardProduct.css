@@ -9,9 +9,8 @@
 
 .containCard .cardComplete {
   align-items: center;
-  background-image: linear-gradient(gray 25%, white 25%);
   border: 1px solid black;
-  border-radius: 10%;
+  border-radius: 20px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -26,16 +25,33 @@
 
 .titleCard {
   display: flex;
+  background-color: grey;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
   font-size: 110%;
+  height: 70px;
   justify-content: center;
-  margin: 5% 0;
   padding: 0 2%;
   text-align: center;
-  width: fit-content;
+  width: 100%;
+}
+
+.titleCardtitle {
+  align-self: center;
+  display: flex;
+  text-align: center;
 }
 
 .buttonAddCart {
+  background-color: rgb(114, 104, 79);
+  border: 5px groove rgb(100, 97, 80);
+  border-color: goldenrod;
+  color: white;
+  font-weight: 800;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  height: 50px;
   margin-bottom: 5%;
+  width: 120px;
 }
 
 .containerImg {
@@ -48,6 +64,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  width: 100%;
 }
 
 .label:link {
