@@ -21,9 +21,16 @@ class SearchList extends React.Component {
 
   trocaIcone(index) {
     const icone = this.state.term;
-    Object.values(icone).forEach(ele => 
-      this.setState({ icone: ele.isSelected = false }));
-    this.setState({ icone: icone[index].isSelected = !icone[index].isSelected });
+    for (let i = 0; i < icone.length; i += 1) {
+      this.setState({
+        icone: icone[i].isSelected = false,
+      });
+    }
+    this.setState({
+      icone: !icone[index].isSelected ?
+      icone[index].isSelected = true :
+      icone[index].isSelected = false,
+    });
   }
 
 
