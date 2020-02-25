@@ -9,14 +9,14 @@ class Input extends Component {
   }
 
   onChange(e) {
-    this.props.produtoHandle(e);
+    this.props.cb(e);
   }
 
   render() {
-    const { name, place, cb, red } = this.props;
+    const { name, place, red } = this.props;
     return (
       <div className="payment_comprador_input">
-        <input type="text" name={name} placeholder={place} onChange={cb} />
+        <input type="text" name={name} placeholder={place} onChange={this.onChange} />
         {(red) ? <p>{name} é obrigatório</p> : <p />}
       </div>
     );

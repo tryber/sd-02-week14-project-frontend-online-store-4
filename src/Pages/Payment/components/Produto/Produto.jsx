@@ -4,10 +4,14 @@ import './style.css';
 
 class Produto extends Component {
   render() {
-    const { img, title, price } = this.props.produto;
+    const { thumbnail, title, price, count } = this.props.produto;
     return (
       <div className="payment_comp_produto">
-        <img src={img} alt="" />
+        <img src={thumbnail} alt="" />
+        <div>
+          <strong>unid:</strong>
+          <p>{count}</p>
+        </div>
         <div>
           <strong>produto:</strong>
           <p>{title}</p>
