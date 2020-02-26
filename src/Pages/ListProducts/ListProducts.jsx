@@ -97,9 +97,10 @@ class ListProducts extends Component {
     const { banana } = this.props;
     banana(element, arrCard);
     if (!element.count) {
-      element.count = 0;
+      const element2 = element;
+      element2.count = 0;
     }
-    localStorage.setItem(`Item${element.id}`, JSON.stringify(element));
+    localStorage.setItem(`Item${element.id}`, JSON.stringify(element2));
   }
 
   numberCart() {
@@ -113,7 +114,6 @@ class ListProducts extends Component {
     const { value, results, carrinhoCont } = this.state;
     return (
       <div className="maxContain" >
-        <ListFilter callback={this.callback} />
         <div className="header">
           {ListProducts.caixaCarrinho(carrinhoCont)}
           {this.caixaLupa()}

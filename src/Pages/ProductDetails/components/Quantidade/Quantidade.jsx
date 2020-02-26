@@ -19,15 +19,19 @@ class Campo extends Component {
     const { obj } = this.props;
     const { id } = obj;
     const produto = JSON.parse(localStorage.getItem(`Item${id}`));
-    this.setState({
-      qt: produto.count,
-    });
+    this.setStateQt(produto);
     if (produto.available_quantity === 0) {
       this.addBtn.current.setAttribute('disabled', 'disabled');
     }
     if (produto.count === 0) {
       this.removeBtn.current.setAttribute('disabled', 'disabled');
     }
+  }
+
+  setStateQt(produto) {
+    this.setState({
+      qt: produto.count,
+    });
   }
 
   add() {

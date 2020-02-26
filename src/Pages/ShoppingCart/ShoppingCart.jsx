@@ -90,10 +90,14 @@ export default class ShoppingCart extends Component {
     const infoKey = Object.keys(localStorage);
     for (let i = 0; i < infoKey.length; i += 1) {
       if (infoKey[i].match(/Item/)) {
-        if (JSON.parse(localStorage.getItem(infoKey[i])).count > 0) {
-          this.atualizaState(infoKey, i);
-        }
+        ShoppingCart.jsonParse(infoKey[i]);
       }
+    }
+  }
+
+  static jsonParse(infoKey) {
+    if (JSON.parse(localStorage.getItem(infoKey)).count > 0) {
+      this.atualizaState(infoKey, i);
     }
   }
 
@@ -142,7 +146,6 @@ export default class ShoppingCart extends Component {
       localStorage.setItem(`Item${value}`, JSON.stringify(items[index]));
       localStorage.setItem('CartCount', Number(localStorage.getItem('CartCount')) + 1);
     }
-
   }
 
   abaixaContador(value) {

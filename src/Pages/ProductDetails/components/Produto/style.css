@@ -9,7 +9,7 @@
   width: 50%;
 }
 
-.comp_product_details .campos:nth-child(n) {
+.comp_product_details .campos:nth-child( n ) {
   width: 60%;
 }
 
