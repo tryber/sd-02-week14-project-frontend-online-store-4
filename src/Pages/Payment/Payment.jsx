@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import Produto from './components/Produto/Produto';
 import Comprador from './components/Comprador/Comprador';
 import Pagamento from './components/Pagamento/Pagamento';
 import ShoppingCart from '../ShoppingCart/ShoppingCart';
 import './style.css';
 
-const campos = {
+const initCampos = {
   nome: {
     name: 'Nome',
     value: '',
@@ -74,11 +75,25 @@ function carregaProdutos() {
   return ids.map((id) => JSON.parse(localStorage.getItem(id)));
 }
 
+
+function  apagaIds() {
+  const keys = allStorageKeys();
+  const ids = keys.filter((key) => key.includes('Item'));
+  ids.forEach((id) => localStorage.removeItem(id));
+  localStorage.removeItem('CartCount');
+}
+
+function verificaIds() {
+  const keys = allStorageKeys();
+  const ids = keys.filter((key) => key.includes('Item'));
+  return !(ids.length === 0);
+}
+
 class Payment extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      campos: { ...campos },
+      campos: { ...initCampos },
       produtos: carregaProdutos(),
     };
     this.submitHandle = this.submitHandle.bind(this);
@@ -86,38 +101,24 @@ class Payment extends Component {
   }
 
   componentDidMount() {
-    this.verificaIds() 
+    this.verificaIds();
   }
 
   submitHandle(e) {
     e.preventDefault();
     const campos2 = this.state.campos;
     const verifica = Object.keys(campos2).reduce((acc, key) => {
-        if (campos2[key].value.length === 0) {
-          this.redState(key, true);
+      if (campos2[key].value.length === 0) {
+        this.redState(key, true);
         return false;
-      } else {
-        this.redState(key, false);
       }
+      this.redState(key, false);
       return acc;
     }, true);
     if (verifica) {
-      this.apagaIds();
+      apagaIds();
       this.props.history.push('/');
     }
-  }
-
-  apagaIds() {
-    const keys = allStorageKeys();
-    const ids = keys.filter((key) => key.includes('Item'));
-    ids.forEach((id) => localStorage.removeItem(id));
-    localStorage.removeItem('CartCount');
-  }
-
-  verificaIds() {
-    const keys = allStorageKeys();
-    const ids = keys.filter((key) => key.includes('Item'));
-    return !(ids.length === 0);
   }
 
   redState(key, bool) {
@@ -154,16 +155,16 @@ class Payment extends Component {
         {ShoppingCart.botaoVolta()}
         <p>Revise seus produtos</p>
         <form onSubmit={this.submitHandle}>
-          {(this.verificaIds()) ? 
+          {(verificaIds()) ?
             <div className="products">
               {produtos.map((produto) => (
                 <Produto key={produto.id} produto={produto} />
               ))}
-            </div> : <div></div>}
+            </div> : <div />}
           <div className="comprador">
             <Comprador produtoHandle={this.produtoHandle} campos={campos} />
           </div>
-          <Pagamento produtoHandle={this.produtoHandle} red={pagamento.red} />
+          <Pagamento produtoHandle={this.produtoHandle} pagamento={pagamento} />
           <div>
             <button onClick={this.submitHandle}>Pagar</button>
           </div>
@@ -172,5 +173,11 @@ class Payment extends Component {
     );
   }
 }
+
+Payment.propTypes = {
+  history: PropTypes.shape({
+    push: PropTypes.func.isRequired
+  }).isRequired,
+};
 
 export default Payment;

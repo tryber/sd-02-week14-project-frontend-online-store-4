@@ -30,6 +30,7 @@ Produto.propTypes = {
     img: PropTypes.string,
     title: PropTypes.string,
     price: PropTypes.number,
+    count: PropTypes.number,
   }),
 };
 
@@ -38,6 +39,7 @@ Produto.defaultProps = {
     img: '',
     title: '',
     price: 0,
+    count: 0,
   },
 };
 

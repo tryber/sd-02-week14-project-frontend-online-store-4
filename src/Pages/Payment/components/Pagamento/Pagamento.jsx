@@ -1,15 +1,11 @@
 import React, { Component } from 'react';
-
+import PropTypes from 'prop-types';
 import Card from './Card/Card';
 import './style.css';
 
 class Pagamento extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
-    const { red, name } = this.props;
+    const { red, name } = this.props.pagamento;
     const cb = this.props.produtoHandle;
     return (
       <div className="payment_pagamento">
@@ -32,5 +28,13 @@ class Pagamento extends Component {
     );
   }
 }
+
+Pagamento.propTypes = {
+  produtoHandle: PropTypes.func.isRequired,
+  pagamento: PropTypes.shape({
+    red: PropTypes.bool.isRequired,
+    name: PropTypes.string.isRequired,
+  }).isRequired,
+};
 
 export default Pagamento;

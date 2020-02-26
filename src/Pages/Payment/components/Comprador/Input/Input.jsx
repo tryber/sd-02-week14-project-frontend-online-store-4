@@ -24,7 +24,6 @@ class Input extends Component {
 }
 
 Input.propTypes = {
-  produtoHandle: PropTypes.func,
   name: PropTypes.string.isRequired,
   place: PropTypes.string.isRequired,
   cb: PropTypes.func.isRequired,
@@ -32,7 +31,7 @@ Input.propTypes = {
 };
 
 Input.defaultProps = {
-  produtoHandle: undefined,
+  cb: undefined,
 };
 
 export default Input;
