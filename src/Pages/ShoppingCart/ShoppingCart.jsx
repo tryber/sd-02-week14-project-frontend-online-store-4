@@ -71,6 +71,12 @@ export default class ShoppingCart extends Component {
     );
   }
 
+  static jsonParse(infoKey, i) {
+    if (JSON.parse(localStorage.getItem(infoKey)).count > 0) {
+      this.atualizaState(infoKey, i);
+    }
+  }
+
   constructor(props) {
     super(props);
     this.state = {
@@ -90,14 +96,8 @@ export default class ShoppingCart extends Component {
     const infoKey = Object.keys(localStorage);
     for (let i = 0; i < infoKey.length; i += 1) {
       if (infoKey[i].match(/Item/)) {
-        ShoppingCart.jsonParse(infoKey[i]);
+        ShoppingCart.jsonParse(infoKey[i], i);
       }
-    }
-  }
-
-  static jsonParse(infoKey) {
-    if (JSON.parse(localStorage.getItem(infoKey)).count > 0) {
-      this.atualizaState(infoKey, i);
     }
   }
 

@@ -96,8 +96,8 @@ class ListProducts extends Component {
   returnParam(element, arrCard) {
     const { banana } = this.props;
     banana(element, arrCard);
+    const element2 = element;
     if (!element.count) {
-      const element2 = element;
       element2.count = 0;
     }
     localStorage.setItem(`Item${element.id}`, JSON.stringify(element2));
