@@ -6,10 +6,79 @@ class Campo extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      qt: 1,
+      qt: 0,
     };
     this.render2 = this.render2.bind(this);
+    this.add = this.add.bind(this);
+    this.remove = this.remove.bind(this);
+    this.addBtn = React.createRef();
+    this.removeBtn = React.createRef();
   }
+
+  componentDidMount() {
+    const { obj } = this.props;
+    const { id } = obj;
+    const produto = JSON.parse(localStorage.getItem(`Item${id}`));
+    this.setStateQt(produto);
+    if (produto.available_quantity === 0) {
+      this.addBtn.current.setAttribute('disabled', 'disabled');
+    }
+    if (produto.count === 0) {
+      this.removeBtn.current.setAttribute('disabled', 'disabled');
+    }
+  }
+
+  setStateQt(produto) {
+    this.setState({
+      qt: produto.count,
+    });
+  }
+
+  add() {
+    const { obj } = this.props;
+    const { id } = obj;
+    const produto = JSON.parse(localStorage.getItem(`Item${id}`));
+    if (produto.available_quantity > 0) {
+      this.setState((state) => ({
+        qt: state.qt + 1,
+      }),
+      );
+      produto.available_quantity -= 1;
+      produto.count += 1;
+      localStorage.removeItem(`Item${id}`);
+      localStorage.setItem(`Item${id}`, JSON.stringify(produto));
+      localStorage.setItem('CartCount', Number(localStorage.getItem('CartCount')) + 1);
+      this.props.detailCount(produto.count);
+    }
+    if (produto.available_quantity === 0) {
+      this.addBtn.current.setAttribute('disabled', 'disabled');
+    }
+    if (produto.count > 0) {
+      this.removeBtn.current.removeAttribute('disabled');
+    }
+  }
+
+  remove() {
+    const { obj } = this.props;
+    const { id } = obj;
+    const produto = JSON.parse(localStorage.getItem(`Item${id}`));
+    if (produto.count > 0) {
+      this.setState((state) => ({ qt: (state.qt > 0) ? state.qt - 1 : 1 }));
+      produto.available_quantity += 1;
+      produto.count -= 1;
+      localStorage.removeItem(`Item${id}`);
+      localStorage.setItem(`Item${id}`, JSON.stringify(produto));
+      localStorage.setItem('CartCount', Number(localStorage.getItem('CartCount')) - 1);
+      this.props.detailCount(produto.count);
+    }
+    if (produto.count === 0) {
+      this.removeBtn.current.setAttribute('disabled', 'disabled');
+    }
+    if (produto.available_quantity > 0) {
+      this.addBtn.current.removeAttribute('disabled');
+    }
+  }
+
   render2(qt) {
     return (
       <div className="container">
@@ -17,7 +86,8 @@ class Campo extends Component {
           <button
             className="SomeAndRemove"
             type="button"
-            onClick={() => this.setState((state) => ({ qt: state.qt + 1 }))}
+            onClick={this.add}
+            ref={this.addBtn}
           >
             <i className="material-icons">add</i>
           </button>
@@ -27,7 +97,8 @@ class Campo extends Component {
           <button
             className="SomeAndRemove"
             type="button"
-            onClick={() => this.setState((state) => ({ qt: (state.qt > 1) ? state.qt - 1 : 1 }))}
+            onClick={this.remove}
+            ref={this.removeBtn}
           >
             <i className="material-icons">remove</i>
           </button>
