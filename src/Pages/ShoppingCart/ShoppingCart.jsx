@@ -83,13 +83,16 @@ export default class ShoppingCart extends Component {
     this.abaixaContador = this.abaixaContador.bind(this);
     this.aumentaContador = this.aumentaContador.bind(this);
     this.clearProduto = this.clearProduto.bind(this);
+    this.addBtn = React.createRef();
   }
 
   componentDidMount() {
     const infoKey = Object.keys(localStorage);
     for (let i = 0; i < infoKey.length; i += 1) {
       if (infoKey[i].match(/Item/)) {
-        this.atualizaState(infoKey, i);
+        if (JSON.parse(localStorage.getItem(infoKey[i])).count > 0) {
+          this.atualizaState(infoKey, i);
+        }
       }
     }
   }
@@ -132,10 +135,14 @@ export default class ShoppingCart extends Component {
   aumentaContador(value) {
     const { items } = this.state;
     const index = items.indexOf(items.find((e) => e.id === value));
-    items[index].count += 1;
-    this.setState({ items });
-    localStorage.setItem(`Item${value}`, JSON.stringify(items[index]));
-    localStorage.setItem('CartCount', Number(localStorage.getItem('CartCount')) + 1);
+    if (items[index].available_quantity > 0) {
+      items[index].count += 1;
+      this.setState({ items });
+      items[index].available_quantity -= 1;
+      localStorage.setItem(`Item${value}`, JSON.stringify(items[index]));
+      localStorage.setItem('CartCount', Number(localStorage.getItem('CartCount')) + 1);
+    }
+
   }
 
   abaixaContador(value) {
@@ -177,6 +184,7 @@ export default class ShoppingCart extends Component {
               className="SomeAndRemove"
               type="button"
               onClick={() => this.aumentaContador(id)}
+              ref={this.addBtn}
             >
               <i className="material-icons">add</i>
             </button>

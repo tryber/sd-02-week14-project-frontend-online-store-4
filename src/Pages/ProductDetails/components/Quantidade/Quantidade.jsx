@@ -44,6 +44,7 @@ class Campo extends Component {
       localStorage.removeItem(`Item${id}`);
       localStorage.setItem(`Item${id}`, JSON.stringify(produto));
       localStorage.setItem('CartCount', Number(localStorage.getItem('CartCount')) + 1);
+      this.props.detailCount(produto.count);
     }
     if (produto.available_quantity === 0) {
       this.addBtn.current.setAttribute('disabled', 'disabled');
@@ -64,6 +65,7 @@ class Campo extends Component {
       localStorage.removeItem(`Item${id}`);
       localStorage.setItem(`Item${id}`, JSON.stringify(produto));
       localStorage.setItem('CartCount', Number(localStorage.getItem('CartCount')) - 1);
+      this.props.detailCount(produto.count);
     }
     if (produto.count === 0) {
       this.removeBtn.current.setAttribute('disabled', 'disabled');

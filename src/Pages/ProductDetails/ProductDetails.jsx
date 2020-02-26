@@ -24,6 +24,7 @@ export default class ProductDetails extends Component {
     };
     this.submitHandle = this.submitHandle.bind(this);
     this.enviaArrCard = this.enviaArrCard.bind(this);
+    this.detailCount = this.detailCount.bind(this);
   }
 
   componentDidMount() {
@@ -65,6 +66,12 @@ export default class ProductDetails extends Component {
     });
   }
 
+  detailCount(count) {
+    this.setState({
+      detailCount: count,
+    });
+  }
+
   componentsRender() {
     const { comments, item } = this.state;
     const { title, price } = item;
@@ -75,7 +82,7 @@ export default class ProductDetails extends Component {
           <strong>{price},00 R$</strong>
         </div>
         <Produto obj={item} />
-        <Quantidade enviaCard={this.enviaArrCard} obj={item} />
+        <Quantidade enviaCard={this.enviaArrCard} obj={item} detailCount={this.detailCount} />
         <Avaliacoes
           submitHandle={this.submitHandle}
           id={item.id}
