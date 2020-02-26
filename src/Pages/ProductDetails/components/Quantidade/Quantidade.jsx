@@ -58,7 +58,7 @@ class Campo extends Component {
     const { obj } = this.props;
     const { id } = obj;
     const produto = JSON.parse(localStorage.getItem(`Item${id}`));
-    if (produto.available_quantity === 0) {
+    if (produto.count > 0) {
       this.setState((state) => ({ qt: (state.qt > 0) ? state.qt - 1 : 1 }));
       produto.available_quantity += 1;
       produto.count -= 1;

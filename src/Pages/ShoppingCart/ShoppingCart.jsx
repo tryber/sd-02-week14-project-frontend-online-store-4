@@ -151,6 +151,7 @@ export default class ShoppingCart extends Component {
     const index = items.indexOf(countValue);
     if (countValue.count >= 1) {
       items[index].count -= 1;
+      items[index].available_quantity += 1;
       this.setState({ items });
       localStorage.setItem(`Item${value}`, JSON.stringify(items[index]));
       localStorage.setItem('CartCount', Number(localStorage.getItem('CartCount')) - 1);
