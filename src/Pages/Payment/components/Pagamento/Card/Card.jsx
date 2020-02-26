@@ -9,14 +9,14 @@ class Card extends Component {
   }
 
   onChange(e) {
-    this.props.produtoHandle(e);
+    this.props.cb(e);
   }
 
   render() {
-    const { value, title = '', icon, cb } = this.props;
+    const { value, title = '', icon } = this.props;
     return (
       <div className="payment_pagamento_card">
-        <input type="radio" id={value} name="payment" value={value} onClick={cb} />
+        <input type="radio" id={value} name="pagamento" value={value} onChange={this.onChange} />
         <p>{title}</p>
         <i className="material-icons">
           {icon}

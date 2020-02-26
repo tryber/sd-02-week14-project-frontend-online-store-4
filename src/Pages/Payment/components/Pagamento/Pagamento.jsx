@@ -21,9 +21,9 @@ class Pagamento extends Component {
           <div className="cred">
             <strong>Cartão de crédito</strong>
             <div>
-              <Card value="visa" title="Visa" icon="credit_card" />
-              <Card value="elo" title="Elo" icon="credit_card" />
-              <Card value="master_card" title="Master Card" icon="credit_card" />
+              <Card value="visa" title="Visa" icon="credit_card" cb={cb} />
+              <Card value="elo" title="Elo" icon="credit_card" cb={cb} />
+              <Card value="master_card" title="Master Card" icon="credit_card" cb={cb} />
             </div>
           </div>
         </div>

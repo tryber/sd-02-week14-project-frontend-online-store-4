@@ -91,17 +91,10 @@ class Payment extends Component {
     // console.log(campos2['pagamento'])
     const verifica = Object.keys(campos2).reduce((acc, key) => {
         if (campos2[key].value.length === 0) {
-          this.setState((state) => ({
-            campos: {
-              ...state.campos,
-              [key]: {
-                ...state.campos[key],
-                red: true,
-              },
-            },
-          }),
-          );
+          this.redState(key, true);
         return false;
+      } else {
+        this.redState(key, false);
       }
       return acc;
     }, true);
@@ -109,6 +102,19 @@ class Payment extends Component {
     if (verifica) {
       // redirect
     }
+  }
+
+  redState(key, bool) {
+    this.setState((state) => ({
+      campos: {
+        ...state.campos,
+        [key]: {
+          ...state.campos[key],
+          red: bool,
+        },
+      },
+    }),
+    );
   }
 
   produtoHandle(e) {
@@ -140,7 +146,7 @@ class Payment extends Component {
           <div className="comprador">
             <Comprador produtoHandle={this.produtoHandle} campos={campos} />
           </div>
-          {/* <Pagamento produtoHandle={this.produtoHandle} red={pagamento.red} /> */}
+          <Pagamento produtoHandle={this.produtoHandle} red={pagamento.red} />
           <div>
             <button onClick={this.submitHandle}>Pagar</button>
           </div>
