@@ -101,7 +101,7 @@ class Payment extends Component {
   }
 
   componentDidMount() {
-    this.verificaIds();
+    verificaIds();
   }
 
   submitHandle(e) {
