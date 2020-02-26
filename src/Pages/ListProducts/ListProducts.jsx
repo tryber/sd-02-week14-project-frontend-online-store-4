@@ -114,6 +114,7 @@ class ListProducts extends Component {
     const { value, results, carrinhoCont } = this.state;
     return (
       <div className="maxContain" >
+        <ListFilter callback={this.callback} />
         <div className="header">
           {ListProducts.caixaCarrinho(carrinhoCont)}
           {this.caixaLupa()}
