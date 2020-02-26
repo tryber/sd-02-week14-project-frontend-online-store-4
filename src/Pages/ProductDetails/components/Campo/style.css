@@ -5,6 +5,7 @@
 }
 
 .comp_campo > p {
+  width: 100%;
   margin: 3%;
   margin-left: 7%;
 }

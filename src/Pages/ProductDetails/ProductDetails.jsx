@@ -72,10 +72,10 @@ export default class ProductDetails extends Component {
       <div>
         <div className="title">
           <p>{title} - </p>
-          <p>{price},00 R$</p>
+          <strong>{price},00 R$</strong>
         </div>
         <Produto obj={item} />
-        <Quantidade enviaCard={this.enviaArrCard} />
+        <Quantidade enviaCard={this.enviaArrCard} obj={item} />
         <Avaliacoes
           submitHandle={this.submitHandle}
           id={item.id}

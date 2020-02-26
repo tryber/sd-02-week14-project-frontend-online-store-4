@@ -96,6 +96,10 @@ class ListProducts extends Component {
   returnParam(element, arrCard) {
     const { banana } = this.props;
     banana(element, arrCard);
+    if (!element.count) {
+      element.count = 0;
+    }
+    localStorage.setItem(`Item${element.id}`, JSON.stringify(element));
   }
 
   numberCart() {
