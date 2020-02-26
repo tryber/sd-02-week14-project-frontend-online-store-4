@@ -27,7 +27,7 @@ class Produto extends Component {
 
 Produto.propTypes = {
   produto: PropTypes.shape({
-    img: PropTypes.string,
+    thumbnail: PropTypes.string,
     title: PropTypes.string,
     price: PropTypes.number,
     count: PropTypes.number,
@@ -36,7 +36,7 @@ Produto.propTypes = {
 
 Produto.defaultProps = {
   produto: {
-    img: '',
+    thumbnail: '',
     title: '',
     price: 0,
     count: 0,

@@ -27,6 +27,7 @@ class Card extends Component {
 }
 
 Card.propTypes = {
+  cb: PropTypes.func.isRequired,
   value: PropTypes.string,
   title: PropTypes.string,
   icon: PropTypes.string,

@@ -76,7 +76,7 @@ function carregaProdutos() {
 }
 
 
-function  apagaIds() {
+function apagaIds() {
   const keys = allStorageKeys();
   const ids = keys.filter((key) => key.includes('Item'));
   ids.forEach((id) => localStorage.removeItem(id));
@@ -176,7 +176,7 @@ class Payment extends Component {
 
 Payment.propTypes = {
   history: PropTypes.shape({
-    push: PropTypes.func.isRequired
+    push: PropTypes.func.isRequired,
   }).isRequired,
 };
 
