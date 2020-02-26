@@ -1,14 +1,12 @@
 .payment_comp_produto {
-  align-items: center;
+  align-items: flex-start;
   display: flex;
   flex-direction: row;
   padding: 2%;
 }
 
-.payment_comp_produto > div {
-  align-items: center;
+.payment_comp_produto div {
   display: flex;
-  justify-content: center;
   margin: 2%;
 }
 
@@ -18,4 +16,8 @@
 
 .payment_comp_produto > div > p {
   margin: 0 auto;
+}
+
+.payment_comp_produto div > strong {
+  margin-right: 3px;
 }

@@ -2,25 +2,33 @@
   border-color: black;
   border-style: solid;
   border-width: 1px;
-  display: flex;
   padding: 2%;
   width: 100%;
 }
 
-.payment_pagamento > div {
+.payment_pagamento .container {
+  display: flex;
+}
+
+.payment_pagamento .container > div {
   margin: 0 2%;
 }
 
-.payment_pagamento > .cred {
+.payment_pagamento .cred {
   width: 100%;
 }
 
-.payment_pagamento > .cred > div {
+.payment_pagamento .cred > div {
   display: flex;
+}
+
+.payment_pagamento .red {
+  color: red;
+  font-size: 0.5em;
+  margin: 0;
 }
 
 .payment_pagamento strong {
   padding: 1%;
   width: 100%;
 }
-

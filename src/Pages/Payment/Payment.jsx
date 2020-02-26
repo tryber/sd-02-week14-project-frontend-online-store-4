@@ -1,26 +1,12 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import Produto from './components/Produto/Produto';
 import Comprador from './components/Comprador/Comprador';
 import Pagamento from './components/Pagamento/Pagamento';
-import './style.css';
 import ShoppingCart from '../ShoppingCart/ShoppingCart';
+import './style.css';
 
-const produtos = [
-  {
-    id: '1',
-    title: 'óleo liza',
-    img: 'https://static.carrefour.com.br/medias/sys_master/images/images/h5d/h25/h00/h00/9445790253086.jpg',
-    price: 12,
-  },
-  {
-    id: '2',
-    title: 'óleo liza',
-    img: 'https://static.carrefour.com.br/medias/sys_master/images/images/h5d/h25/h00/h00/9445790253086.jpg',
-    price: 12,
-  },
-];
-
-const campos = {
+const initCampos = {
   nome: {
     name: 'Nome',
     value: '',
@@ -78,14 +64,44 @@ const campos = {
   },
 };
 
+function allStorageKeys() {
+  const keys = Object.keys(localStorage);
+  return keys;
+}
+
+function carregaProdutos() {
+  const keys = allStorageKeys();
+  const ids = keys.filter((key) => key.includes('Item'));
+  return ids.map((id) => JSON.parse(localStorage.getItem(id)));
+}
+
+
+function apagaIds() {
+  const keys = allStorageKeys();
+  const ids = keys.filter((key) => key.includes('Item'));
+  ids.forEach((id) => localStorage.removeItem(id));
+  localStorage.removeItem('CartCount');
+}
+
+function verificaIds() {
+  const keys = allStorageKeys();
+  const ids = keys.filter((key) => key.includes('Item'));
+  return !(ids.length === 0);
+}
+
 class Payment extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      campos: { ...campos },
+      campos: { ...initCampos },
+      produtos: carregaProdutos(),
     };
     this.submitHandle = this.submitHandle.bind(this);
     this.produtoHandle = this.produtoHandle.bind(this);
+  }
+
+  componentDidMount() {
+    verificaIds();
   }
 
   submitHandle(e) {
@@ -93,24 +109,29 @@ class Payment extends Component {
     const campos2 = this.state.campos;
     const verifica = Object.keys(campos2).reduce((acc, key) => {
       if (campos2[key].value.length === 0) {
-        this.setState((state) => ({
-          campos: {
-            ...state.campos,
-            [key]: {
-              ...state.campos[key],
-              red: true,
-            },
-          },
-        }),
-        );
+        this.redState(key, true);
         return false;
       }
+      this.redState(key, false);
       return acc;
     }, true);
-
     if (verifica) {
-      // redirect
+      apagaIds();
+      this.props.history.push('/');
     }
+  }
+
+  redState(key, bool) {
+    this.setState((state) => ({
+      campos: {
+        ...state.campos,
+        [key]: {
+          ...state.campos[key],
+          red: bool,
+        },
+      },
+    }),
+    );
   }
 
   produtoHandle(e) {
@@ -118,28 +139,32 @@ class Payment extends Component {
     this.setState({
       campos: {
         ...this.state.campos,
-        [name]: value,
+        [name]: {
+          ...this.state.campos[name],
+          value,
+        },
       },
     });
   }
 
   render() {
+    const { produtos, campos } = this.state;
+    const { pagamento } = campos;
     return (
       <div className="page_payment">
         {ShoppingCart.botaoVolta()}
         <p>Revise seus produtos</p>
         <form onSubmit={this.submitHandle}>
-          <div className="products">
-            <div>
+          {(verificaIds()) ?
+            <div className="products">
               {produtos.map((produto) => (
                 <Produto key={produto.id} produto={produto} />
               ))}
-            </div>
-          </div>
+            </div> : <div />}
           <div className="comprador">
-            <Comprador produtoHandle={this.produtoHandle} campos={this.state.campos} />
+            <Comprador produtoHandle={this.produtoHandle} campos={campos} />
           </div>
-          <Pagamento />
+          <Pagamento produtoHandle={this.produtoHandle} pagamento={pagamento} />
           <div>
             <button onClick={this.submitHandle}>Pagar</button>
           </div>
@@ -148,5 +173,11 @@ class Payment extends Component {
     );
   }
 }
+
+Payment.propTypes = {
+  history: PropTypes.shape({
+    push: PropTypes.func.isRequired,
+  }).isRequired,
+};
 
 export default Payment;
