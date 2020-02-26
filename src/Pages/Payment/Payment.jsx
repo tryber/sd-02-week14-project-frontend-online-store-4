@@ -85,10 +85,13 @@ class Payment extends Component {
     this.produtoHandle = this.produtoHandle.bind(this);
   }
 
+  componentDidMount() {
+    this.verificaIds() 
+  }
+
   submitHandle(e) {
     e.preventDefault();
     const campos2 = this.state.campos;
-    // console.log(campos2['pagamento'])
     const verifica = Object.keys(campos2).reduce((acc, key) => {
         if (campos2[key].value.length === 0) {
           this.redState(key, true);
@@ -98,10 +101,23 @@ class Payment extends Component {
       }
       return acc;
     }, true);
-
     if (verifica) {
-      // redirect
+      this.apagaIds();
+      this.props.history.push('/');
     }
+  }
+
+  apagaIds() {
+    const keys = allStorageKeys();
+    const ids = keys.filter((key) => key.includes('Item'));
+    ids.forEach((id) => localStorage.removeItem(id));
+    localStorage.removeItem('CartCount');
+  }
+
+  verificaIds() {
+    const keys = allStorageKeys();
+    const ids = keys.filter((key) => key.includes('Item'));
+    return !(ids.length === 0);
   }
 
   redState(key, bool) {
@@ -138,11 +154,12 @@ class Payment extends Component {
         {ShoppingCart.botaoVolta()}
         <p>Revise seus produtos</p>
         <form onSubmit={this.submitHandle}>
-          <div className="products">
-            {produtos.map((produto) => (
-              <Produto key={produto.id} produto={produto} />
-            ))}
-          </div>
+          {(this.verificaIds()) ? 
+            <div className="products">
+              {produtos.map((produto) => (
+                <Produto key={produto.id} produto={produto} />
+              ))}
+            </div> : <div></div>}
           <div className="comprador">
             <Comprador produtoHandle={this.produtoHandle} campos={campos} />
           </div>

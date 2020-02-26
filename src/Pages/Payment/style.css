@@ -1,7 +1,6 @@
 .page_payment {
   display: flex;
   flex-direction: column;
-  height: 120vh;
   justify-content: space-between;
   margin: 0 auto;
   width: 90vw;
