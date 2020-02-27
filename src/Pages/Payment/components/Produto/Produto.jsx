@@ -18,7 +18,7 @@ class Produto extends Component {
         </div>
         <div>
           <strong>preço:</strong>
-          <p>{price}</p>
+          <p>{((price * 100) / 100).toFixed(2)}</p>
         </div>
       </div>
     );
