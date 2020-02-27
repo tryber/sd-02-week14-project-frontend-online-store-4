@@ -129,6 +129,8 @@ export default class ShoppingCart extends Component {
     );
   }
 
+// Eu quero definitivamente saber o que aconteceu
+
   aumentaContador(value) {
     const { items } = this.state;
     const index = items.indexOf(items.find((e) => e.id === value));
