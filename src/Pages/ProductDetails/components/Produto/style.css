@@ -9,15 +9,16 @@
   width: 50%;
 }
 
+.comp_product_details .campos:nth-child( n ) {
+  width: 60%;
+}
+
 .comp_product_details .dados {
   align-items: center;
   display: flex;
+  justify-content: flex-start;
 }
 
 .comp_product_details .local {
   margin-left: 15%;
-}
-
-.comp_product_details .endereco_vendedor {
-  margin-left: 10%;
 }

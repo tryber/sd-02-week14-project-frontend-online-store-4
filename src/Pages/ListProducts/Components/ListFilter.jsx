@@ -33,7 +33,6 @@ class SearchList extends React.Component {
     });
   }
 
-
   render() {
     const { term } = this.state;
     const { callback } = this.props;
