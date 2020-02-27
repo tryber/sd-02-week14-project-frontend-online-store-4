@@ -54,6 +54,10 @@
   width: 120px;
 }
 
+.buttonAddCart:hover {
+  cursor: pointer;
+}
+
 .containerImg {
   display: flex;
   width: 40%;

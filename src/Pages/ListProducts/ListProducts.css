@@ -2,7 +2,7 @@
   align-items: center;
   display: flex;
   flex-direction: column;
-  width: 70%;
+  width: 80%;
 }
 
 .header .searchBar {
@@ -23,9 +23,12 @@
 
 .maxContain .container {
   border: 1px solid black;
+  background-color: white;
+  opacity: 80%;
   height: 100%;
+  margin: 1% 0 0 1%;
   padding: 5px;
-  width: 30%;
+  width: 20%;
 }
 
 .inputs {
@@ -33,15 +36,17 @@
 }
 
 .labels {
-  align-items: center;
+  border-radius: 10px;
   display: flex;
+  font-size: 1.5em;
   flex-direction: row-reverse;
   justify-content: flex-end;
   width: 100%;
 }
 
 .labels:hover {
-  background-color: grey;
+  background-color: rgb( 97 , 88 , 88 );
+  color: rgb(170, 192, 72);
   cursor: pointer;
 }
 
