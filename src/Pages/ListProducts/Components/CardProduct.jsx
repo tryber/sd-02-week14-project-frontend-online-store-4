@@ -49,7 +49,7 @@ class CardProduct extends Component {
             <div className="cardComplete" key={element.id}>
               <Link className="label" to={`/product-details/${element.id}`} onClick={() => retornaParam(element, arrCard)} >
                 <div className="titleCard">
-                  <h5 className="titleCard">{element.title}</h5>
+                  <h5 className="titleCardtitle">{element.title}</h5>
                 </div>
                 <div className="containerImg">
                   <img className="cardImage" src={element.thumbnail} alt={element.title} />
