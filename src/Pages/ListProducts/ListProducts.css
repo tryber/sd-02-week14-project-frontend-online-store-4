@@ -22,11 +22,11 @@
 }
 
 .maxContain .container {
-  border: 1px solid black;
   background-color: white;
-  opacity: 0.75;
+  border: 1px solid black;
   height: 100%;
   margin: 1% 0 0 1%;
+  opacity: 0.75;
   padding: 5px;
   width: 20%;
 }
