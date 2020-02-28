@@ -26,10 +26,10 @@
 }
 
 .titleCard {
-  display: flex;
   background-color: grey;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
+  display: flex;
   font-size: 110%;
   height: 70px;
   justify-content: center;
@@ -51,8 +51,8 @@
   border: 5px groove rgb(100, 97, 80);
   border-color: goldenrod;
   color: white;
+  font-family: Cambria , Cochin , Georgia , Times , Times New Roman , serif;
   font-weight: 800;
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   height: 50px;
   margin-bottom: 5%;
   width: 120px;
