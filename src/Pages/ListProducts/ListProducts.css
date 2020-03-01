@@ -76,9 +76,33 @@
 
 .container-cart {
   align-self: flex-end;
+  animation: carrinho 3s linear 1 normal;
   display: flex;
   margin: 1% 1% 0 0;
   width: 12%;
+}
+
+@keyframes carrinho {
+  0% {
+    transform: translateX(-1400px);
+  }
+
+  40% {
+    transform: rotate(0deg);
+  }
+
+  50% {
+    transform: translateX(-600px);
+    transform: rotate(-45deg);
+  }
+
+  99% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: translateX(0px);
+  }
 }
 
 .carrinhoCart {

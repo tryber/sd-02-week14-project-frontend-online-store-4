@@ -171,7 +171,7 @@ export default class ShoppingCart extends Component {
               <i className="material-icons">remove</i>
             </button>
           </div>
-          {items.count}
+          <span className="valorPrice">{items.count}</span>
           <div className="somaReduz">
             <button
               className="SomeAndRemove"

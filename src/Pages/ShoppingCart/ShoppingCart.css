@@ -52,6 +52,7 @@
 
 .containerCarrega {
   align-items: center;
+  background-color: white;
   border: gray solid 2px;
   border-radius: 10px;
   box-sizing: border-box;
@@ -72,15 +73,36 @@
   margin: 2%;
 }
 
+.material-icons {
+  font-size: 35px;
+}
+
+.SomeAndRemove {
+  margin-left: 2%;
+}
+
+.SomeAndRemove:hover {
+  cursor: pointer;
+}
+
 .imagemTitulo {
   align-items: center;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
+  margin-left: 4%;
   width: 100%;
 }
 
 .valorProduto {
   display: flex;
-  flex-direction: row;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+  margin-right: 10%;
+  width: 20%;
+}
+
+.valorPrice {
+  font-size: 1.5em;
+  margin: 0 2%;
 }

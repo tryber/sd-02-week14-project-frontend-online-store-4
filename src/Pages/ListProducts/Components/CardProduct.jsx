@@ -51,16 +51,18 @@ class CardProduct extends Component {
                 <div className="titleCard">
                   <h5 className="titleCardtitle">{element.title}</h5>
                 </div>
-                <div className="containerImg">
-                  <img className="cardImage" src={element.thumbnail} alt={element.title} />
+                <div className="containerShipping">
+                  <div className="containerImg">
+                    <img className="cardImage" src={element.thumbnail} alt={element.title} />
+                  </div>
+                  {(freeShipping) ?
+                    <div className="shipping">
+                      <p>Entrega grátis</p>
+                      <i className="material-icons">local_shipping</i>
+                    </div> : ''}
                 </div>
-                {(freeShipping) ?
-                  <div>
-                    <p>Entrega grátis</p>
-                    <i className="material-icons">local_shipping</i>
-                  </div> : ''}
-                <div>
-                  <h6>{((element.price * 100) / 100).toFixed(2)}</h6>
+                <div className="price">
+                  <h6>R$ {((element.price * 100) / 100).toFixed(2)}</h6>
                 </div>
               </Link>
               {this.carregaCardProduct(element, arrCard)}
