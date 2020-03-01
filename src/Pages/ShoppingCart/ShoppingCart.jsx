@@ -44,6 +44,9 @@ export default class ShoppingCart extends Component {
       <div className="buttonReturn">
         <Link className="buttonReturn" to="/">
           <img src={backButton} alt="backButton" />
+          <span className="paginaInicial">
+            Pagina Inicial
+          </span>
         </Link>
       </div>
     );
