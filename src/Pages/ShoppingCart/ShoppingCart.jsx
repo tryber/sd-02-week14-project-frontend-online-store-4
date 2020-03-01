@@ -28,7 +28,7 @@ function valorProduto(price) {
 
 function finalizaCompra() {
   return (
-    <div>
+    <div className="buttonFinaliza">
       <Link to={'/payment'}>
         <button>
           Finalizar Compra
@@ -193,11 +193,11 @@ export default class ShoppingCart extends Component {
   totalProdutos() {
     const { items } = this.state;
     return (
-      <div>
-        Valor Total da Compra: R$
-        {items.reduce((curr, acc) => (curr + (((Number(acc.count) * 100) / 100) *
+      <div className="priceItems">
+        Valor Total da Compra: R$ <span>{items.reduce((curr, acc) =>
+          (curr + (((Number(acc.count) * 100) / 100) *
           ((Number(acc.price) * 100) / 100))), 0).toFixed(2)
-        }
+        }</span>
       </div>
     );
   }
@@ -208,9 +208,15 @@ export default class ShoppingCart extends Component {
     return (
       <div className="containerGeral">
         {ShoppingCart.botaoVolta()}
-        {items.map((item, index) => this.carregaProdutos(item, index))}
-        {this.totalProdutos()}
-        {finalizaCompra()}
+        <div className="containerItemsPrice">
+          <div className="containerItems">
+            {items.map((item, index) => this.carregaProdutos(item, index))}
+          </div>
+          <div className="containerPriceButton">
+            {this.totalProdutos()}
+            {finalizaCompra()}
+          </div>
+        </div>
       </div>
     );
   }

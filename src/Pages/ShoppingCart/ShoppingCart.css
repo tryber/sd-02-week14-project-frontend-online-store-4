@@ -44,12 +44,14 @@
 .buttonReturn {
   display: flex;
   flex-direction: column;
+  margin-bottom: 2%;
   width: 40%;
 }
 
 .containerGeral {
   display: flex;
   flex-direction: column;
+  padding: 2%;
 }
 
 .containerCarrega {
@@ -61,7 +63,8 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  width: 70%;
+  margin: 0.5% 0 0.5% 0;
+  width: 100%;
 }
 
 .containerBotoes {
@@ -69,6 +72,48 @@
   display: flex;
   justify-content: center;
   width: 100%;
+}
+
+
+.containerItemsPrice {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+}
+
+.containerPriceButton {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  right: 0;
+  top: 25%;
+  width: 30%;
+}
+
+.containerItems {
+  padding: 0 1% 0 0;
+  width: 70%;
+}
+
+.priceItems {
+  font-size: 1.2em;
+}
+
+.priceItems span {
+  font-weight: 800;
+}
+
+.buttonFinaliza {
+  display: flex;
+  height: 35px;
+  justify-content: space-between;
+  margin-top: 5%;
+  width: 80%;
+}
+
+.buttonFinaliza button {
+  height: 100%;
+  width: 400px;
 }
 
 .somaReduz {
