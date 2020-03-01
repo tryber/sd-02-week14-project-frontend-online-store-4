@@ -74,7 +74,7 @@ class CardProduct extends Component {
             </Link>
             {this.carregaCardProduct(element, arrCard)}
           </div>
-        )}
+        )};
       </div>
     );
   }
