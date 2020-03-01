@@ -47,6 +47,10 @@
   width: 100%;
 }
 
+.containerTitleCard {
+  width: 100%;
+}
+
 .buttonAddCart {
   background-color: rgb(114, 104, 79);
   border: 5px groove rgb(100, 97, 80);

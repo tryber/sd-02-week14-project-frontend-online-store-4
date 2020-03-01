@@ -86,8 +86,8 @@
 .SomeAndRemove:hover {
   background-color: black;
   border-radius: 50%;
-  cursor: pointer;
   color: white;
+  cursor: pointer;
 }
 
 .containerImagemTitulo {

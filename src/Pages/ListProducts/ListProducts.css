@@ -83,6 +83,7 @@
 }
 
 @keyframes carrinho {
+
   0% {
     transform: translateX(-1400px);
   }
@@ -92,16 +93,11 @@
   }
 
   50% {
-    transform: translateX(-600px);
-    transform: rotate(-45deg);
-  }
-
-  99% {
-    transform: rotate(0deg);
+    transform: translateX(-600px) rotate(-45deg);
   }
 
   100% {
-    transform: translateX(0px);
+    transform: translateX(0);
   }
 }
 

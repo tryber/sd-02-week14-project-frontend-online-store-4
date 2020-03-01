@@ -3,6 +3,27 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import './CardProduct.css';
 
+function cardLoad(element) {
+  const { shipping: { free_shipping: freeShipping } } = element;
+  return (
+    <div className="containerTitleCard">
+      <div className="titleCard">
+        <h5 className="titleCardtitle">{element.title}</h5>
+      </div>
+      <div className="containerShipping">
+        <div className="containerImg">
+          <img className="cardImage" src={element.thumbnail} alt={element.title} />
+        </div>
+        {(freeShipping) ?
+          <div className="shipping">
+            <p>Entrega grátis</p>
+            <i className="material-icons">local_shipping</i>
+          </div> : ''}
+      </div>
+    </div>
+  );
+}
+
 class CardProduct extends Component {
   static adicionaCart(idParam, arrCard, state) {
     const produto = arrCard.find((card) => card.id === idParam);
@@ -20,7 +41,6 @@ class CardProduct extends Component {
   constructor(props) {
     super(props);
     this.carregaCardProduct = this.carregaCardProduct.bind(this);
-    this.cardLoad = this.cardLoad.bind(this);
   }
 
   carregaCardProduct(element, arrCard) {
@@ -40,44 +60,21 @@ class CardProduct extends Component {
     );
   }
 
-  cardLoad(element) {
-    const { shipping: { free_shipping: freeShipping } } = element;
-    return (
-      <div>
-        <div className="titleCard">
-          <h5 className="titleCardtitle">{element.title}</h5>
-        </div>
-        <div className="containerShipping">
-          <div className="containerImg">
-            <img className="cardImage" src={element.thumbnail} alt={element.title} />
-          </div>
-          {(freeShipping) ?
-            <div className="shipping">
-              <p>Entrega grátis</p>
-              <i className="material-icons">local_shipping</i>
-            </div> : ''}
-        </div>
-      </div>
-    );
-  }
-
   cardProduct() {
     const { arrCard, retornaParam } = this.props;
     return (
       <div className="containCard">
-        {arrCard.map((element) => {
-          return (
+        {arrCard.map((element) => 
             <div className="cardComplete" key={element.id}>
               <Link className="label" to={`/product-details/${element.id}`} onClick={() => retornaParam(element, arrCard)} >
-                {this.cardLoad(element)}
+                {cardLoad(element)}
                 <div className="price">
                   <h6>R$ {((element.price * 100) / 100).toFixed(2)}</h6>
                 </div>
               </Link>
               {this.carregaCardProduct(element, arrCard)}
             </div>
-          );
-        })}
+        )}
       </div>
     );
   }
