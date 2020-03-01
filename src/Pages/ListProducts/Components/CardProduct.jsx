@@ -64,16 +64,16 @@ class CardProduct extends Component {
     const { arrCard, retornaParam } = this.props;
     return (
       <div className="containCard">
-        {arrCard.map((element) => 
-            <div className="cardComplete" key={element.id}>
-              <Link className="label" to={`/product-details/${element.id}`} onClick={() => retornaParam(element, arrCard)} >
-                {cardLoad(element)}
-                <div className="price">
-                  <h6>R$ {((element.price * 100) / 100).toFixed(2)}</h6>
-                </div>
-              </Link>
-              {this.carregaCardProduct(element, arrCard)}
-            </div>
+        {arrCard.map((element) =>
+          <div className="cardComplete" key={element.id}>
+            <Link className="label" to={`/product-details/${element.id}`} onClick={() => retornaParam(element, arrCard)} >
+              {cardLoad(element)}
+              <div className="price">
+                <h6>R$ {((element.price * 100) / 100).toFixed(2)}</h6>
+              </div>
+            </Link>
+            {this.carregaCardProduct(element, arrCard)}
+          </div>
         )}
       </div>
     );
