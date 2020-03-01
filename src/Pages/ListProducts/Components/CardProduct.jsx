@@ -20,6 +20,7 @@ class CardProduct extends Component {
   constructor(props) {
     super(props);
     this.carregaCardProduct = this.carregaCardProduct.bind(this);
+    this.cardLoad = this.cardLoad.bind(this);
   }
 
   carregaCardProduct(element, arrCard) {
@@ -39,28 +40,36 @@ class CardProduct extends Component {
     );
   }
 
+  cardLoad(element) {
+    const { shipping: { free_shipping: freeShipping } } = element;
+    return (
+      <div>
+        <div className="titleCard">
+          <h5 className="titleCardtitle">{element.title}</h5>
+        </div>
+        <div className="containerShipping">
+          <div className="containerImg">
+            <img className="cardImage" src={element.thumbnail} alt={element.title} />
+          </div>
+          {(freeShipping) ?
+            <div className="shipping">
+              <p>Entrega grátis</p>
+              <i className="material-icons">local_shipping</i>
+            </div> : ''}
+        </div>
+      </div>
+    );
+  }
+
   cardProduct() {
     const { arrCard, retornaParam } = this.props;
     return (
       <div className="containCard">
         {arrCard.map((element) => {
-          const { shipping: { free_shipping: freeShipping } } = element;
           return (
             <div className="cardComplete" key={element.id}>
               <Link className="label" to={`/product-details/${element.id}`} onClick={() => retornaParam(element, arrCard)} >
-                <div className="titleCard">
-                  <h5 className="titleCardtitle">{element.title}</h5>
-                </div>
-                <div className="containerShipping">
-                  <div className="containerImg">
-                    <img className="cardImage" src={element.thumbnail} alt={element.title} />
-                  </div>
-                  {(freeShipping) ?
-                    <div className="shipping">
-                      <p>Entrega grátis</p>
-                      <i className="material-icons">local_shipping</i>
-                    </div> : ''}
-                </div>
+                {this.cardLoad(element)}
                 <div className="price">
                   <h6>R$ {((element.price * 100) / 100).toFixed(2)}</h6>
                 </div>

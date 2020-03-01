@@ -7,7 +7,7 @@ import backButton from './images/backButton.png';
 
 function carregaImagemTitulo(title, image) {
   return (
-    <div className="imagemTitulo">
+    <div className="containerImagemTitulo">
       <div>
         <img src={image} alt={title} />
       </div>
