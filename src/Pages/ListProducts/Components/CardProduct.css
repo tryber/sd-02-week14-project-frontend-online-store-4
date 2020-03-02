@@ -31,7 +31,7 @@
   border-top-right-radius: 20px;
   display: flex;
   font-size: 110%;
-  height: 70px;
+  height: 90px;
   justify-content: center;
   padding: 0 2%;
   text-align: center;
@@ -41,8 +41,13 @@
 .titleCardtitle {
   align-self: center;
   display: flex;
+  font-size: 110%;
   justify-content: center;
   text-align: center;
+  width: 100%;
+}
+
+.containerTitleCard {
   width: 100%;
 }
 
@@ -65,6 +70,28 @@
 .containerImg {
   display: flex;
   width: 40%;
+}
+
+.price {
+  font-size: 160%;
+  padding: 3%;
+}
+
+.containerShipping {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  position: relative;
+  top: 25%;
+  width: 100%;
+}
+
+.shipping {
+  display: flex;
+  flex-direction: column-reverse;
+  font-size: 130%;
+  justify-content: center;
+  width: fit-content;
 }
 
 .label {

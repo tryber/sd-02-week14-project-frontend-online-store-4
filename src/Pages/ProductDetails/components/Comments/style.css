@@ -1,7 +1,19 @@
 .comp_comments {
-  margin: 1%;
+  border: 1px solid black;
+  margin-top: 1%;
+  padding: 2%;
+}
+
+.comp_comments > div {
+  width: 50%;
 }
 
 .comp_comments > div > div {
   display: flex;
+  justify-content: space-between;
+}
+
+.comp_comments hr {
+  margin: 1% 0;
+  width: 200%;
 }

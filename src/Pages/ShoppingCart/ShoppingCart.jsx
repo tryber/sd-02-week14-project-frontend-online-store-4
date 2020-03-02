@@ -7,11 +7,11 @@ import backButton from './images/backButton.png';
 
 function carregaImagemTitulo(title, image) {
   return (
-    <div className="imagemTitulo">
-      <div>
+    <div className="containerImagemTitulo">
+      <div className="containerimagem">
         <img src={image} alt={title} />
       </div>
-      <div>
+      <div className="containertitulo">
         <p>{title}</p>
       </div>
     </div>
@@ -28,7 +28,7 @@ function valorProduto(price) {
 
 function finalizaCompra() {
   return (
-    <div>
+    <div className="buttonFinaliza">
       <Link to={'/payment'}>
         <button>
           Finalizar Compra
@@ -41,9 +41,12 @@ function finalizaCompra() {
 export default class ShoppingCart extends Component {
   static botaoVolta() {
     return (
-      <div className="buttonReturn">
+      <div className="containerButtonReturn">
         <Link className="buttonReturn" to="/">
           <img src={backButton} alt="backButton" />
+          <span className="paginaInicial">
+            Pagina Inicial
+          </span>
         </Link>
       </div>
     );
@@ -171,7 +174,7 @@ export default class ShoppingCart extends Component {
               <i className="material-icons">remove</i>
             </button>
           </div>
-          {items.count}
+          <span className="valorPrice">{items.count}</span>
           <div className="somaReduz">
             <button
               className="SomeAndRemove"
@@ -190,11 +193,11 @@ export default class ShoppingCart extends Component {
   totalProdutos() {
     const { items } = this.state;
     return (
-      <div>
-        Valor Total da Compra: R$
-        {items.reduce((curr, acc) => (curr + (((Number(acc.count) * 100) / 100) *
+      <div className="priceItems">
+        Valor Total da Compra: R$ <span>{items.reduce((curr, acc) =>
+          (curr + (((Number(acc.count) * 100) / 100) *
           ((Number(acc.price) * 100) / 100))), 0).toFixed(2)
-        }
+        }</span>
       </div>
     );
   }
@@ -205,9 +208,15 @@ export default class ShoppingCart extends Component {
     return (
       <div className="containerGeral">
         {ShoppingCart.botaoVolta()}
-        {items.map((item, index) => this.carregaProdutos(item, index))}
-        {this.totalProdutos()}
-        {finalizaCompra()}
+        <div className="containerItemsPrice">
+          <div className="containerItems">
+            {items.map((item, index) => this.carregaProdutos(item, index))}
+          </div>
+          <div className="containerPriceButton">
+            {this.totalProdutos()}
+            {finalizaCompra()}
+          </div>
+        </div>
       </div>
     );
   }

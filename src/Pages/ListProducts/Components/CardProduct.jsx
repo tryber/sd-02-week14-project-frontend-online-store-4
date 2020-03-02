@@ -3,6 +3,27 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import './CardProduct.css';
 
+function cardLoad(element) {
+  const { shipping: { free_shipping: freeShipping } } = element;
+  return (
+    <div className="containerTitleCard">
+      <div className="titleCard">
+        <h5 className="titleCardtitle">{element.title}</h5>
+      </div>
+      <div className="containerShipping">
+        <div className="containerImg">
+          <img className="cardImage" src={element.thumbnail} alt={element.title} />
+        </div>
+        {(freeShipping) ?
+          <div className="shipping">
+            <p>Entrega grátis</p>
+            <i className="material-icons">local_shipping</i>
+          </div> : ''}
+      </div>
+    </div>
+  );
+}
+
 class CardProduct extends Component {
   static adicionaCart(idParam, arrCard, state) {
     const produto = arrCard.find((card) => card.id === idParam);
@@ -43,30 +64,18 @@ class CardProduct extends Component {
     const { arrCard, retornaParam } = this.props;
     return (
       <div className="containCard">
-        {arrCard.map((element) => {
-          const { shipping: { free_shipping: freeShipping } } = element;
-          return (
-            <div className="cardComplete" key={element.id}>
-              <Link className="label" to={`/product-details/${element.id}`} onClick={() => retornaParam(element, arrCard)} >
-                <div className="titleCard">
-                  <h5 className="titleCardtitle">{element.title}</h5>
-                </div>
-                <div className="containerImg">
-                  <img className="cardImage" src={element.thumbnail} alt={element.title} />
-                </div>
-                {(freeShipping) ?
-                  <div>
-                    <p>Entrega grátis</p>
-                    <i className="material-icons">local_shipping</i>
-                  </div> : ''}
-                <div>
-                  <h6>{((element.price * 100) / 100).toFixed(2)}</h6>
-                </div>
-              </Link>
-              {this.carregaCardProduct(element, arrCard)}
-            </div>
-          );
-        })}
+        {arrCard.map((element) =>
+          <div className="cardComplete" key={element.id}>
+            <Link className="label" to={`/product-details/${element.id}`} onClick={() => retornaParam(element, arrCard)} >
+              {cardLoad(element)}
+              <div className="price">
+                <h6>{new Intl.NumberFormat('pt-BR',
+              { style: 'currency', currency: 'BRL' }).format(element.price)}</h6>
+              </div>
+            </Link>
+            {this.carregaCardProduct(element, arrCard)}
+          </div>,
+        )}
       </div>
     );
   }

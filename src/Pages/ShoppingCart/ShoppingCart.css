@@ -33,7 +33,7 @@
 }
 
 .buttonReturn > img {
-  width: 40%;
+  width: 100%;
 }
 
 .buttonReturn > img:hover {
@@ -41,24 +41,37 @@
   filter: invert(60%);
 }
 
+.containerButtonReturn {
+  width: 20%;
+}
+
 .buttonReturn {
-  width: 10%;
+  align-items: center;
+  color: black;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2%;
+  text-decoration: none;
+  width: 50%;
 }
 
 .containerGeral {
   display: flex;
   flex-direction: column;
+  padding: 0 2% 2%;
 }
 
 .containerCarrega {
   align-items: center;
+  background-color: white;
   border: gray solid 2px;
   border-radius: 10px;
   box-sizing: border-box;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  width: 70%;
+  margin: 0.5% 0;
+  width: 100%;
 }
 
 .containerBotoes {
@@ -68,19 +81,100 @@
   width: 100%;
 }
 
+
+.containerItemsPrice {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+}
+
+.containerPriceButton {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  right: 0;
+  top: 25%;
+  width: 30%;
+}
+
+.containerItems {
+  padding: 0 1% 0 0;
+  width: 70%;
+}
+
+.priceItems {
+  align-self: flex-start;
+  display: flex;
+  font-size: 1.2em;
+}
+
+.priceItems span {
+  font-weight: 800;
+  padding: 0 1%;
+}
+
+.buttonFinaliza {
+  display: flex;
+  height: 35px;
+  justify-content: space-between;
+  margin-top: 5%;
+  width: 80%;
+}
+
+.buttonFinaliza button {
+  height: 100%;
+  width: 400px;
+}
+
 .somaReduz {
   margin: 2%;
 }
 
-.imagemTitulo {
+.material-icons {
+  font-size: 35px;
+}
+
+.SomeAndRemove {
+  margin-left: 2%;
+}
+
+.SomeAndRemove:hover {
+  background-color: black;
+  border-radius: 50%;
+  color: white;
+  cursor: pointer;
+}
+
+.containerImagemTitulo {
   align-items: center;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
+  margin-left: 4%;
   width: 100%;
+}
+
+.containerimagem {
+  display: flex;
+  justify-content: center;
+}
+
+.containertitulo {
+  margin-left: 5%;
 }
 
 .valorProduto {
   display: flex;
-  flex-direction: row;
+  flex-direction: row-reverse;
+  font-size: 1.25em;
+  justify-content: flex-end;
+  margin-right: 10%;
+  width: 20%;
+}
+
+.valorPrice {
+  font-size: 1.5em;
+  margin: 0 4%;
+  padding: 2%;
 }

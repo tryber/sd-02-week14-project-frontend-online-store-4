@@ -67,22 +67,29 @@ export default class ProductDetails extends Component {
 
   componentsRender() {
     const { comments, item } = this.state;
-    const { title, price } = item;
+    const { title, price, thumbnail } = item;
+    const { shipping: { free_shipping: freeShipping } } = item;
     return (
-      <div>
+      <div className="containerInfos">
         <div className="title">
           <p>{title} - </p>
-          <p>{price},00 R$</p>
+          <div className="priceFrete">
+            <p>{new Intl.NumberFormat('pt-BR',
+                { style: 'currency', currency: 'BRL' }).format(price)}</p>
+            {(freeShipping) ? <span>Frete: Entrega grátis</span> : <span>Frete: Fretado</span>}
+          </div>
+          <div className="comp_product_details">
+            <div className="containerImgFrete">
+              <img src={thumbnail} alt="" />
+            </div>
+          </div>
         </div>
         <Produto obj={item} />
         <Quantidade enviaCard={this.enviaArrCard} />
-        <Avaliacoes
-          submitHandle={this.submitHandle}
-          id={item.id}
-        />
-        <Comments
-          comments={comments}
-        />
+        <div className="avaliaComments">
+          <Avaliacoes submitHandle={this.submitHandle} id={item.id} />
+          <Comments comments={comments} />
+        </div>
       </div>
     );
   }
@@ -96,8 +103,12 @@ export default class ProductDetails extends Component {
     const { title } = item;
     return (
       <div className="page_productDetails">
-        {ShoppingCart.botaoVolta()}
-        {ListProduct.caixaCarrinho(detailCount)}
+        <div className="containerVolta">
+          <div className="containerbutton">
+            {ShoppingCart.botaoVolta()}
+          </div>
+          {ListProduct.caixaCarrinho(detailCount)}
+        </div>
         {(title) ?
           this.componentsRender() :
           <div>
