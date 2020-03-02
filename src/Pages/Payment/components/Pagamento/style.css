@@ -1,7 +1,6 @@
 .payment_pagamento {
-  border-color: black;
-  border-style: solid;
-  border-width: 1px;
+  background-color: white;
+  border: 1px solid black;
   padding: 2%;
   width: 100%;
 }

@@ -165,7 +165,7 @@ class Payment extends Component {
             <Comprador produtoHandle={this.produtoHandle} campos={campos} />
           </div>
           <Pagamento produtoHandle={this.produtoHandle} pagamento={pagamento} />
-          <div>
+          <div className="buttonPagar">
             <button onClick={this.submitHandle}>Pagar</button>
           </div>
         </form>

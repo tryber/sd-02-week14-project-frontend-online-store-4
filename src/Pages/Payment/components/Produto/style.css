@@ -1,8 +1,10 @@
 .payment_comp_produto {
-  align-items: flex-start;
+  align-items: center;
+  border: 1px solid black;
   display: flex;
   flex-direction: row;
-  padding: 2%;
+  justify-content: space-between;
+  margin: 1% 0;
 }
 
 .payment_comp_produto div {
