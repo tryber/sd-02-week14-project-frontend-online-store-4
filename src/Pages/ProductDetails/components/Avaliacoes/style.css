@@ -1,3 +1,9 @@
+.comp_prod_details_av {
+  border: 1px solid black;
+  padding: 2%;
+  width: 100%;
+}
+
 .comp_prod_details_av strong {
   margin: 1%;
 }

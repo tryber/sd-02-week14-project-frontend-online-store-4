@@ -8,10 +8,10 @@ import backButton from './images/backButton.png';
 function carregaImagemTitulo(title, image) {
   return (
     <div className="containerImagemTitulo">
-      <div>
+      <div className="containerimagem">
         <img src={image} alt={title} />
       </div>
-      <div>
+      <div className="containertitulo">
         <p>{title}</p>
       </div>
     </div>
@@ -41,7 +41,7 @@ function finalizaCompra() {
 export default class ShoppingCart extends Component {
   static botaoVolta() {
     return (
-      <div className="buttonReturn">
+      <div className="containerButtonReturn">
         <Link className="buttonReturn" to="/">
           <img src={backButton} alt="backButton" />
           <span className="paginaInicial">

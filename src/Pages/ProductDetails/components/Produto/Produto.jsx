@@ -7,20 +7,17 @@ import './style.css';
 class Produto extends Component {
   render() {
     const { obj } = this.props;
-    const { thumbnail, available_quantity: availableQuantity,
+    const { available_quantity: availableQuantity,
       sold_quantity: soldQuantity, condition } = obj;
-    const { shipping: { free_shipping: freeShipping } } = obj;
     const { seller_address: { country: { name: country },
       state: { name: state }, city: { name: city } } } = obj;
     return (
-      <div className="comp_product_details">
-        <img src={thumbnail} alt="" />
+      <div className="container-geral">
         <div className="dados">
           <div className="campos">
-            <Campo campo={`${availableQuantity} unidade(s)`} label={'estoque'} />
-            <Campo campo={`${soldQuantity} vendido(s)`} label={'vendidos'} />
-            <Campo campo={(condition === 'new') ? 'Novo' : 'Usado'} label={'condição'} />
-            <Campo campo={(freeShipping) ? 'Entrega grátis' : 'Fretado'} label={'frete'} />
+            <Campo campo={`${availableQuantity} unidade(s)`} label={'Estoque'} />
+            <Campo campo={`${soldQuantity} vendido(s)`} label={'Vendidos'} />
+            <Campo campo={(condition === 'new') ? 'Novo' : 'Usado'} label={'Condição'} />
           </div>
           <div className="endereco_vendedor">
             <strong>Endereço do vendedor: </strong>
@@ -29,7 +26,7 @@ class Produto extends Component {
               <Campo campo={state} label={'Estado'} />
               <Campo campo={city} label={'Cidade'} />
             </div>
-          </div>
+        </div>
         </div>
       </div>
     );

@@ -73,15 +73,16 @@
 }
 
 .price {
-  font-size: 140%;
+  font-size: 160%;
   padding: 3%;
 }
 
 .containerShipping {
-  align-content: center;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  position: relative;
+  top: 25%;
   width: 100%;
 }
 

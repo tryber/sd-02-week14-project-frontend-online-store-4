@@ -2,21 +2,34 @@
   margin: 1%;
 }
 
+.comp_prod_details_qt {
+  border: 1px solid black;
+  margin: 2% 0 2% 0;
+  padding: 2%;
+  width: 100%;
+}
+
 .comp_prod_details_qt .container {
   align-items: center;
   display: flex;
-  width: 40%;
+  width: 100%;
 }
 
 .comp_prod_details_qt .container > button {
   background-color: white;
-  border-color: black;
-  border-style: solid;
-  border-width: 1px;
+  border: 1px solid black;
+  border-radius: 10px;
   cursor: pointer;
-  margin: 2%;
-  padding: 3%;
-  width: 100%;
+  font-size: 1.2em;
+  font-weight: 700;
+  margin: 0 0 0 2%;
+  padding: 1%;
+  width: 30%;
+}
+
+.comp_prod_details_qt .container > button:hover {
+  background-color: black;
+  color: white;
 }
 
 .comp_prod_details_qt .container > i {
@@ -25,11 +38,10 @@
 }
 
 .comp_prod_details_qt .container > p {
-  border-color: black;
+  border: 1px solid black;
   border-radius: 8px;
-  border-style: solid;
-  border-width: 1px;
-  padding: 2%;
+  margin: 0 1%;
+  padding: 1%;
   text-align: center;
   width: 8%;
 }

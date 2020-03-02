@@ -69,7 +69,8 @@ class CardProduct extends Component {
             <Link className="label" to={`/product-details/${element.id}`} onClick={() => retornaParam(element, arrCard)} >
               {cardLoad(element)}
               <div className="price">
-                <h6>R$ {((element.price * 100) / 100).toFixed(2)}</h6>
+                <h6>{new Intl.NumberFormat('pt-BR',
+              { style: 'currency', currency: 'BRL' }).format(element.price)}</h6>
               </div>
             </Link>
             {this.carregaCardProduct(element, arrCard)}

@@ -33,7 +33,7 @@
 }
 
 .buttonReturn > img {
-  width: 40%;
+  width: 100%;
 }
 
 .buttonReturn > img:hover {
@@ -41,17 +41,24 @@
   filter: invert(60%);
 }
 
+.containerButtonReturn {
+  width: 20%;
+}
+
 .buttonReturn {
+  align-items: center;
   display: flex;
+  color: black;
   flex-direction: column;
   margin-bottom: 2%;
-  width: 40%;
+  text-decoration: none;
+  width: 50%;
 }
 
 .containerGeral {
   display: flex;
   flex-direction: column;
-  padding: 2%;
+  padding: 0 2% 2% 2%;
 }
 
 .containerCarrega {
@@ -82,6 +89,7 @@
 }
 
 .containerPriceButton {
+  align-items: center;
   display: flex;
   flex-direction: column;
   position: fixed;
@@ -96,11 +104,14 @@
 }
 
 .priceItems {
+  align-self: flex-start;
+  display: flex;
   font-size: 1.2em;
 }
 
 .priceItems span {
   font-weight: 800;
+  padding: 0 1%;
 }
 
 .buttonFinaliza {
@@ -142,6 +153,15 @@
   justify-content: flex-start;
   margin-left: 4%;
   width: 100%;
+}
+
+.containerimagem {
+  display: flex;
+  justify-content: center;
+}
+
+.containertitulo {
+  margin-left: 5%;
 }
 
 .valorProduto {

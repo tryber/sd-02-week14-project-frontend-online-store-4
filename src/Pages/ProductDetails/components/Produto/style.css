@@ -1,7 +1,17 @@
+.container-geral {
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  padding: 2%;
+  width: 50%;
+}
+
 .comp_product_details {
-  display: grid;
-  grid-template-columns: 33% 66%;
-  grid-template-rows: 100%;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: row;
+  padding: 2%;
+  width: 100%;
 }
 
 .comp_product_details > img {
@@ -20,4 +30,26 @@
 
 .comp_product_details .endereco_vendedor {
   margin-left: 10%;
+}
+
+.containerImgFrete {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.containerImgFrete img {
+  width: 30%;
+}
+
+.priceFrete{
+  display: flex;
+  justify-content: space-between;
+  margin: 1% 0 1% 0;
+  width: 100%;
+}
+
+.priceFrete p {
+  font-weight: 800;
 }
