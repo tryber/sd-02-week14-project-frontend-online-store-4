@@ -1,3 +1,13 @@
+.title {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  font-size: 1.5em;
+  margin-right: 2%;
+  padding: 2%;
+  width: 48%;
+}
+
 .page_productDetails > .title {
   align-items: center;
   display: flex;
@@ -8,7 +18,7 @@
 .page_productDetails {
   display: flex;
   flex-direction: column;
-  padding: 0 2% 2% 2%;
+  padding: 0 2% 2%;
 }
 
 .containerVolta {
@@ -27,19 +37,8 @@
   border: 2px solid black;
   border-radius: 15px;
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  flex-flow: row wrap;
   padding: 1%;
-}
-
-.title {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  font-size: 1.5em;
-  margin-right: 2%;
-  padding: 2%;
-  width: 48%;
 }
 
 .title span {

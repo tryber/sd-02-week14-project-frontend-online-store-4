@@ -47,8 +47,8 @@
 
 .buttonReturn {
   align-items: center;
-  display: flex;
   color: black;
+  display: flex;
   flex-direction: column;
   margin-bottom: 2%;
   text-decoration: none;
@@ -58,7 +58,7 @@
 .containerGeral {
   display: flex;
   flex-direction: column;
-  padding: 0 2% 2% 2%;
+  padding: 0 2% 2%;
 }
 
 .containerCarrega {
@@ -70,7 +70,7 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin: 0.5% 0 0.5% 0;
+  margin: 0.5% 0;
   width: 100%;
 }
 

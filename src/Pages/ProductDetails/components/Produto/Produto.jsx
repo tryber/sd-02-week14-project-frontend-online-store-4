@@ -26,7 +26,7 @@ class Produto extends Component {
               <Campo campo={state} label={'Estado'} />
               <Campo campo={city} label={'Cidade'} />
             </div>
-        </div>
+          </div>
         </div>
       </div>
     );

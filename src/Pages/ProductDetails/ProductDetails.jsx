@@ -74,9 +74,9 @@ export default class ProductDetails extends Component {
         <div className="title">
           <p>{title} - </p>
           <div className="priceFrete">
-          <p>{new Intl.NumberFormat('pt-BR',
-              { style: 'currency', currency: 'BRL' }).format(price)}</p>
-          {(freeShipping) ? <span>Frete: Entrega grátis</span> : <span>Frete: Fretado</span>}
+            <p>{new Intl.NumberFormat('pt-BR',
+                { style: 'currency', currency: 'BRL' }).format(price)}</p>
+            {(freeShipping) ? <span>Frete: Entrega grátis</span> : <span>Frete: Fretado</span>}
           </div>
           <div className="comp_product_details">
             <div className="containerImgFrete">

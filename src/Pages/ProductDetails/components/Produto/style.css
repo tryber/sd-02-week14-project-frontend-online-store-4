@@ -43,10 +43,10 @@
   width: 30%;
 }
 
-.priceFrete{
+.priceFrete {
   display: flex;
   justify-content: space-between;
-  margin: 1% 0 1% 0;
+  margin: 1% 0;
   width: 100%;
 }
 
